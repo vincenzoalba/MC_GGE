@@ -63,7 +63,7 @@
 @timestamp rot 0
 @timestamp font 0
 @timestamp char size 1.000000
-@timestamp def "Tue May 26 16:35:30 2015"
+@timestamp def "Wed Jun 17 09:58:10 2015"
 @r0 off
 @link r0 to g0
 @r0 type above
@@ -113,7 +113,7 @@
 @    world 0, 0.25, 1.55, 1.1
 @    stack world 0, 0, 0, 0
 @    znorm 1
-@    view 0.150000, 0.150000, 1.150000, 0.850000
+@    view 0.154831, 0.150000, 1.157159, 0.850990
 @    title ""
 @    title font 0
 @    title size 1.500000
@@ -133,11 +133,11 @@
 @    xaxis  bar color 1
 @    xaxis  bar linestyle 1
 @    xaxis  bar linewidth 1.0
-@    xaxis  label "\xl\f{}\s2"
+@    xaxis  label "\xb"
 @    xaxis  label layout para
 @    xaxis  label place auto
-@    xaxis  label char size 1.800000
-@    xaxis  label font 0
+@    xaxis  label char size 2.000000
+@    xaxis  label font 4
 @    xaxis  label color 1
 @    xaxis  label place normal
 @    xaxis  tick on
@@ -146,7 +146,7 @@
 @    xaxis  tick default 6
 @    xaxis  tick place rounded true
 @    xaxis  tick in
-@    xaxis  tick major size 1.000000
+@    xaxis  tick major size 0.600000
 @    xaxis  tick major color 1
 @    xaxis  tick major linewidth 1.0
 @    xaxis  tick major linestyle 1
@@ -155,7 +155,7 @@
 @    xaxis  tick minor linewidth 1.0
 @    xaxis  tick minor linestyle 1
 @    xaxis  tick minor grid off
-@    xaxis  tick minor size 0.500000
+@    xaxis  tick minor size 0.300000
 @    xaxis  ticklabel on
 @    xaxis  ticklabel format general
 @    xaxis  ticklabel prec 5
@@ -172,8 +172,8 @@
 @    xaxis  ticklabel start 0.000000
 @    xaxis  ticklabel stop type auto
 @    xaxis  ticklabel stop 0.000000
-@    xaxis  ticklabel char size 1.000000
-@    xaxis  ticklabel font 0
+@    xaxis  ticklabel char size 1.180000
+@    xaxis  ticklabel font 4
 @    xaxis  ticklabel color 1
 @    xaxis  tick place both
 @    xaxis  tick spec type none
@@ -184,8 +184,8 @@
 @    yaxis  bar color 1
 @    yaxis  bar linestyle 1
 @    yaxis  bar linewidth 1.0
-@    yaxis  label "\xs\f{}\S2\N(M)\N/L"
-@    yaxis  label layout para
+@    yaxis  label "\xc\f{}/\xb\f{}"
+@    yaxis  label layout perp
 @    yaxis  label place auto
 @    yaxis  label char size 1.890000
 @    yaxis  label font 0
@@ -197,7 +197,7 @@
 @    yaxis  tick default 6
 @    yaxis  tick place rounded true
 @    yaxis  tick in
-@    yaxis  tick major size 1.000000
+@    yaxis  tick major size 0.600000
 @    yaxis  tick major color 1
 @    yaxis  tick major linewidth 1.0
 @    yaxis  tick major linestyle 1
@@ -206,7 +206,7 @@
 @    yaxis  tick minor linewidth 1.0
 @    yaxis  tick minor linestyle 1
 @    yaxis  tick minor grid off
-@    yaxis  tick minor size 0.500000
+@    yaxis  tick minor size 0.300000
 @    yaxis  ticklabel on
 @    yaxis  ticklabel format general
 @    yaxis  ticklabel prec 5
@@ -223,8 +223,8 @@
 @    yaxis  ticklabel start 0.000000
 @    yaxis  ticklabel stop type auto
 @    yaxis  ticklabel stop 0.000000
-@    yaxis  ticklabel char size 1.000000
-@    yaxis  ticklabel font 0
+@    yaxis  ticklabel char size 1.180000
+@    yaxis  ticklabel font 4
 @    yaxis  ticklabel color 1
 @    yaxis  tick place both
 @    yaxis  tick spec type none
@@ -232,15 +232,15 @@
 @    altyaxis  off
 @    legend on
 @    legend loctype view
-@    legend 0.826717112922, 0.752270081491
+@    legend 0.71030267761, 0.831431897065
 @    legend box color 1
 @    legend box pattern 1
 @    legend box linewidth 1.0
 @    legend box linestyle 1
 @    legend box fill color 0
 @    legend box fill pattern 1
-@    legend font 0
-@    legend char size 1.000000
+@    legend font 4
+@    legend char size 1.530000
 @    legend color 1
 @    legend length 4
 @    legend vgap 1
@@ -260,7 +260,7 @@
 @    s0 symbol color 1
 @    s0 symbol pattern 1
 @    s0 symbol fill color 0
-@    s0 symbol fill pattern 1
+@    s0 symbol fill pattern 0
 @    s0 symbol linewidth 1.0
 @    s0 symbol linestyle 1
 @    s0 symbol char 65
@@ -309,7 +309,7 @@
 @    s2 symbol color 2
 @    s2 symbol pattern 1
 @    s2 symbol fill color 0
-@    s2 symbol fill pattern 1
+@    s2 symbol fill pattern 0
 @    s2 symbol linewidth 1.0
 @    s2 symbol linestyle 1
 @    s2 symbol char 65
@@ -350,15 +350,15 @@
 @    s2 errorbar riser clip off
 @    s2 errorbar riser clip length 0.100000
 @    s2 comment "Cols 1:4:5"
-@    s2 legend  "GGE(\xl\f{}\s3\N=1)"
+@    s2 legend  "GGE(\xb\f{},\xl\f{}\s3\N=1)"
 @    s3 hidden false
 @    s3 type xydy
 @    s3 symbol 3
 @    s3 symbol size 1.140000
-@    s3 symbol color 4
+@    s3 symbol color 15
 @    s3 symbol pattern 1
 @    s3 symbol fill color 0
-@    s3 symbol fill pattern 1
+@    s3 symbol fill pattern 0
 @    s3 symbol linewidth 1.0
 @    s3 symbol linestyle 1
 @    s3 symbol char 65
@@ -389,7 +389,7 @@
 @    s3 avalue offset 0.000000 , 0.000000
 @    s3 errorbar on
 @    s3 errorbar place both
-@    s3 errorbar color 4
+@    s3 errorbar color 15
 @    s3 errorbar pattern 1
 @    s3 errorbar size 0.650000
 @    s3 errorbar linewidth 1.0
@@ -399,7 +399,7 @@
 @    s3 errorbar riser clip off
 @    s3 errorbar riser clip length 0.100000
 @    s3 comment "Cols 1:14:15"
-@    s3 legend  "GGE(\xl\f{}\s3\N=1,\xl\f{}\s4\N=1)"
+@    s3 legend  "GGE(\xb\f{},\xl\f{}\s3\N=1,\xl\f{}\s4\N=1)"
 @target G0.S0
 @type xydy
 0.05 0.97535184 0.0029275808

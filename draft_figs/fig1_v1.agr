@@ -63,7 +63,7 @@
 @timestamp rot 0
 @timestamp font 0
 @timestamp char size 1.000000
-@timestamp def "Tue Jun 16 18:21:49 2015"
+@timestamp def "Tue Jun 16 19:15:09 2015"
 @with box
 @    box on
 @    box loctype view
@@ -1565,7 +1565,7 @@
 @    yaxis  label color 1
 @    yaxis  label place normal
 @    yaxis  tick on
-@    yaxis  tick major 0.025
+@    yaxis  tick major 0.05
 @    yaxis  tick minor ticks 1
 @    yaxis  tick default 6
 @    yaxis  tick place rounded true
