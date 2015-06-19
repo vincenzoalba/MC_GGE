@@ -63,26 +63,26 @@
 @timestamp rot 0
 @timestamp font 0
 @timestamp char size 1.000000
-@timestamp def "Fri Jun 19 15:28:11 2015"
+@timestamp def "Fri Jun 19 18:35:53 2015"
 @with string
 @    string on
 @    string loctype view
-@    string 0.0616996507569, 0.846332945286
+@    string 0.065192083819, 0.835855646101
 @    string color 1
 @    string rot 0
 @    string font 4
 @    string just 0
-@    string char size 1.320000
+@    string char size 1.640000
 @    string def "(a)"
 @with string
 @    string on
 @    string loctype view
-@    string 0.67753201397, 0.845168800932
+@    string 0.647264260769, 0.835855646101
 @    string color 1
 @    string rot 0
 @    string font 4
 @    string just 0
-@    string char size 1.320000
+@    string char size 1.640000
 @    string def "(b)"
 @r0 off
 @link r0 to g0
@@ -211,7 +211,7 @@
 @    yaxis  label color 1
 @    yaxis  label place normal
 @    yaxis  tick on
-@    yaxis  tick major 0.1
+@    yaxis  tick major 0.15
 @    yaxis  tick minor ticks 1
 @    yaxis  tick default 6
 @    yaxis  tick place rounded true
@@ -675,7 +675,7 @@
 @g1 fixedpoint format general general
 @g1 fixedpoint prec 6, 6
 @with g1
-@    world 3.47074128, -0.0947947965, 12.7531786, 0.124227684
+@    world 3.47074128, -0.0947947965, 12.7531786, 0.134227684
 @    stack world 0, 0, 0, 0
 @    znorm 1
 @    view 0.734575, 0.335274, 1.193248, 0.850000
