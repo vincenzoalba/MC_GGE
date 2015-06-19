@@ -63,7 +63,7 @@
 @timestamp rot 0
 @timestamp font 0
 @timestamp char size 1.000000
-@timestamp def "Fri Jun 19 18:35:53 2015"
+@timestamp def "Fri Jun 19 18:43:21 2015"
 @with string
 @    string on
 @    string loctype view
@@ -675,7 +675,7 @@
 @g1 fixedpoint format general general
 @g1 fixedpoint prec 6, 6
 @with g1
-@    world 3.47074128, -0.0947947965, 12.7531786, 0.134227684
+@    world 3.47074128, -0.1047947965, 12.7531786, 0.134227684
 @    stack world 0, 0, 0, 0
 @    znorm 1
 @    view 0.734575, 0.335274, 1.193248, 0.850000
