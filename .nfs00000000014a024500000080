@@ -90,14 +90,6 @@ Paris, France}
 %########################################################################
 \section{Introduction}
 
-
-%
-\begin{equation}
-\rho^{GGE}=\frac{1}{Z}\exp\Big(-\sum_j\lambda_j{\mathcal I}_j\Big)
-\label{gge}
-\end{equation}
-%
-
 %########################################################################
 \section{The model and the method}
 
@@ -123,14 +115,14 @@ eigenstates of~\eqref{xxx_ham} can be labelled by $M$. Following the
 Bethe ansatz literature here we refer to the down spins as particles. 
 
 Each eigenstate of~\eqref{xxx_ham} is univocally identified by a set of $M$ 
-complex parameters (the so-called rapidities) $\{x_\alpha\}$ with 
+complex parameters (the so-called rapidities) $\{\lambda_\alpha\}$ with 
 $\alpha=1,\dots,M$. These are solutions of a set of non linear algebraic 
 equations, the Bethe equations
 %
 \begin{equation}
-\arctan(x_\alpha)=\frac{\pi}{L}J_\alpha+
+\arctan(\lambda_\alpha)=\frac{\pi}{L}J_\alpha+
 \frac{1}{L}\sum\limits_{\beta\ne \alpha}\arctan\Big(\frac{
-x_\alpha-x_\beta}{2}\Big).   
+\lambda_\alpha-\lambda_\beta}{2}\Big).   
 \label{ba_eq}
 \end{equation}
 %
@@ -138,39 +130,17 @@ Here $J_\alpha\in\frac{1}{2}\mathbb{Z}$ are the Bethe quantum numbers.
 Any choice of $-L/2\le J_\alpha\le L/2$ identifies a solution of the 
 Bethe equations and an eigenstate of the XXX chain. 
 
-Besides the the total magnetization and the momentum, the $XXX$ chain 
-has non-trivial conservation laws, due to the integrability. These extra 
-conserved quantities ${\mathcal I}_j$ are obtained as 
-%
-\begin{equation}
-\left.{\mathcal I}_j\equiv\frac{i}{(j-1)!}\frac{d^j}{dx^j}\log(\Lambda)
-\right|_{x=i}.
-\end{equation}
-%
-Here $\Lambda$ in the Algebraic Bethe Ansatz approach is the eigenvalue 
-of the transfer matrix of the $XXX$ chain. This depends on a parameter 
-$x$ and on the set of rapidities $\{x_\alpha\}$  and it 
-is given as 
-%
-\begin{multline}
-\Lambda(x,\{x_\alpha\})\equiv\Big(\frac{x+i}{2}\Big)^L
-\prod\limits_\alpha\frac{x-x_\alpha-2i}{x-x_\alpha}\\
-+\Big(\frac{x-i}{2}\Big)^L
-\prod\limits_\alpha\frac{x-x_\alpha+2i}{x-x_\alpha}. 
-\end{multline}
-%
 An important feature of the XXX chain is that in the thermodynamic limit 
 $L\to\infty$, the solutions of~\eqref{ba_eq} form ``string'' pattern in 
 the complex plane (string hypothesis). Specifically, the rapidities 
-forming a string of length of length $1\le n\le M$ ($n$-string) are 
-parametrized as 
+forming a string of length of length $1\le n\le M$ are parametrized as 
 %
 \begin{equation}
-x_\gamma^{(n,j)}=x_\gamma^{(n)}-i(n-1-2j),\quad j=0,1,\dots,n-1.
+\lambda_\gamma^{(n,j)}=\lambda_\gamma^{(n)}-i(n-1-2j),\quad j=0,1,\dots,n-1.
 \label{string_hyp}
 \end{equation}
 % 
-Here $x_\gamma^{(n)}\mathbb{R}$ is the real part of the string 
+Here $\lambda_\gamma^{(n)}\mathbb{R}$ is the real part of the string 
 (string center), and $\gamma$ labels strings of the same length but with 
 different centers.
 
@@ -178,66 +148,27 @@ Substituting the string hypothesis in~\eqref{ba_eq} one obtains a set of
 the discrete Bethe-Takahashi equations for the string centers as 
 %
 \begin{equation}
-2L\arctan(x_\gamma^{(n)}/n)=2\pi I_\gamma^{(n)}+\sum\limits_{(m,\beta)
-\ne(n,\gamma)}\Theta_{m,n}(x_\gamma^{(n)}-x_\beta^{(m)}).
+2L\arctan(\lambda_\gamma^{(n)}/n)=2\pi I_\gamma^{(n)}+\sum\limits_{(m,\beta)
+\ne(n,\gamma)}\Theta_{m,n}(\lambda_\gamma^{(n)}-\lambda_\beta^{(m)}).
 \label{bt-eq}
 \end{equation}
 %
 Here the scattering phases $\Theta_{m,n}$ are defined as 
 %
-\begin{widetext}
 \begin{eqnarray}
-\nonumber\Theta_{m,n}(x)\equiv\left\{\begin{array}{cc}
+\nonumber\fl\Theta_{m,n}(x)\equiv\left\{\begin{array}{cc}
 \vartheta\big(\frac{x}{|n-m|}\big)+\!\!\!\!\!\sum
 \limits_{r=1}^{(n+m-|n-m|-1)/2}\!\!\!\!\!2\vartheta\big(\frac{x}
 {|n-m|+2r}\big)+\vartheta\big(\frac{x}{n+m}\big) & \quad\mbox{if}
-\quad n\ne m\\\sum\limits_{r=1}^{n-1}2\vartheta\big(\frac{x}{2r}\big)+
+\quad n\ne m\\\fl\sum\limits_{r=1}^{n-1}2\vartheta\big(\frac{x}{2r}\big)+
 \vartheta\big(\frac{x}{2n}\big) & \quad\mbox{if}\quad n=m
 \end{array}\right.
 \end{eqnarray}
-\end{widetext}
 %
-Here $\vartheta(x)\equiv 2\arctan(x)$. Similar to the Bethe quantum numbers 
-the Bethe-Takahashi quantum numbers $I_{\gamma}^{(n)}$ identify the solutions 
-of the Bethe-Takahashi equations. We denote as $\alpha_n$ the number of 
-strings of length $n$ in the rapidities identifying an eigenstate. 
 
-Clearly, for a generic eigenstate one has that $\sum_{n=1}^M\alpha_n=M$. 
-
-It can be shown that $I_\gamma^{(n)}$ are integers (half integers) if 
-$L-\alpha_n$ is odd (even). 
-
-The energy and the total momentum associated to a given solution of the 
-Bethe-Takahashi equations are given as 
-%
-\begin{align}
-& E(\{x_\gamma^{(n)}\})=-L/4+\sum\limits_{n,\gamma}\frac{2n}{
-(x_\gamma^{(n)})^2+n^2}\\
-& P(\{x_\gamma^{(n)}\})=\sum\limits_{n,\gamma}\frac{2\pi 
-I_\gamma^{(n)}}{L}
-\end{align}
-%
-One can show that the Bethe-Takahashi quantum numbers $I_\gamma^{(n)}$ obey 
-the constraint 
-%
-\begin{equation}
-|I_\gamma^{(n)}|\le\frac{1}{2}(L-1-\sum\limits_{m=1}^Mt_{mn}\alpha_m),
-\end{equation}
-%
-where $t_{mn}\equiv 2 min(m,n)-\delta_{mn}$. 
-
-\subsection{The Hilbert space Monte Carlo approach}
-
-Given a set of conserved quantities ${\mathcal I}_j$
-
-For a given number of particles $M$ the total number of eigenstates with 
-that number of particles is clearly given as $C_M^L-C_{M-1}^L$, with 
-$C_y^x\equiv x!/(y!(x-y)!)$ the binomial coefficient.
 
 %########################################################################
 \section{The conserved charges and their fluctuations}
-
-
 
 %########################################################################
 \section{The string root densities}
@@ -258,37 +189,30 @@ $C_y^x\equiv x!/(y!(x-y)!)$ the binomial coefficient.
  \langle I_2/L\rangle^2$ as function of $0\le\beta\le 1.5$. (c)(d) and (e)(f): Same 
  as in (a)(b) for $I_3$ and $I_4$, respectively. In all panels the dash-dotted lines  
  are the analytical results obtained using the Generalized Thermodynamic Bethe 
- Ansatz (GTBA) approach. (g) The GGE expectation value of the total magnetization 
- $\langle S_z\rangle$. Notice that this is exactly zero due to the $SU(2)$ invariance 
- of the Hamiltonian and the conserved charges. (h) The GGE average of the spin 
- susceptibility $\chi$: $\chi/\beta$ plotted versus $\beta$. 
+ Ansatz (GTBA) approach.
 }
 \label{fig1}
 \end{figure*}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%e
-\begin{figure*}[t]
+\begin{figure}[t]
 \includegraphics*[width=0.93\linewidth]{./draft_figs/fig2}
-\caption{The first three rapidity densities $\rho_n(\lambda)$ ($n=1,2,3$) for the Gibbs 
- (panels (a)(b)(c)) and the GGE equilibrium state (panels (d)(e)(f)). Here we consider 
- the infinite temperature Gibbs ensenble. The GGE is constructed using only the two 
- conserved charges ${\mathcal I}_2$ and ${\mathcal I}_4$. The associated Lagrange 
- multipliers are $\lambda_2=0$ and $\lambda_4=1$. The panels show the histograms 
- of the rapidities $x$ corresponding the $n$-strings for chains of three sizes 
- $L=18,24,30$ (corresponding to point, dashed, and full symbols). Here we restrict 
- ourselves to the interval $-6\le x\le 6$. For $L=18$ all the histograms contain 
- $100$ bins, whereas for $L=24$ they contain $140$. In all the panels on the $y$-axes 
- are divided by $10^3$ for convenience. In panels (a)-(c) the lines are the 
- Thermodynamic Bethe Ansatz (TBA) results. 
+\caption{The GGE average of the spin susceptibility $\chi$ in the Heisenberg chain 
+ with $L=16$ sites: $\chi/\beta$ plotted versus the inverse temperature $\beta$. 
+ The GGE is constructed including the conserved charges $I_2, I_3,I_4$. 
+ The corresponding Lagrange multipliers are denoted as $\lambda_2,\lambda_3$, and 
+ $\lambda_4$. Here $I_2$ is the Hamiltonian and $\lambda_2=\beta$. 
+ The different symbols are Monte Carlo data for GGEs with different values of 
+ $\lambda_3,\lambda_4$. Notice that the circles correspond to the Gibbs ensemble. 
 }
 \label{fig2}
-\end{figure*}
+\end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%e
 \begin{figure}[t]
-\includegraphics*[width=0.93\linewidth]{./draft_figs/fig3}
+\includegraphics*[width=0.93\linewidth]{./draft_figs/finite_size}
 \caption{ Finite-size scaling of the GGE averages in the Heisenberg 
  chain. Here the GGE is constructed using the conserved charges $I_2,
  I_3, I_4$, with associated Lagrange multipliers $\lambda_2,\lambda_3,
@@ -302,13 +226,6 @@ $C_y^x\equiv x!/(y!(x-y)!)$ the binomial coefficient.
 \label{finite-size}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-For infinite temperature the densities $\rho_n$ are given as 
-%
-\begin{equation}
-
-\end{equation}
-%
 
 
 %##########################################################################
