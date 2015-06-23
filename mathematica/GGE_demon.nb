@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     93797,       2142]
-NotebookOptionsPosition[     92888,       2107]
-NotebookOutlinePosition[     93225,       2122]
-CellTagsIndexPosition[     93182,       2119]
+NotebookDataLength[     94204,       2147]
+NotebookOptionsPosition[     93338,       2114]
+NotebookOutlinePosition[     93675,       2129]
+CellTagsIndexPosition[     93632,       2126]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -803,22 +803,31 @@ Cell[BoxData[
    RowBox[{
     RowBox[{"MCS", "=", "10000"}], ";"}], "\n", 
    RowBox[{
-    RowBox[{"tsweeps", "=", "1000"}], ";"}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", 
+    RowBox[{"tsweeps", "=", "1000"}], ";"}], "\n", "\[IndentingNewLine]", 
    RowBox[{"(*", 
-    RowBox[{"Demon", " ", "update"}], "*)"}], "\n", 
+    RowBox[{"Creutz", " ", "Demon", " ", "update"}], "*)"}], 
+   "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"EDD", "=", 
      RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"Initial", " ", "demon", " ", "energy"}], "*)"}], 
+   "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"DE", "=", ".1"}], ";"}], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{
      RowBox[{"CDemon", "[", 
-      RowBox[{"Eo_", ",", "enertemp_"}], "]"}], ":=", 
+      RowBox[{"Eo_", ",", "enertemp_", ",", "DE_"}], "]"}], ":=", 
      RowBox[{"Block", "[", 
       RowBox[{
-       RowBox[{"{", "check", "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"check", ",", "de", ",", "DCEmax"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{
+        "maximum", " ", "amount", " ", "of", " ", "energy", " ", "exchanged", 
+         " ", "by", " ", "the", " ", "demon"}], "*)"}], "\[IndentingNewLine]", 
        RowBox[{
         RowBox[{"DCEmax", "=", ".1"}], ";", "\[IndentingNewLine]", 
         RowBox[{"check", "=", "0"}], ";", "\[IndentingNewLine]", 
@@ -836,7 +845,7 @@ Cell[BoxData[
                RowBox[{"enertemp", "-", "Eo"}], "]"}], "\[LessEqual]", " ", 
               "DCEmax"}], ",", "\[IndentingNewLine]", 
              RowBox[{
-              RowBox[{"DE", "=", 
+              RowBox[{"de", "=", 
                RowBox[{"DE", "+", 
                 RowBox[{"Abs", "[", 
                  RowBox[{"Eo", "-", "enertemp"}], "]"}]}]}], ";", 
@@ -851,7 +860,7 @@ Cell[BoxData[
                RowBox[{"enertemp", "-", "Eo"}], "]"}], "\[LessEqual]", " ", 
               "DE"}], ",", "\[IndentingNewLine]", 
              RowBox[{
-              RowBox[{"DE", "=", 
+              RowBox[{"de", "=", 
                RowBox[{"DE", "-", 
                 RowBox[{"Abs", "[", 
                  RowBox[{"enertemp", "-", "Eo"}], "]"}]}]}], ";", 
@@ -861,11 +870,11 @@ Cell[BoxData[
          "]"}], ";", "\[IndentingNewLine]", 
         RowBox[{"{", 
          RowBox[{"check", ",", "DE"}], "}"}]}]}], "\[IndentingNewLine]", 
-      "]"}]}], ";"}], "\n", "\n", 
+      "]"}]}], ";"}], "\n", "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{
     "PART", " ", "TO", " ", "BE", " ", "MODIFIED", " ", "TO", " ", "INCLUDE", 
-     " ", "MORE", " ", "CHARGES"}], "*)"}], "\[IndentingNewLine]", 
+     " ", "MORE", " ", "CHARGES"}], "*)"}], "\n", 
    RowBox[{
     RowBox[{"\[Beta]", "=", 
      RowBox[{"{", 
@@ -1310,9 +1319,9 @@ Cell[BoxData[
        RowBox[{"filename2", ",", "BNumbers"}], "]"}], ";", "\n", 
       RowBox[{"Export", "[", 
        RowBox[{"filename3", ",", "Obs"}], "]"}], ";"}], ",", "i"}], "]"}], 
-   "\n", "\n", "\n", "\n", "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", "\n", "\n", "\n", "\n", "\n", "\n", "\n", "\n", 
-   "\n", "\n", "\n", 
+   "\n", "\n", "\n", "\n", "\n", "\n", "\n", "\n", "\n", "\n", "\n", "\n", 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", "\n", 
+   "\n", "\n", 
    RowBox[{"(*", 
     RowBox[{
      RowBox[{"M", "=", "4"}], ";", "\[IndentingNewLine]", 
@@ -1502,7 +1511,8 @@ Cell[BoxData[
    3.643978226715219*^9}, {3.6439784482839003`*^9, 3.643978492994234*^9}, {
    3.643978572595508*^9, 3.643978576753241*^9}, {3.64397864623674*^9, 
    3.643978671887925*^9}, {3.643978785282507*^9, 3.6439788511648817`*^9}, {
-   3.643978941674697*^9, 3.643978941794436*^9}}],
+   3.643978941674697*^9, 3.643978941794436*^9}, {3.644068196693063*^9, 
+   3.644068248283484*^9}, {3.6440683388212214`*^9, 3.644068386572462*^9}}],
 
 Cell[CellGroupData[{
 
@@ -1596,8 +1606,6 @@ Cell[BoxData[
    3.6439772640227547`*^9}, {3.6439773218336363`*^9, 3.643977355228211*^9}, {
    3.643977397710232*^9, 3.6439774575226593`*^9}}],
 
-Cell[CellGroupData[{
-
 Cell[BoxData[{
  RowBox[{
   RowBox[{"DE", "=", "10"}], ";"}], "\[IndentingNewLine]", 
@@ -1637,8 +1645,7 @@ Cell[BoxData["14.692893218813452`"], "Output",
    3.643977137494*^9, 3.643977177391591*^9}, {3.643977215127254*^9, 
    3.643977222356185*^9}, {3.643977266549777*^9, 3.643977282529771*^9}, {
    3.643977331643876*^9, 3.643977360227397*^9}, {3.643977406847919*^9, 
-   3.643977459910467*^9}}]
-}, Open  ]],
+   3.643977459910467*^9}}],
 
 Cell[CellGroupData[{
 
@@ -2121,28 +2128,26 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 59600, 1484, 5610, "Input"],
+Cell[558, 20, 60084, 1494, 5654, "Input"],
 Cell[CellGroupData[{
-Cell[60183, 1508, 151, 3, 32, "Input"],
-Cell[60337, 1513, 87, 2, 32, "Output"]
+Cell[60667, 1518, 151, 3, 32, "Input"],
+Cell[60821, 1523, 87, 2, 32, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[60461, 1520, 206, 4, 32, "Input"],
-Cell[60670, 1526, 185, 4, 32, "Output"]
+Cell[60945, 1530, 206, 4, 32, "Input"],
+Cell[61154, 1536, 185, 4, 32, "Output"]
 }, Open  ]],
-Cell[60870, 1533, 2872, 63, 385, "Input"],
+Cell[61354, 1543, 2872, 63, 385, "Input"],
+Cell[64229, 1608, 741, 13, 77, "Input"],
+Cell[64973, 1623, 730, 11, 32, "Output"],
+Cell[65706, 1636, 748, 11, 32, "Output"],
 Cell[CellGroupData[{
-Cell[63767, 1600, 741, 13, 77, InheritFromParent],
-Cell[64511, 1615, 730, 11, 32, "Output"],
-Cell[65244, 1628, 748, 11, 32, "Output"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[66029, 1644, 129, 2, 32, "Input"],
-Cell[66161, 1648, 26440, 445, 240, "Output"]
+Cell[66479, 1651, 129, 2, 32, "Input"],
+Cell[66611, 1655, 26440, 445, 240, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[92638, 2098, 97, 1, 32, "Input"],
-Cell[92738, 2101, 134, 3, 65, "Output"]
+Cell[93088, 2105, 97, 1, 32, "Input"],
+Cell[93188, 2108, 134, 3, 65, "Output"]
 }, Open  ]]
 }
 ]
