@@ -91,46 +91,13 @@ Paris, France}
 %########################################################################
 \section{Introduction}
 
+
 %
 \begin{equation}
 \rho^{GGE}=\frac{1}{Z}\exp\Big(-\sum_j\lambda_j{\mathcal I}_j\Big)
 \label{rho-gge}
 \end{equation}
 %
-
-We provide a Monte Carlo method to simulate the GGE statistica ensemble. 
-
-Remarkably, this allows to extract the rapidity densities defining the 
-ensemble representative state in the thermodynamic limit. 
-
-Finite-size effects are under control and for moderately large chain sizes 
-the Monte Carlo results agree very well with the thermodynamic limit 
-results, especially for small rapidities. Higher rapidities are more 
-sensitive to finite size effects as they reflec short length scales. 
-
-The method allows to address local observables for which the expression in 
-terms of the rapidity is known as well. 
-
-An alternative numerical method would be Quantum Monte Carlo. However, 
-this would require the implementation of the higher conserved charges, 
-other than the Hamiltonian. As the range of higher charges becomes large 
-this is not easily doable in practice. 
-
-We provide the first numerical verification of the validity of the GTBA 
-equations for the Heisenberg spin chain. 
-
-Interestingly, finite-size corrections are generically small, i.e., expontially 
-decaying with the chain size. 
-
-Our Monte Carlo approach can be trivially extended to include other conserved 
-charges, both local and non-local, and arbitrary functions of the rapidities. 
-While the former is related to the GGE average of the particle number, the 
-latter measures its fluctuations. Notice that due to the $SU(2)$ symmetry 
-of the conserved charges one has that $\langle S_z\rangle=0$ (panel (g)). 
-
-
-The finite-size corrections for local observables are more carefully investigated 
-in Fig.~\ref{fig3}, focusing on ${\mathcal I}_3$ and ${\mathcal I}_4$.
 
 %########################################################################
 \section{The model and the method}
@@ -259,42 +226,30 @@ I_\gamma^{(n)}}{L}
 In the thermodynamic limit, i.e., for $L\to\infty$ the Bethe eigenstates are 
 described by the distributions of the string centers $\rho_n$. 
 These are defined such that $L\rho_n(x)$ gives the number of $n$-strings in the 
-interval $[x,x+dx]$. More formally $\rho^p_n(x)$ can be defined as 
+interval $[x,x+dx]$. More formally $\rho_n(x)$ can be defined as 
 %
 \begin{equation}
 \label{rho-n}
-\rho^p_n(x)\equiv\frac{1}{L(x_{\gamma+1}^{(n)}-x_\gamma^{(n)})}
+\rho_n(x)\equiv\frac{1}{L(x_{\gamma+1}^{(n)}-x_\gamma^{(n)})}
 \end{equation}
 %
-The Bethe-Takahashi equations~\eqref{bt-eq} are replaced by the integral 
-equations 
-%
-\begin{equation}
-\rho^p_n(x)+\rho_n^h(x)=a_n(x)+\sum\limits_{m=1}^\infty a_{nm}\*\rho^p_m(x)
-\end{equation}
-%
-
 Moreover, sum over eigenstates can be replaced by 
 %
 \begin{equation}
 \sum\limits_{\textrm{states}}\rightarrow\int{\mathcal D}
-\pmb{\rho}^pe^{S_{YY}[\pmb{\rho}^p]},
+[\pbm{\rho}]e^{S_{YY}[\rho_n]},
 \end{equation}
 %
-where $\pmb{\rho}^p\equiv\{\rho^p_n\}_{n=1}^\infty$, and $S_{YY}[\pmb{\rho}]$ 
-is the Yang-Yang entropy
+where $S_{YY}[\rho_n]$ is the Yang-Yang entropy
 %
 \begin{multline}
-S_{YY}[\pmb{\rho}]\equiv N\sum\limits_{n=1}^\infty\int_{-\infty}^{+\infty}
+S_{YY}[\rho_n]\equiv N\sum\limits_{n=1}^\infty\int_{-\infty}^{+\infty}
 \rho_n(x)\log\Big(1+\frac{\rho_n^h(x)}{\rho_n(x)}\Big)\\
 +\rho_n^h\log\Big(1+\frac{\rho_n(x)}{\rho_n^h(x)}\Big).
 \end{multline}
 %
 The Yang-Yang entropy counts the number of eigenstates that in the 
-thermodynamic limit lead to the same $\pmb{\rho}$. 
-
-
-
+thermodynamic limit lead to the same $\rho_n(x)$. 
 
 %########################################################################
 \subsection{Hilbert space structure}
@@ -410,6 +365,7 @@ chain, while step $5$ generates the correct $GGE$ probability~\eqref{rho-gge}.
 %########################################################################
 \section{Extracting the rapidity densities}
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%e
 \begin{figure*}[t]
 \includegraphics*[width=0.99\linewidth]{./draft_figs/fig2}
@@ -426,50 +382,14 @@ chain, while step $5$ generates the correct $GGE$ probability~\eqref{rho-gge}.
  effects: Monte Carlo data for $\rho^{\textrm{Gibbs}}_1$ for different values of the 
  inverse temperature $\beta$.
 }
-\label{fig1}
+\label{fig2}
 \end{figure*}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The rapidity densities $\rho_n^p$ of the ensemble representative state can be measured  
-in Monte Carlo from the histograms of the roots generated in the Monte Carlo history.  
-
-This is illustrated in Fig.~\ref{fig1} for several ensembles. In the Figure panels (a)-(c) 
-plot the first three root densities $\rho_n(x)$ for $n=1,2,3$ as a function of $x$ for the 
-representative state of the infinite-temperature Gibbs ensemble. We restrict ourselves to 
-the interval $-6\le x\le 6$. In each panel the different histograms correspond to different 
-chain sizes $18\le L\le 30$. The histograms are obtained from $4\cdot 10^5$ Monte Carlo 
-steps. The width of the histogram bins is given as $2/L$. In all the panels the full lines 
-are the analytic results obtained from the Thermodynamic Bethe Ansatz (TBA) 
-(cf.~\eqref{high-t-rho}). Remarkably, although finite-size effects are present, the 
-Monte Carlo data are in good agreement with the TBA results. This is especially true for 
-$\rho_1$, whereas finite-size corrections become progressively worse upon considering 
-larger $n>1$ (see panels (b)(c)). Clearly, these corrections are vanishing upon increasing 
-the system size (see for instance the arrow in panel (b)). Moreover, the finite size effects 
-become larger upon increasing the rapidity $x$. This is expected as larger rapidity 
-correspond to larger quasi-momenta, which are more sensitive to the lattice effects. 
-Finally, finite-size effects increase with $n$. This is somewhat expected since larger $n$ 
-correspond to more extended many-spin bound states. 
-
-Finite-temperature ensemble can be also considered. This is illustrated in panel (g) 
-discussing the Gibbs ensemble at inverse temperature $\beta=1/2$ and $\beta=1$ (different 
-histograms in the panel). We focus on $\rho_1(x)$ The data for infinite temperature are 
-reported for comparison. All the histograms are obtained for $L=30$. The full lines are now 
-the analytic results obtained by solving the TBA equations and perfectly agree with the 
-Monte Carlo data. Notice that upon lowering the temperature the height of the zero rapidity 
-peak increases. This reflects that at $T=0$ the ground state of the antiferromagnetic 
-Heisenberg chain are packed around $x=0$, and the contribution of nonzero rapidity is 
-vanishing exponentially. 
-
-Finally, in panels (d)(f) we present the rapidity densities $\rho_n(x)$ for the GGE ensemble. 
-Specifically, here we focus on the GGE obtained including the two charges ${\mathcal I}_2$ and 
-${\mathcal I}_4$. We fix the associated Lagrange multipliers to $\lambda_2=0$ and $\lambda_4=1$. 
-Similar to the Gibbs ensemble, panels (a)(c) suggest that for $L=30$ the finite size effects 
-are negligible, at least in the interval $-2\le x\le 2$. 
-
-
 
 %########################################################################
-\section{Local observables} 
+\section{The string root densities at infinite temperature}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%e
 \begin{figure*}[t]
@@ -495,54 +415,6 @@ are negligible, at least in the interval $-2\le x\le 2$.
 \label{fig1}
 \end{figure*}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-We now turn to discuss the behavior of some {\it local} observables. This is discussed 
-in Fig.~\ref{fig1}. Here we focus on GGE expectation values of local obervables. 
-Here the GGE is constructed including the conserved charges ${\mathcal I}_j$ with $j=2,3,4$. 
-In the Figure we consider several values of the associated Lagrange multipliers, namely 
-$\lambda_3=0$ and $\lambda_4=0$ (Gibbs ensemble, circles in the Figure), $\lambda_3=1$ and 
-$\lambda_4=0$ (squares in the Figure), and $\lambda_3=\lambda_4=1$ (rhombi). All the data 
-are obtained using the Monte Carlo sampling approach for a chain with $L=16$ sites. The 
-expectation values are the Monte Carlo averages of the local observables over the eigenstates 
-sampled by the Monte Carlo. All the expectation values are plotted versus the inverse temperature $\lambda=\beta$. 
-Panel (a) focuses on the GGE expectation value of energy density $\langle{\mathcal I}_2\rangle/L$. 
-The variance of the associated ensemble fluctuations $\sigma^2({\mathcal I}_2/L)\equiv 
-\langle ({\mathcal I}_2/L)^2\rangle-\langle{\mathcal I}_2/L\rangle^2$ are shown in 
-panel (b). The latter are related to the specific heat of the chain. 
-
-As expected, different GGEs (different symbols in the Figure) implies different behaviors of  
-$\langle {\mathcal I}_2/L\rangle$ as a function of $\beta$. The continuous lines are the 
-analytic results obtained by solving the GTBA equations. Remarkably, the latter fully 
-match the Monte Carlo data, i.e., finite-size effects are negligible already at $L=16$. 
-
-{\bf How do I reconcile this with Fig. 1 where finite size effects are visible even for 
-$L=30$. Is that true that shorter correlations are less sensitive to higher momenta?}
-
-This remains true if one considers the GGE expectation values of operators with larger 
-supports. 
-
-For instance, this is confirmed for the energy current ${\mathcal I}_3\equiv\sum_{\alpha\beta\gamma}
-\epsilon_{\alpha\beta\gamma}\sigma^\beta_i\sigma^\gamma_{i+1}\sigma^\alpha_{i+2}$ in 
-panels (c)(d). Notice that for the Gibbs ensemble one has $\langle {\mathcal I}_3\rangle=0$, 
-due to the parity invariance. Similar behavior is observed for ${\mathcal I}_4$ in panels (e)(f). 
-
-Finally, in panels (g)(h) we focus on the total magnetization $\langle S_z\rangle$ and the spin 
-susceptibility $\chi$. 
-
-
-%
-%\begin{equation}
-
-%\end{equation}
-%
-
-
-
-
-
-%########################################################################
-\section{The string root densities at infinite temperature}
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%e
@@ -575,7 +447,6 @@ Icluding the first order correction to the infinite temperature result
 one obtains  
 %
 \begin{multline}
-\label{high-t-rho}
 \rho_n(x)=\frac{2}{\pi}\frac{1}{(n^2+x^2)(x^2+(2+n)^2)}\\-
 \frac{8}{\pi}\frac{n(n+2)}{(n^2+x^2)^2(x^2+(2+n)^2)^2}J\beta+{\mathcal O}
 (J^2\beta^2)
