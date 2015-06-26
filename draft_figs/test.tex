@@ -1,0 +1,25 @@
+\documentclass[12pt]{article}
+\usepackage{psfrag}
+\usepackage[dvips]{graphicx,color}
+\thispagestyle{empty}
+
+    % You can run this by typing the following commands:
+    %    latex 2dplot.tex
+    %    dvips -o 2dplot.ps 2dplot.dvi
+
+\begin{document}
+
+% The syntax of the "psfrag" command is:
+%    \psfrag{tag}[<posn>][<psposn>][<scale>][<rot>]{replacement}
+% See the file pfgguide.ps for full documentation.
+
+\begin{figure}
+\psfrag{R1}[][][1]{${\mathcal I}_2/L$}
+%\psfrag{bbbb}{\small{$s_1 \cdot y$}}
+%\psfrag{cccc}{\small{$s_2 \cdot y$}}
+%\psfrag{dddd}{\small{$k(\Sigma + n + g)$}}
+%\psfrag{kkkk}{\small{$k$}}
+%\psfrag{yyyy}{\small{$y$}}
+\includegraphics{fig1.eps}
+\end{figure}
+\end{document}

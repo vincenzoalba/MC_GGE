@@ -1,8 +1,8 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2015.1.29)  26 JUN 2015 16:37
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2015.1.29)  26 JUN 2015 18:42
 entering extended mode
  %&-line parsing enabled.
-**mc_gge.tex
-(./mc_gge.tex
+**mc_gge_v1.tex
+(./mc_gge_v1.tex
 LaTeX2e <2005/12/01>
 Babel <v3.8h> and hyphenation patterns for english, usenglishmax, dumylang, noh
 yphenation, arabic, basque, bulgarian, coptic, welsh, czech, slovak, german, ng
@@ -272,12 +272,12 @@ Class revtex4-1 Info: Robustifying \LaTeX's \boldmath command on input line 61.
 Class revtex4-1 Info: cite was not loaded (OK!) on input line 61.
 Class revtex4-1 Info: mcite was not loaded (OK!) on input line 61.
 Class revtex4-1 Info: multicol was not loaded (OK!) on input line 61.
- (./mc_gge.aux
+ (./mc_gge_v1.aux
 
 LaTeX Warning: Label `fig1' multiply defined.
 
 )
-\openout1 = `mc_gge.aux'.
+\openout1 = `mc_gge_v1.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 61.
 LaTeX Font Info:    ... okay on input line 61.
@@ -310,7 +310,7 @@ Package: refcount 2006/02/20 v3.0 Data extraction from references (HO)
 LaTeX Info: Redefining \ref on input line 61.
 LaTeX Info: Redefining \pageref on input line 61.
 Class revtex4-1 Info: Taking \maketitle back from hyperref on input line 61.
-\openout3 = `mc_ggeNotes.bib'.
+\openout3 = `mc_gge_v1Notes.bib'.
 
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 88.
@@ -354,25 +354,35 @@ Underfull \hbox (badness 5908) in paragraph at lines 415--418
 File: ./draft_figs/fig2.pdf Graphic file (type pdf)
 
 <use ./draft_figs/fig2.pdf> [3]
-<./draft_figs/fig1.pdf, id=94, 1310.8975pt x 347.2975pt>
+<./draft_figs/fig1.pdf, id=94, 614.295pt x 794.97pt>
 File: ./draft_figs/fig1.pdf Graphic file (type pdf)
 
 <use ./draft_figs/fig1.pdf>
+
+LaTeX Warning: Float too large for page by 39.75119pt on input line 517.
+
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 561.
-
 
 LaTeX Warning: Reference `fig3' on page 4 undefined on input line 577.
 
 [4 <./draft_figs/fig2.pdf>]
+
+LaTeX Warning: A float is stuck (cannot be placed); try class option [floatfix]
+ on input line 587.
+
 <./draft_figs/fig3.pdf, id=119, 731.73375pt x 377.41pt>
 File: ./draft_figs/fig3.pdf Graphic file (type pdf)
 
-<use ./draft_figs/fig3.pdf> [5 <./draft_figs/fig1.pdf> <./draft_figs/fig3.pdf>]
-
+<use ./draft_figs/fig3.pdf>
 Underfull \hbox (badness 6792) in paragraph at lines 838--840
  []\OT1/ptm/m/n/9 S. Trotzky, Y.-A. Chen, A. Flesch, I. P. Mc-Cul-loch,
  []
+
+[5]
+
+LaTeX Warning: A float is stuck (cannot be placed); try class option [floatfix]
+ on input line 840.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 881--883
@@ -394,7 +404,7 @@ Underfull \hbox (badness 2941) in paragraph at lines 937--939
  []\OT1/ptm/m/n/9 V. Khe-mani, A. Chan-dran, H. Kim, and S. L. Sondhi,
  []
 
-[6]
+
 Underfull \hbox (badness 10000) in paragraph at lines 1037--1038
  []\OT1/ptm/m/n/9 G. Ramirez, J. Rodriguez-Laguna, and G. Sierra,
  []
@@ -410,8 +420,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 1050--1052
  []\OT1/ptm/m/n/9 J. M[]olter, T. Barthel,U. Schollw[]ock, and V. Alba,
  []
 
-No file mc_gge.bbl.
-[7] (./mc_gge.aux)
+No file mc_gge_v1.bbl.
+[6] [7 <./draft_figs/fig1.pdf>] [8 <./draft_figs/fig3.pdf>] (./mc_gge_v1.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -420,30 +430,31 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 5577 strings out of 256216
- 72642 string characters out of 1917072
- 157707 words of memory out of 1500000
- 8638 multiletter control sequences out of 10000+200000
+ 5576 strings out of 256216
+ 72659 string characters out of 1917072
+ 191213 words of memory out of 1500000
+ 8636 multiletter control sequences out of 10000+200000
  24050 words of font info for 54 fonts, out of 1200000 for 2000
  645 hyphenation exceptions out of 8191
- 29i,16n,26p,1583b,605s stack positions out of 5000i,500n,6000p,200000b,15000s
+ 29i,16n,26p,1586b,542s stack positions out of 5000i,500n,6000p,200000b,15000s
 {/usr/share/texmf/fonts/enc/dvips/base/8r.enc}</usr/share/texmf/fonts/type1/b
 luesky/cm/cmex10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmmi10.pfb></usr/
-share/texmf/fonts/type1/bluesky/cm/cmmi5.pfb></usr/share/texmf/fonts/type1/blue
-sky/cm/cmmi6.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmmi7.pfb></usr/share
-/texmf/fonts/type1/bluesky/cm/cmmi9.pfb></usr/share/texmf/fonts/type1/bluesky/c
-m/cmr10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr5.pfb></usr/share/texmf
-/fonts/type1/bluesky/cm/cmr6.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr7.
-pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr9.pfb></usr/share/texmf/fonts/t
-ype1/bluesky/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy5.pfb><
-/usr/share/texmf/fonts/type1/bluesky/cm/cmsy7.pfb></usr/share/texmf/fonts/type1
-/bluesky/cm/cmsy9.pfb></usr/share/texmf/fonts/type1/public/cmex/fmex7.pfb></usr
-/share/texmf/fonts/type1/bluesky/ams/msbm10.pfb></usr/share/texmf/fonts/type1/u
-rw/times/utmb8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmr8a.pfb></usr/sh
-are/texmf/fonts/type1/urw/times/utmri8a.pfb>
-Output written on mc_gge.pdf (7 pages, 303109 bytes).
+share/texmf/fonts/type1/bluesky/cm/cmmi12.pfb></usr/share/texmf/fonts/type1/blu
+esky/cm/cmmi5.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmmi6.pfb></usr/shar
+e/texmf/fonts/type1/bluesky/cm/cmmi7.pfb></usr/share/texmf/fonts/type1/bluesky/
+cm/cmmi9.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr10.pfb></usr/share/tex
+mf/fonts/type1/bluesky/cm/cmr5.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr
+6.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr7.pfb></usr/share/texmf/fonts
+/type1/bluesky/cm/cmr8.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr9.pfb></
+usr/share/texmf/fonts/type1/bluesky/cm/cmsy10.pfb></usr/share/texmf/fonts/type1
+/bluesky/cm/cmsy5.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy7.pfb></usr/
+share/texmf/fonts/type1/bluesky/cm/cmsy9.pfb></usr/share/texmf/fonts/type1/publ
+ic/cmex/fmex7.pfb></usr/share/texmf/fonts/type1/bluesky/ams/msbm10.pfb></usr/sh
+are/texmf/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf/fonts/type1/urw/ti
+mes/utmr8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmri8a.pfb>
+Output written on mc_gge_v1.pdf (8 pages, 279691 bytes).
 PDF statistics:
- 371 PDF objects out of 1000 (max. 8388607)
- 169 named destinations out of 1000 (max. 131072)
+ 388 PDF objects out of 1000 (max. 8388607)
+ 170 named destinations out of 1000 (max. 131072)
  50 words of extra memory for PDF output out of 10000 (max. 10000000)
 
