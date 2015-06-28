@@ -196,37 +196,14 @@ $\sigma^{x,y,z}_i$ the Pauli matrices. We fix $J=1$ and use periodic
 boundary conditions identifying sites $L+1$ and $1$. Both the total spin 
 $S_T^2\equiv(\sum_i \vec S_i)^2$ and the total magnetization $S_{T}^z\equiv
 \sum_iS_i^z=L/2-M$, with $M$ number of down spins (particles), commute 
-with~\eqref{xxx-ham}. Thus, the eigenstates of~\eqref{xxx-ham} can be labelled 
-by $M$. 
+with~\eqref{xxx-ham}. Thus, the eigenstates of~\eqref{xxx-ham} can be 
+labelled by $M$. 
 
 Each eigenstate of~\eqref{xxx-ham} is univocally identified by a set of $M$ 
-complex parameters (so-called rapidities) $-\infty<\{x_\alpha<\infty\}$ with 
-$\alpha=1,\dots,M$. These are solutions of a set of non linear algebraic 
-equations, the Bethe equations
-%
-\begin{equation}
-\arctan(x_\alpha)=\frac{\pi}{L}J_\alpha+
-\frac{1}{L}\sum\limits_{\beta\ne \alpha}\arctan\Big(\frac{
-x_\alpha-x_\beta}{2}\Big).   
-\label{ba-eq}
-\end{equation}
-%
-Here $J_\alpha\in\frac{1}{2}\mathbb{Z}$ are the Bethe quantum numbers. 
-Any choice of $-L/2\le J_\alpha\le L/2$ identifies a {\it finite} 
-solution of the Bethe equations and an eigenstate of the $XXX$ chain. 
+complex parameters (so-called rapidities) $\{x_\alpha\in\mathbb{C}
+\}_{\alpha=1}^M$. 
 
-It can be shown that finite rapidities correspond to eigenstates of the 
-$XXX$ chain with maximum magnetization, i.e. $S_z=S$ (highest weight states). 
-The associated descendant states are obtained by considering the solutions of 
-the Bethe equations with $M'<M$ and supplementing the ``missing'' $M-M'$ 
-rapidities with infinite ones. 
-
-
-
-%########################################################################
-\subsection{The string hypothesis}
-
-An important feature of the Bethe equations~\eqref{ba-eq} is that in the 
+In the 
 thermodynamic limit $L\to\infty$ the rapidities ${x_\alpha}$ form 
 ``string'' patterns along the imaginary direction in the complex plane 
 (string hypothesis). Specifically, the rapidities forming a string of 
@@ -245,17 +222,13 @@ One should stress that for finite-size chains~\eqref{string-hyp} is not
 correct and deviations from the string pattern appear. However, these 
 deviations typically decay exponentially with system size. 
 
-Substituting the string hypothesis~\eqref{string-hyp} the Bethe 
-equations~\eqref{ba-eq}, one obtains the discrete Bethe-Takahashi equations 
-for the string centers as 
-%
-\begin{equation}
-2L\arctan(x_\gamma^{(n)}/n)=2\pi I_\gamma^{(n)}+\sum\limits_{(m,\beta)
-\ne(n,\gamma)}\Theta_{m,n}(x_\gamma^{(n)}-x_\beta^{(m)}).
-\label{bt-eq}
-\end{equation}
-%
-Here the scattering phases $\Theta_{m,n}$ are defined as 
+
+
+
+%########################################################################
+\subsection{The string hypothesis}
+
+An important feature of the Bethe equations~\eqref{ba-eq} is that Here the scattering phases $\Theta_{m,n}$ are defined as 
 %
 \begin{widetext}
 \begin{eqnarray}
