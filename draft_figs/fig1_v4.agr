@@ -63,7 +63,7 @@
 @timestamp rot 0
 @timestamp font 0
 @timestamp char size 1.000000
-@timestamp def "Fri Jun 26 18:26:50 2015"
+@timestamp def "Mon Jun 29 18:15:14 2015"
 @with string
 @    string on
 @    string loctype view
@@ -264,11 +264,12 @@
 @    yaxis  bar color 1
 @    yaxis  bar linestyle 1
 @    yaxis  bar linewidth 1.0
-@    yaxis  label "\+\+<\-\-R1\+\+>\-\-"
+@    yaxis  label "R1"
 @    yaxis  label layout para
-@    yaxis  label place auto
+@    yaxis  label place spec
+@    yaxis  label place 0.000000, 0.080000
 @    yaxis  label char size 1.300000
-@    yaxis  label font 4
+@    yaxis  label font 0
 @    yaxis  label color 1
 @    yaxis  label place normal
 @    yaxis  tick on
@@ -614,11 +615,12 @@
 @    yaxis  bar color 1
 @    yaxis  bar linestyle 1
 @    yaxis  bar linewidth 1.0
-@    yaxis  label "\+\+<\-\-R3\+\+>\-\-"
+@    yaxis  label "R3"
 @    yaxis  label layout para
-@    yaxis  label place auto
+@    yaxis  label place spec
+@    yaxis  label place 0.000000, 0.090000
 @    yaxis  label char size 1.300000
-@    yaxis  label font 4
+@    yaxis  label font 0
 @    yaxis  label color 1
 @    yaxis  label place normal
 @    yaxis  tick on
@@ -915,11 +917,12 @@
 @    yaxis  bar color 1
 @    yaxis  bar linestyle 1
 @    yaxis  bar linewidth 1.0
-@    yaxis  label "\+\+<\-\-R2\+\+>\-\-"
+@    yaxis  label "R2"
 @    yaxis  label layout para
-@    yaxis  label place auto
+@    yaxis  label place spec
+@    yaxis  label place 0.000000, 0.110000
 @    yaxis  label char size 1.300000
-@    yaxis  label font 4
+@    yaxis  label font 0
 @    yaxis  label color 1
 @    yaxis  label place normal
 @    yaxis  tick on
@@ -1265,11 +1268,12 @@
 @    yaxis  bar color 1
 @    yaxis  bar linestyle 1
 @    yaxis  bar linewidth 1.0
-@    yaxis  label "\xs\f{}\S2\N(R4)"
+@    yaxis  label "R4"
 @    yaxis  label layout para
-@    yaxis  label place auto
+@    yaxis  label place spec
+@    yaxis  label place 0.000000, 0.080000
 @    yaxis  label char size 1.300000
-@    yaxis  label font 4
+@    yaxis  label font 0
 @    yaxis  label color 1
 @    yaxis  label place normal
 @    yaxis  tick on
@@ -1567,12 +1571,12 @@
 @    yaxis  bar color 1
 @    yaxis  bar linestyle 1
 @    yaxis  bar linewidth 1.0
-@    yaxis  label "\xs\f{}\S2\N(R5)"
+@    yaxis  label "R5"
 @    yaxis  label layout para
 @    yaxis  label place spec
 @    yaxis  label place 0.000000, 0.110000
 @    yaxis  label char size 1.300000
-@    yaxis  label font 4
+@    yaxis  label font 0
 @    yaxis  label color 1
 @    yaxis  label place normal
 @    yaxis  tick on
@@ -1869,12 +1873,12 @@
 @    yaxis  bar color 1
 @    yaxis  bar linestyle 1
 @    yaxis  bar linewidth 1.0
-@    yaxis  label "\xs\f{}\S2\N(R6)"
+@    yaxis  label "R6"
 @    yaxis  label layout para
 @    yaxis  label place spec
 @    yaxis  label place 0.000000, 0.090000
 @    yaxis  label char size 1.300000
-@    yaxis  label font 4
+@    yaxis  label font 0
 @    yaxis  label color 1
 @    yaxis  label place normal
 @    yaxis  tick on
@@ -2171,11 +2175,12 @@
 @    yaxis  bar color 1
 @    yaxis  bar linestyle 1
 @    yaxis  bar linewidth 1.0
-@    yaxis  label "\xc\f{}/\xb\f{}"
+@    yaxis  label "R8"
 @    yaxis  label layout perp
-@    yaxis  label place auto
+@    yaxis  label place spec
+@    yaxis  label place 0.000000, 0.080000
 @    yaxis  label char size 1.300000
-@    yaxis  label font 4
+@    yaxis  label font 0
 @    yaxis  label color 1
 @    yaxis  label place normal
 @    yaxis  tick on
@@ -2472,11 +2477,12 @@
 @    yaxis  bar color 1
 @    yaxis  bar linestyle 1
 @    yaxis  bar linewidth 1.0
-@    yaxis  label "\+\+<\-\-S\sz\N\+\+>\-\-"
+@    yaxis  label "R7"
 @    yaxis  label layout para
-@    yaxis  label place auto
+@    yaxis  label place spec
+@    yaxis  label place 0.000000, 0.080000
 @    yaxis  label char size 1.300000
-@    yaxis  label font 4
+@    yaxis  label font 0
 @    yaxis  label color 1
 @    yaxis  label place normal
 @    yaxis  tick on
