@@ -198,54 +198,92 @@ $S_{T}^z\equiv\sum_iS_i^z=L/2-M$, with $M$ number of down spins (particles),
 commute with~\eqref{xxx-ham}. Thus, the eigenstates of~\eqref{xxx-ham} can 
 be labelled by $M$. 
 
-Each eigenstate of~\eqref{xxx-ham} is univocally identified by a set of $M$ 
-complex parameters (so-called rapidities) $\{x_\alpha\in\mathbb{C}
-\}_{\alpha=1}^M$. 
-In the thermodynamic limit $L\to\infty$ the rapidities ${x_\alpha}$ form 
-``string'' patterns along the imaginary direction in the complex plane 
-(string hypothesis). The rapidities forming a string of length $1\le 
-n\le M$ (so-called $n$-string) are parametrized as $x_\gamma^{(n,j)}=
-x_\gamma^{(n)}-i(n-1-2j),\quad j=0,1,\dots,n-1,$, where $x_\gamma^{(n)}
-\in\mathbb{R}$ is the real part of the string (string center), $j$ labels 
-the different rapidities in the same $n$-string, and$\gamma$ denotes 
-strings of the same length but with different centers. Although the 
-string hypothesis is not correct for finite chains, deviations typically 
-decay exponentially with system size. The string centers $x_\gamma^{(n)}$ 
-are solutions of the Bethe-Takahashi equations 
+In the Bethe ansatz framework each eigenstate of~\eqref{xxx-ham} is univocally 
+identified by a set of $M$ complex parameters (so-called rapidities) 
+$\{x_\alpha\in\mathbb{C}\}_{\alpha=1}^M$. In the thermodynamic limit 
+$L\to\infty$ the rapidities ${x_\alpha}$ form ``string'' patterns along 
+the imaginary direction in the complex plane (string hypothesis). The 
+rapidities forming a string of length $1\le n\le M$ (so-called $n$-string) 
+are parametrized as $x_\gamma^{(n,j)}=x_\gamma^{(n)}-i(n-1-2j),\quad j=0,1,
+\dots,n-1,$, where $x_{n;\gamma}\in\mathbb{R}$ is the real part of the 
+string (string center), $j$ labels the different rapidities in the same 
+$n$-string, and$\gamma$ denotes strings of the same length but with 
+different centers. Although the string hypothesis is not correct for finite 
+chains, deviations typically, i.e., for most of the eigenstates, decay 
+exponentially with system size. The string centers $x_{n;\gamma}$ are 
+solutions of the Bethe-Takahashi equations 
 %
 \begin{equation}
-L\vartheta(x_\gamma^{(n)}/n)=2\pi I_\gamma^{(n)}+\sum\limits_{(m,\beta)
-\ne(n,\gamma)}\Theta_{m,n}(x_\gamma^{(n)}-x_\beta^{(m)}).
+L\vartheta_n(x_{n;\gamma})=2\pi I_{n;\gamma}+\sum\limits_{(m,\beta)
+\ne(n,\gamma)}\Theta_{m,n}(x_{n;\gamma}-x_{m;\beta}).
 \label{bt-eq}
 \end{equation}
 %
-Here $\vartheta(x)\equiv2\arctan(x)$, $\Theta_{m,n}(x)$ is the scattering 
-phase between different rapiditis, and $I_{\gamma}^{(n)}\in\frac{1}{2}
+Here $\vartheta_n(x)\equiv2\arctan(x/n)$, $\Theta_{m,n}(x)$ is the scattering 
+phase between different rapidities, and $I_{n;\gamma}\in\frac{1}{2}
 \mathbb{Z}$ are the so-called Bethe-Takahashi quantum numbers. 
-The $I_{n;\gamma}$ obey the upper bound $I_{\textrm{MAX}}(n,L,M)\in
-\frac{1}{2}\mathbb{Z}$, with $I_{\textrm{MAX}}$ a known function of 
-$n,M,L$. Every choice of $I_{n;\gamma}$ identifies an eigenstate 
-of~\eqref{xxx-ham}. Notice that each eigenstate contains strings of 
-different lengths. It is useful to define the string content of an 
-eigenstate as ${\mathcal S}\equiv\{s_1,\dots,s_n\}$, with $s_n$ the 
-number of $n$-strings. 
+The $I_{n;\gamma}$ obey the upper bound $|I_{n;\gamma}|\le I_{\textrm{MAX}}(n,L,M)$, 
+with $I_{\textrm{MAX}}$ a known function of $n,M,L$. 
+Every choice of $I_{n;\gamma}$ identifies an eigenstate of~\eqref{xxx-ham}. 
+Notice that each eigenstate contains strings of different lengths. We define 
+the ``string content'' of an eigenstate as ${\mathcal S}\equiv\{s_1,\dots,
+s_M\}$, with $0\le s_n\le \lfloor M/n\rfloor$ the number of $n$-strings. By 
+definition one has $\sum_{j}js_j=M$. 
 
-Besides $S_T$ and the momentum, the $XXX$ chain has non-trivial 
+
+Besides the total magnetization and the momentum, the $XXX$ chain has non-trivial 
 {\it local} conserved charges ${\mathcal I}_j$, with $[{\mathcal I}_j,
-{\mathcal I}_k]=0\,\forall j,k$, and ${\mathcal I}_2={\mathcal H}$. 
-These can be obtained as  
+{\mathcal I}_k]=0\,\forall j,k$. These are obtained as  
 %
 \begin{equation}
 \label{I-def}
-\left.{\mathcal I}_{j+1}\equiv\frac{i}{(j-1)!}\frac{d^j}{dx^j}\log(\Lambda
-(\{x_{n;\gamma}\},x))
-\right|_{x=i}.
+\left.{\mathcal I}_{j+1}\equiv\frac{i}{(j-1)!}\frac{d^j}{dy^j}\log(\Lambda
+(\{x_{n;\gamma}\},y))
+\right|_{y=i}.
 \end{equation}
 %
-Here $\Lambda$ is the eigenvalue of the quantum transfer matrix $T(x)$, with 
-$x$ the spectral parameter. The dependence of $\Lambda$ on the rapidities 
-$x_{n;\gamma}$ is known. 
+Here $\Lambda$ in the Algebraic Bethe ansatz is the eigenvalue of the quantum 
+transfer matrix $T(y)$, with $y$ the spectral parameter. The dependence of 
+$\Lambda$ on the rapidities $x_{n;\gamma}$ is known. One can check that 
+${\mathcal I}_2={\mathcal H}$. The range of ${\mathcal I}_j$ increases 
+linearly with $j$, i.e., larger $j$ correspond to less local charges. 
+Remarkably, the eigenvalues of ${\mathcal I}_j$ over a generic eigenstate are 
+obtained by summing the contributions of the different string sectors independently. 
+For instance, the energy is obtained as $E=\sum_n E_n$, where $E_n=2\sum_\gamma n/
+(n^2+x^2_{n;\gamma})$. 
 
+
+
+%########################################################################
+\subsection{Hilbert space Monte Carlo sampling}
+
+For a finite chain the GGE ensemble can be generated by sampling the eigenstates 
+of~\eqref{xxx-ham} with the probability~\eqref{rho-gge}. This can be done efficiently 
+using Monte Carlo. One starts with an initial $M$ particle eigenstate of~\eqref{xxx-ham}, 
+with string content ${\mathcal S}=\{s_1,\dots,s_M\}$, identified by 
+Bethe-Takahashi quantum number configuration ${\mathcal C}=\{I_{n;\gamma}\}_{n=1}^M$ 
+($\gamma=1,\dots,s_n$). Let us denote the expectation values of the conserved 
+charges as $\{{\mathcal I_j}\}$. The basic idea is to generate a new eigenstate with a 
+Metropolis update. Specifically, the algorithm consists of three steps:
+%
+\begin{enumerate}
+\item Choose a new particle number sector $M'$ and a string content ${\mathcal S}'$ 
+ with probability $P(M',{\mathcal S}')$.
+\item Generate a quantum number configuration ${\mathcal C}'$ compatible with 
+ the ${\mathcal  S}'$ obtained in step $1$ and solve the Bethe-Takahashi 
+ equations~\eqref{bt-eq}. 
+\item After calculating the expctation values of the charges ${\mathcal I}_j'$ 
+ accept the new eigenstate with the Metropolis probability:
+%
+\begin{equation}
+\label{metropolis}
+T=
+\textrm{Min}\left(1,\frac{L-2M'+1}{L-2M+1}e^{-\sum_j\lambda_j({\mathcal I}'_j-{\mathcal 
+I}^{}_j)}\right).
+\end{equation}
+%
+\end{enumerate}
+%
 
 
 %########################################################################
