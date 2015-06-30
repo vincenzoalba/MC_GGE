@@ -1,9 +1,8 @@
 \documentclass[12pt]{article}
 \usepackage{psfrag}
-\usepackage[helvet]{sfmath}
+\usepackage[phv]{sfmath}
 \usepackage[dvips]{graphicx,color}
 \thispagestyle{empty}
-\normalfont
 
     % You can run this by typing the following commands:
     %    latex 2dplot.tex

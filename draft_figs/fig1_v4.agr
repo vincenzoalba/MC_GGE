@@ -63,7 +63,7 @@
 @timestamp rot 0
 @timestamp font 0
 @timestamp char size 1.000000
-@timestamp def "Tue Jun 30 08:58:15 2015"
+@timestamp def "Tue Jun 30 14:44:48 2015"
 @with string
 @    string on
 @    string loctype view
@@ -83,7 +83,7 @@
 @    string font 4
 @    string just 0
 @    string char size 1.200000
-@    string def "(c)"
+@    string def "(b)"
 @with string
 @    string on
 @    string loctype view
@@ -93,7 +93,7 @@
 @    string font 4
 @    string just 0
 @    string char size 1.200000
-@    string def "(e)"
+@    string def "(c)"
 @with string
 @    string on
 @    string loctype view
@@ -103,7 +103,7 @@
 @    string font 4
 @    string just 0
 @    string char size 1.200000
-@    string def "(b)"
+@    string def "(e)"
 @with string
 @    string on
 @    string loctype view
@@ -113,7 +113,7 @@
 @    string font 4
 @    string just 0
 @    string char size 1.200000
-@    string def "(d)"
+@    string def "(f)"
 @with string
 @    string on
 @    string loctype view
@@ -123,7 +123,7 @@
 @    string font 4
 @    string just 0
 @    string char size 1.200000
-@    string def "(f)"
+@    string def "(g)"
 @with string
 @    string on
 @    string loctype view
@@ -133,7 +133,7 @@
 @    string font 4
 @    string just 0
 @    string char size 1.200000
-@    string def "(g)"
+@    string def "(d)"
 @with string
 @    string on
 @    string loctype view
