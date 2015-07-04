@@ -95,7 +95,7 @@ The issue of how statistical ensembles emerge from the out-of-equilibrium
 dynamics in {\it isolated} quantum many-body system is still a fundamental, 
 yet challenging, problem. Much of the motivation for the renewed interest 
 in this topic originated from the high degree of control reached in 
-out-of-equilibrium expriments with cold atomic gases. 
+out-of-equilibrium expriments in cold atomic gases. 
 The paradigm of out-of-equilibrium experiment is the quantum quench, in 
 which a system is initially prepared in some eigenstate $|\Psi_0\rangle$ 
 of a many-body Hamiltonian. Then a parameter in the Hamiltonian is suddenly 
@@ -111,7 +111,7 @@ how to construct it is still open.
 There is compelling evidence that the steady state expectation values of 
 a generic local operator ${\mathcal O}$ are described by a Generalized 
 Gibbs Ensemble (GGE) as $\langle{\mathcal O}\rangle\equiv\textrm{Tr}
-({\mathcal O}\rho^{GGE})/Z$ with $Z$ a normalization constant.
+({\mathcal O}\rho^{GGE})/Z$ with $Z=\textrm{\rho^{GGE}}$.
 The GGE density matrix $\rho^{GGE}$ extends the Gibbs density matrix 
 by including  (in principle) all the integrals of motion ${\mathcal I}_j$ 
 as 
@@ -121,59 +121,26 @@ as
 \label{rho-gge}
 \end{equation}
 %
-where we assume summation over the repeated index $j$, and $\lambda_j$ are 
+where we assume summation over the repeated index $j$. Here $\lambda_j$ are 
 Lagrange multipliers to be fixed by imposing $\langle\Psi_0|{\mathcal I}_j|
-\Psi_0\rangle=\langle{\mathcal I}_j\rangle$. In practice, in realistic 
-situations one deals with the truncated GGE (tGGE), which is obtained 
-by considering only a finite number of {\it local} integral of motion. 
+\Psi_0\rangle=\langle{\mathcal O}\rangle_{GGE}$. 
 
-The validity of the GGE has been largely confirmed in non interacting field 
-theories. In interacting models the scenario is not clear. Recently, a lot of 
-insights came from the the so-called Quench Action method, which allows 
-to calculate steady state properties in Bethe ansatz solvable models, 
-provided that the overlap between $|\Psi_0\rangle$ and the eigenstates 
-of the model are known. 
 
-Surprisingly, it has been observed that in the spin-$\frac{1}{2}$ Heisenberg 
-XXZ spin chain, for the quench starting with the Neel state steady state 
-properties are not correctly described by the TGGE, while they are in perfect 
-agreement with the quench action method. 
-
-While one might argue that the GGE can be repaired by including more conserved 
-quantities, as to now no quantitative study has been conducted yet. One intriguing 
-possibility is that quasi-local charges are needed, although no systematic 
-attempt of including them has been made. 
-
-On the numerical side, time dependent DMRG gives the possibility to simulate 
-the dynamics of quantum many body systems for short times, althugh is some 
-cases this is sufficient to address steady state properties. However, no 
-numerical attempt of exploring the GGE itself and possible extensions has been 
-proposed yet. 
-
-We provide a numerical Monte-Carlo-based framework to simulate and extend 
-the GGE. 
-
-The method is deviced for finite-size Bethe ansatz solvable models, although 
-thermodynamic quantities can be obtained by standard finite-size scaling analysis.  
-The method relies on the knowledge of the Hilbert space of the model and the so-called 
-Bethe-Takahashi equations. Moreover, it is restricted to observables for which 
-the corresponding expression in terms of the B-T roots (rapidities) is known. 
-
-The method allows to address local observables for which the expression in 
-terms of the rapidity is known as well. 
-
-The basic idea is to sample the Hilbert space of the model according to the desired 
-ensemble. Notice that for the Gibbs ensemble this idea has been 
-explored in Ref.~\onlinecite{gu-2005}.
+We provide a Monte Carlo method to simulate the GGE statistica ensemble. 
 
 Remarkably, this allows to extract the rapidity densities defining the 
 ensemble representative state in the thermodynamic limit. 
+
+Notice these are related to the momentum distribution functions of the 
+steady state routinely measured in cold atom experiments. 
 
 Finite-size effects are under control and for moderately large chain sizes 
 the Monte Carlo results agree very well with the thermodynamic limit 
 results, especially for small rapidities. Higher rapidities are more 
 sensitive to finite size effects as they reflec short length scales. 
 
+The method allows to address local observables for which the expression in 
+terms of the rapidity is known as well. 
 
 An alternative numerical method would be Quantum Monte Carlo. However, 
 this would require the implementation of the higher conserved charges, 
@@ -968,17 +935,6 @@ J.-S.~Caux, R.~Hagemans and J.-M.~Maillet, J.\ Stat.\ Mech.\ P09003 (2005).
 \bibitem{caux-2009}
 J.-S.~Caux, J.\ Math.\ Phys.\ {\bf 50}, 095214 (2009).
 
-
-\bibitem{pozsgay-2014}
-B.~Pozsgay, M.~Mesty\'an, M.~A.~Werner, M.~Kormos, G.~Zar\'and, and G.~Tak\'acs,
-Phys.\ Rev.\ Lett.\ {\bf 113}, 117203 (2014). 
-
-\bibitem{wouters-2014}
-B.~Wouters, M.~Brockmann, J.~De~Nardis, D.~Fioretto, M.~Rigol, and J.-S.~Caux, 
-Phys.\ Rev.\ Lett.\ {\bf 113}, 117202 (2014). 
-
-\bibitem{gu-2005}
-S.-J.~Gu, N.~M.~R.~Peres, Y.-Q.~Li, Eur.\ Phys.\ J.\ B {\bf 48}, 157 (2005). 
 
 \end{thebibliography}
 
