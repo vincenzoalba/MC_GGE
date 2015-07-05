@@ -63,7 +63,7 @@
 @timestamp rot 0
 @timestamp font 0
 @timestamp char size 1.000000
-@timestamp def "Tue Jun 30 14:44:48 2015"
+@timestamp def "Sun Jul  5 11:22:29 2015"
 @with string
 @    string on
 @    string loctype view
@@ -2478,7 +2478,7 @@
 @    yaxis  bar linestyle 1
 @    yaxis  bar linewidth 1.0
 @    yaxis  label "R7"
-@    yaxis  label layout para
+@    yaxis  label layout perp
 @    yaxis  label place spec
 @    yaxis  label place 0.000000, 0.080000
 @    yaxis  label char size 1.300000

@@ -89,114 +89,111 @@ Paris, France}
 
 
 %#############-- INTRODUCTION --########################################
-\section{Introduction}
+\paragraph*{Introduction.---}
 
-The issue of how statistical ensembles emerge from the out-of-equilibrium 
+The issue of how statistical ensembles arise from the out-of-equilibrium 
 dynamics in {\it isolated} quantum many-body system is still a fundamental, 
-yet challenging, problem. Much of the motivation for the renewed interest 
-in this topic originated from the high degree of control reached in 
-out-of-equilibrium expriments with cold atomic gases. 
-The paradigm of out-of-equilibrium experiment is the quantum quench, in 
-which a system is initially prepared in some eigenstate $|\Psi_0\rangle$ 
-of a many-body Hamiltonian. Then a parameter in the Hamiltonian is suddenly 
-changed, and the system is let to evolve unitarily. 
+yet challenging, problem. The main motivation of the renewed interest 
+in this topic is the high degree of control reached in out-of-equilibrium 
+expriments with cold atomic gases~\cite{greiner-2002,kinoshita-2006,
+hofferberth-2007,bloch-2008,trotzky-2012,gring-2012,cheneau-2012,
+schneider-2012,kunhert-2013,langen-2013,meinert-2013,fukuhara-2013,
+ronzheimer-2013,braun-2014}. 
+The paradigm of these experiments is the gloabal {\it quantum quench}, in 
+which a system is initially prepared in an eigenstate $|\Psi_0\rangle$ of a 
+many-body Hamiltonian ${\mathcal H}$. Then a global parameter of ${\mathcal H}$ 
+is suddenly changed, and the system is let to evolve unitarily under the 
+new Hamiltonian ${\mathcal H}'$. 
+At long times after the quench the system is expected to equilibrate, due to 
+dephasing~\cite{barthel-2008}, in agreeement with what is observed in experiments. 
+On the other hand, in integrable systems the 
+presence of non-trivial {\it local} conserved quantities, besides the energy, 
+strongly affects the dynamics and the nature of the steady state. As for now,  
+it is still unclear wheather steady-state properties can be described by a 
+statistical ensemble, and how to construct it. 
 
-While at long times after the quench the system is expected to equilibrate, 
-in one dimensional integrable systems the presence of non-trivial local 
-conserved quantities besides the energy strongly affects the dynamics 
-and the steady state at long times. Thus the question as to wheather 
-steady-state properties can be described by a statistical ensemble and 
-how to construct it is still open. 
-
-There is compelling evidence that the steady state expectation values of 
-a generic local operator ${\mathcal O}$ are described by a Generalized 
-Gibbs Ensemble (GGE) as $\langle{\mathcal O}\rangle\equiv\textrm{Tr}
-({\mathcal O}\rho^{GGE})/Z$ with $Z$ a normalization constant.
-The GGE density matrix $\rho^{GGE}$ extends the Gibbs density matrix 
-by including  (in principle) all the integrals of motion ${\mathcal I}_j$ 
-as 
+It has been proposed that the steady-state expectation value of a generic local 
+operator $\hat{\mathcal O}$ is described by a Generalized Gibbs Ensemble~\cite{
+rigol-2008} (GGE) as $\langle\hat{\mathcal O}\rangle\equiv\textrm{Tr}({\mathcal O}
+\rho^{GGE})$. The GGE density matrix $\rho^{GGE}$ extends the Gibbs density matrix 
+by including  all the local conserved quantities $\hat {\mathcal I}_j$ (charges) as 
 %
 \begin{equation}
-\rho^{GGE}=Z^{-1}\exp\big(-\lambda_j{\mathcal I}_j\big),
+\rho^{GGE}=Z^{-1}\exp\big(-\lambda_j\hat{\mathcal I}_j\big). 
 \label{rho-gge}
 \end{equation}
 %
-where we assume summation over the repeated index $j$, and $\lambda_j$ are 
-Lagrange multipliers to be fixed by imposing $\langle\Psi_0|{\mathcal I}_j|
-\Psi_0\rangle=\langle{\mathcal I}_j\rangle$. In practice, in realistic 
-situations one deals with the truncated GGE (tGGE), which is obtained 
-by considering only a finite number of {\it local} integral of motion. 
+Here we assume summation over the repeated index $j$, $Z$ is a normalization 
+factor, and $\lambda_j$ are Lagrange multipliers to be fixed by imposing 
+$\langle\Psi_0|\hat{\mathcal I}_j|\Psi_0\rangle=\langle\hat{\mathcal I}_j\rangle$. 
+In~\eqref{rho-gge} $\hat{\mathcal I}_2$ denotes the Hamiltonian. 
+In realistic situations one deals with the truncated GGE (TGGE), i.e., 
+considering only a finite subset of the charges. While the validity of the GGE 
+has been largely confirmed in non-interacting field theories, in interacting 
+ones the scenario is not clear. For Bethe ansatz solvable models the so-called 
+quench-action method~\cite{caux-2013} allows to characterize the steady state 
+analytically, provided that the overlap between $|\Psi_0\rangle$ and the 
+eigenstates of ${\mathcal H}'$ are known. Remarkably, in several cases the 
+quench-action is in disagreement with the TGGE, whereas it seems to be 
+supported by numerical simulations~\cite{pozsgay-2014}. 
+While one might argue that the GGE can be repaired by including more charges, 
+no quantitative study has been conducted yet. One intriguing possibility is 
+that local charges are not enough and one has to include quasi-local 
+ones~\cite{ilievski-2015}. 
 
-The validity of the GGE has been largely confirmed in non interacting field 
-theories. In interacting models the scenario is not clear. Recently, a lot of 
-insights came from the the so-called Quench Action method, which allows 
-to calculate steady state properties in Bethe ansatz solvable models, 
-provided that the overlap between $|\Psi_0\rangle$ and the eigenstates 
-of the model are known. 
+On the numerical side, numerical methods, such as the time dependent density 
+matrix renormalization group~\cite{white-2004,daley-2004} (tDMRG), have been mostly 
+used to simulate the dynamics in microscopic models. However, no numerical attempt 
+of exploring the GGE itself has been undertaken yet. The aim of this paper is to 
+provide a Monte-Carlo-based framework for studying  the GGE and its possible extensions. 
+The method is deviced for finite-size Bethe ansatz solvable models. Thermodynamic 
+quantities can be obtained by standard finite-size scaling analysis.  
+The method relies on the detailed knowledge of the Hilbert space of Bethe ansatz 
+solvable models, and, in particular, in the so-called Bethe-Takahashi (B-T) equations. 
+The key idea is to sample the model Hilbert space according to the GGE probability 
+measure~\eqref{rho-gge}. Notice that for the Gibbs ensemble a similar approach has 
+been proposed in Ref.~\onlinecite{gu-2005}.
+The method allows to construct the GGE expectation value of a generic (both local 
+and non-local) observable $\hat {\mathcal O}$, provided that its expression in terms 
+of the roots of the B-T equations (rapidities) is known. Remarkably, we show that is 
+also possible to extract the so-called rapidity distributions, which encode the 
+complete information about the GGE steady state in the thermodynamic limit. 
+Finally, we should mention that the GGE expectaion values of local observables 
+could be computed using exact diagonalization or Quantum Monte Carlo. However, 
+both these methods require the operatorial expression of the conserved charges, 
+while the approach presented here relies only on their expression (typically much 
+simpler) in terms of the B-T roots. Moreover, the Monte Carlo approach allows  
+to extended the GGE including arbitrary functions of the B-T roots in a trivial 
+manner, which would be useful in trying to incorporate the quasi-local charges.   
 
-Surprisingly, it has been observed that in the spin-$\frac{1}{2}$ Heisenberg 
-XXZ spin chain, for the quench starting with the Neel state steady state 
-properties are not correctly described by the TGGE, while they are in perfect 
-agreement with the quench action method. 
-
-While one might argue that the GGE can be repaired by including more conserved 
-quantities, as to now no quantitative study has been conducted yet. One intriguing 
-possibility is that quasi-local charges are needed, although no systematic 
-attempt of including them has been made. 
-
-On the numerical side, time dependent DMRG gives the possibility to simulate 
-the dynamics of quantum many body systems for short times, althugh is some 
-cases this is sufficient to address steady state properties. However, no 
-numerical attempt of exploring the GGE itself and possible extensions has been 
-proposed yet. 
-
-We provide a numerical Monte-Carlo-based framework to simulate and extend 
-the GGE. 
-
-The method is deviced for finite-size Bethe ansatz solvable models, although 
-thermodynamic quantities can be obtained by standard finite-size scaling analysis.  
-The method relies on the knowledge of the Hilbert space of the model and the so-called 
-Bethe-Takahashi equations. Moreover, it is restricted to observables for which 
-the corresponding expression in terms of the B-T roots (rapidities) is known. 
-
-The method allows to address local observables for which the expression in 
-terms of the rapidity is known as well. 
-
-The basic idea is to sample the Hilbert space of the model according to the desired 
-ensemble. Notice that for the Gibbs ensemble this idea has been 
-explored in Ref.~\onlinecite{gu-2005}.
-
-Remarkably, this allows to extract the rapidity densities defining the 
-ensemble representative state in the thermodynamic limit. 
-
-Finite-size effects are under control and for moderately large chain sizes 
-the Monte Carlo results agree very well with the thermodynamic limit 
-results, especially for small rapidities. Higher rapidities are more 
-sensitive to finite size effects as they reflec short length scales. 
+To benchmark the method here we focus on the spin-$\frac{1}{2}$ isotropic 
+Heisenberg chain ($XXX$ chain) that is the venerable prototype of integrable 
+models. We restrict ourselves to the TGGE constructed including the first 
+three conserved charges $\hat{\mathcal I}_2,\hat{\mathcal I}_3,\hat{\mathcal I}_4$, 
+varying the associated Lagrange multipliers $\lambda_j$. 
+We numerically investigate the GGE expectation values of the charges $\langle\hat
+{\mathcal I}_j\rangle$ and the variance of their ensemble fluctuations 
+$\sigma^2(\hat{\mathcal I}_j)$. These are related to well-known physical observables 
+such as the energy density, the energy current, the specific heat, and the energy 
+Drude weight. We also consider the average magnetization and the spin susceptibility. 
+Interestingly, finite-size corrections decay expontially with the chain size, and 
+results for moderately large chains are indistinguishable from the thermodynamic 
+limit. Moreover, the Monte Carlo data perfectly agree with the analytical 
+results obtained using the Generalized Thermodynamic Bethe Ansatz (GTBA) approach. 
+This result provides the first direct numerical check of the GTBA for the $XXX$ 
+chain. Finally, we extract the first few rapidity distributions corresponding to the 
+the Gibbs ensemble steady state at several temperatures, and the GGE. In both 
+cases finite-size effects are small, especially for small rapidities, which reflect 
+long-wavelength physics. For the Gibbs ensemble we compare with standard finite 
+temperature Thermodynamic Bethe Ansatz (TBA) results, finding perfect agreement. 
 
 
-An alternative numerical method would be Quantum Monte Carlo. However, 
-this would require the implementation of the higher conserved charges, 
-other than the Hamiltonian. As the range of higher charges becomes large 
-this is not easily doable in practice. 
-
-We provide the first numerical verification of the validity of the GTBA 
-equations for the Heisenberg spin chain. 
-
-Interestingly, finite-size corrections are generically small, i.e., expontially 
-decaying with the chain size. 
-
-Our Monte Carlo approach can be trivially extended to include other conserved 
-charges, both local and non-local, and arbitrary functions of the rapidities. 
-While the former is related to the GGE average of the particle number, the 
-latter measures its fluctuations. Notice that due to the $SU(2)$ symmetry 
-of the conserved charges one has that $\langle S_z\rangle=0$ (panel (g)). 
 
 
 
 
 %#############-- THE HEISENBERG SPIN CHAIN --########################################
-\section{The Heisenberg spin chain}
+\paragraph*{The Heisenberg spin chain.---}
 
 The isotropic spin-$\frac{1}{2}$ Heisenberg ($XXX$) chain is defined by the 
 Hamiltonian 
@@ -297,7 +294,7 @@ For instance, the energy is obtained as $E=\sum_n E_n$, where $E_n=2\sum_\gamma 
 
 
 %#############-- HILBERT SPACE MONTE CARLO --########################################
-\section{Hilbert space Monte Carlo sampling}
+\paragraph*{Hilbert space Monte Carlo sampling.---}
 
 
 For a finite chain the GGE ensemble can be generated by sampling the eigenstates 
@@ -373,7 +370,7 @@ eigenstates in the sum.
 
 
 %#############-- GGE FOR LOCAL OBSERVABLES --########################################
-\section{GGE for local observables} 
+\paragraph*{Local observables.---} 
 
 The validity of the Monte Carlo method is illustrated in Fig.~\ref{fig1} considering 
 the $GGE$ expectation values of the charge densities $\langle {\mathcal I}_j/L\rangle$ 
@@ -433,7 +430,7 @@ Moreover, they increase with the range of the operator as shown in panel (b),
 although the behavior remains exponential. 
 
 %#############-- EXTRACTING THE ROOT DENSITIES --###################################
-\section{Extracting the rapidity densities}
+\paragraph*{Extracting the rapidity densities.---}
 
 In the thermodynamic limit in each $n$-string sector the roots of~\eqref{bt-eq} become 
 dense. Thus, each eigenstate is characterized by the root distribution $\pmb{\rho}\equiv
@@ -979,6 +976,16 @@ Phys.\ Rev.\ Lett.\ {\bf 113}, 117202 (2014).
 
 \bibitem{gu-2005}
 S.-J.~Gu, N.~M.~R.~Peres, Y.-Q.~Li, Eur.\ Phys.\ J.\ B {\bf 48}, 157 (2005). 
+
+\bibitem{ilievski-2015}
+E.~Ilievski, M.~Medejak, and T.~Prosen, arXiv:1506.05049.
+
+\bibitem{white-2004}
+S.~R.~White and A.~E.~Feiguin, Phys.\ Rev.\ Lett.\ {\bf 93}, 076401 (2004).
+
+\bibitem{daley-2004}
+A.~J.~Daley, C.~Kollath, U.~Schollock, and G.~Vidal, J.\ Stat.\ Mech.\ (2004) P04005.
+
 
 \end{thebibliography}
 

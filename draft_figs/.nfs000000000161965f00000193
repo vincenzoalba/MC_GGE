@@ -1,0 +1,38 @@
+\documentclass[12pt]{article}
+\usepackage{psfrag}
+\usepackage[helvet]{sfmath}
+\usepackage{unicode-math}
+\usepackage[dvips]{graphicx,color}
+\thispagestyle{empty}
+\normalfont
+
+    % You can run this by typing the following commands:
+    %    latex 2dplot.tex
+    %    dvips -o 2dplot.ps 2dplot.dvi
+
+\begin{document}
+
+% The syntax of the "psfrag" command is:
+%    \psfrag{tag}[<posn>][<psposn>][<scale>][<rot>]{replacement}
+% See the file pfgguide.ps for full documentation.
+
+\begin{figure}
+\psfrag{R1}[][][1.7]{$\langle{\mathcal I}_2\rangle/L$}
+\psfrag{R2}[][][1.7]{$\langle{\mathcal I}_3\rangle/L$}
+\psfrag{R3}[][][1.7]{$\langle{\mathcal I}_4\rangle/L$}
+
+\psfrag{R4}[][][1.7]{$\sigma^2({\mathcal I}_2/L)$}
+\psfrag{R5}[][][1.7]{$\sigma^2({\mathcal I}_3/L)$}
+\psfrag{R6}[][][1.7]{$\sigma^2({\mathcal I}_4/L)$}
+
+\psfrag{R7}[][][1.7]{$\langle S_z\rangle$}
+\psfrag{R8}[][][1.7]{$\chi/\beta$}
+\psfrag{R9}[][][2.1]{$inverse\, temperature\, \beta$}
+%\psfrag{bbbb}{\small{$s_1 \cdot y$}}
+%\psfrag{cccc}{\small{$s_2 \cdot y$}}
+%\psfrag{dddd}{\small{$k(\Sigma + n + g)$}}
+%\psfrag{kkkk}{\small{$k$}}
+%\psfrag{yyyy}{\small{$y$}}
+\includegraphics{fig1.eps}
+\end{figure}
+\end{document}
