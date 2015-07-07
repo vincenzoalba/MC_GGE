@@ -121,47 +121,50 @@ dephasing~\cite{barthel-2008} {\bf more, Eisert??  la citazione e' a cazzo}, as 
 On the other hand, in integrable models the 
 presence of non-trivial {\it local} conserved quantities, besides the energy, 
 strongly affects the dynamics and the nature of the steady state. As for now,  
-it is still unclear wheather the steady-state can be described by a statistical 
+it is still unclear wheather such steady-state can be described by a statistical 
 ensemble, and how to construct it. 
 
-It has been proposed that the steady-state expectation value of a generic local 
+Recently, it has been proposed that the stationary/equilibrium value of a generic local 
 operator $\hat{\mathcal O}$ is described by a Generalized Gibbs Ensemble~\cite{
 rigol-2008} (GGE) as $\langle\hat{\mathcal O}\rangle\equiv\textrm{Tr}({\mathcal O}
-\rho^{GGE})$. The GGE density matrix $\rho^{GGE}$ extends the Gibbs density matrix 
-by including  all the local conserved quantities $\hat {\mathcal I}_j$ (charges) as 
+\rho^{GGE})$. Here $\rho^{GGE}$ extends the Gibbs density matrix by including  all 
+the local conserved quantities $\hat {\mathcal I}_j$ (charges) as 
 %
 \begin{equation}
-\rho^{GGE}=Z^{-1}\exp\big(-\lambda_j\hat{\mathcal I}_j\big). 
+\rho^{GGE}=Z^{-1}\exp\big(-\lambda_j\hat{\mathcal I}_j\big),
 \label{rho-gge}
 \end{equation}
 %
-Here we assume summation over the repeated index $j$, $Z$ is a normalization 
-factor, and $\lambda_j$ are Lagrange multipliers to be fixed by imposing 
-$\langle\Psi_0|\hat{\mathcal I}_j|\Psi_0\rangle=\langle\hat{\mathcal I}_j\rangle$. 
-In~\eqref{rho-gge} $\hat{\mathcal I}_2$ is the Hamiltonian. 
-In realistic situations one deals with the truncated GGE (TGGE), i.e., 
-considering only a finite subset of the charges. While the validity of the GGE 
-has been largely confirmed in non-interacting field theories {\bf cite papers},
- in interacting ones the scenario far less clear. For Bethe ansatz solvable models the 
-so-called quench-action method~\cite{caux-2013} {\bf cite more} allows to characterize 
-the steady state analytically, provided that the overlap between the initial state 
-$|\Psi_0\rangle$ and the eigenstates of ${\mathcal H}'$ are known. Surprisingly, in 
-several cases the quench-action is in disagreement with the TGGE {\bf citations}, 
-whereas it is supported by numerical simulations~\cite{pozsgay-2014}. 
-While one might argue that the GGE can be repaired by including more charges, 
+where we assume summation over the repeated index $j$, and $Z$ is a normalization 
+factor. In~\eqref{rho-gge} the $\lambda_j$ are Lagrange multipliers to be fixed 
+by imposing $\langle\Psi_0|\hat{\mathcal I}_j|\Psi_0\rangle=\langle\hat{\mathcal 
+I}_j\rangle$, and $\hat{\mathcal I}_2$ is the post-quench Hamiltonian ${\mathcal 
+H}'$. In realistic situations one deals with the truncated GGE (TGGE), i.e., 
+considering only a finite subset of the charges {\bf citations}. 
+
+While the validity of the GGE 
+has been largely confirmed in non-interacting field theories {\bf cite papers}, 
+in interacting ones the scenario is far less clear. For Bethe ansatz solvable models 
+the so-called quench-action method~\cite{caux-2013} {\bf cite more} allows for an 
+exact treatement of the steady state, provided that the overlap between the initial 
+state $|\Psi_0\rangle$ and the eigenstates of ${\mathcal H}'$ are known. Surprisingly, 
+in several cases the quench-action is in disagreement with the TGGE {\bf citations}, 
+whereas it seems to be supported by numerical simulations~\cite{pozsgay-2014}. 
+While one might argue that the GGE can be ``repaired'' by enlarging the set of 
+charges included in~\eqref{rho-gge}, 
 no quantitative study in this direction has been conducted yet. One intriguing 
 possibility is that local charges are not sufficient, and one has to include 
 quasi-local ones~\cite{ilievski-2015} {\bf more citations}. 
 
 On the other hand, numerical methods, such as the time dependent density 
 matrix renormalization group~\cite{white-2004,daley-2004} (tDMRG), have been mostly 
-used to simulate the dynamics in microscopic models. However, no numerical attempt 
-of exploring the GGE itself has been undertaken yet. The aim of this paper is to 
+used to simulate the post-quench dynamics in microscopic models. However, no numerical 
+attempt to explore the GGE itself has been undertaken yet. The aim of this paper is to 
 provide a Monte-Carlo-based framework for studying  the GGE, and its possible extensions,   
-in Bethe ansatz solvable models. Here we restrict ourselves to finite-size systems.   
-Thermodynamic quantities can be extracted by a standard finite-size scaling analysis.  
-The method relies on the detailed knowledge of the Hilbert space provided by the Bethe 
-ansatz formalism, and, in particular, on the Bethe-Takahashi (B-T) equations {\bf cita 
+in Bethe ansatz solvable models. Although we restrict ourselves to finite-size systems, 
+thermodynamic quantities can be extracted by a standard finite-size scaling analysis.  
+The method relies on the detailed knowledge of the Hilbert space structure provided by 
+the Bethe ansatz formalism, and, in particular, on the Bethe-Takahashi (B-T) equations {\bf cita 
 Takahashi}. The key idea is to sample the model Hilbert space according to the GGE 
 probability measure given in~\eqref{rho-gge}. We should mention that for the Gibbs 
 ensemble the same idea has been explored in Ref.~\onlinecite{gu-2005}.
