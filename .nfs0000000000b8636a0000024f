@@ -87,7 +87,7 @@ large chains are sufficient to extract thermodynamic quantities. Remarkably, it 
 to extract in a simple way the steady-state Bethe roots distributions, which encode complete 
 information about the GGE expectation values in the thermodynamic limit. Finally, it is 
 straightforward to simulate extensions of the GGE, in which, besides the integral of motion, 
-one includes arbitrary functions of the Bethe-Gaudin-Takahashi roots. 
+one includes arbitrary functions of the Bethe roots. 
 
 \end{abstract}
 
@@ -121,20 +121,20 @@ it is still unclear wheather such steady-state can be described by a statistical
 ensemble, and how to construct it. 
 
 Recently, it has been proposed that the stationary/equilibrium value of a generic local 
-operator ${\mathcal O}$ is described by a Generalized Gibbs Ensemble~\cite{
-rigol-2008} (GGE) as $\langle{\mathcal O}\rangle\equiv\textrm{Tr}({\mathcal O}
+operator $\hat{\mathcal O}$ is described by a Generalized Gibbs Ensemble~\cite{
+rigol-2008} (GGE) as $\langle\hat{\mathcal O}\rangle\equiv\textrm{Tr}({\mathcal O}
 \rho^{GGE})$. Here $\rho^{GGE}$ extends the Gibbs density matrix by including  all 
-the local conserved quantities $ {\mathcal I}_j$ (charges) as 
+the local conserved quantities $\hat {\mathcal I}_j$ (charges) as 
 %
 \begin{equation}
-\rho^{GGE}=Z^{-1}\exp\big(-\lambda_j{\mathcal I}_j\big). 
+\rho^{GGE}=Z^{-1}\exp\big(-\lambda_j\hat{\mathcal I}_j\big),
 \label{rho-gge}
 \end{equation}
 %
-Here, and in the rest of the paper, repeated indices are summed over. $Z$ is a 
-normalization factor. The $\lambda_j$ are Lagrange multipliers to be fixed 
-by imposing $\langle\Psi_0|{\mathcal I}_j|\Psi_0\rangle=\langle{\mathcal 
-I}_j\rangle$, and ${\mathcal I}_2={\mathcal H}'$ is the post-quench Hamiltonian. 
+where repeated indices are summed over, and $Z$ is a normalization 
+factor. In~\eqref{rho-gge} the $\lambda_j$ are Lagrange multipliers to be fixed 
+by imposing $\langle\Psi_0|\hat{\mathcal I}_j|\Psi_0\rangle=\langle\hat{\mathcal 
+I}_j\rangle$, and $\hat{\mathcal I}_2={\mathcal H}'$ is the post-quench Hamiltonian. 
 In realistic situations one deals with the truncated GGE (TGGE), i.e., considering 
 only a finite subset of the charges {\bf citations}. 
 
@@ -171,7 +171,7 @@ that their expression in terms of the roots of the BGT equations are known. Rema
 it is also possible to extract the steady-state Bethe roots distributions, which encode 
 the complete information about ensemble averages in the thermodynamic limit. It is also 
 straightforward to extend  the GGE including in~\eqref{rho-gge} arbitrary functions of 
-the Bethe roots, besided the ${\mathcal I}_j$. This 
+the Bethe roots, besided the $\hat{\mathcal I}_j$. This 
 could be useful, for instance, to investigate the effects of quasi-local charges {\bf We 
 should check how their expressions in terms of the rapidities look like}.   
 Finally, we should mention that, in principle, GGE averages of local observables can be computed 
@@ -209,11 +209,11 @@ simple) in terms of the BGT roots.
 Here we perform a detailed benchmark of the approach focusing on the 
 spin-$\frac{1}{2}$ isotropic Heisenberg chain ($XXX$ chain), which is the venerable 
 prototype of integrable models {\bf cite Bethe and more}. We consider several TGGEs 
-(cf.~\eqref{rho-gge}) constructed including ${\mathcal I}_2,{\mathcal I}_3,
-{\mathcal I}_4$, and varying the associated Lagrange multipliers $\lambda_j$. 
-We focus on the conserved charges averages $\langle{\mathcal I}_j\rangle$ 
-and their fluctuations $\sigma^2({\mathcal I}_j)\equiv\langle{\mathcal I}_j^2
-\rangle-\langle{\mathcal I}_j\rangle^2$. Both these 
+(cf.~\eqref{rho-gge}) constructed including $\hat{\mathcal I}_2,\hat{\mathcal I}_3,
+\hat{\mathcal I}_4$, and varying the associated Lagrange multipliers $\lambda_j$. 
+We focus on the conserved charges averages $\langle\hat{\mathcal I}_j\rangle$ 
+and their fluctuations $\sigma^2(\hat{\mathcal I}_j)\equiv\langle\hat{\mathcal I}_j^2
+\rangle-\langle\hat{\mathcal I}_j\rangle^2$. Both these 
 quantities are related to well-known physical observables, such as the energy density, 
 the energy current, the specific heat, and the thermal Drude weight {\bf Cite something 
 since it is non-trivial quantity}. We also compute the average magnetization and the spin 
@@ -271,21 +271,21 @@ Bethe-Takahashi quantum numbers. The $I_{n;\gamma}$ satisfy the upper bound $|I_
 Every choice of $I_{n;\gamma}$ identifies an eigenstate of~\eqref{xxx-ham}. 
 We define the ``string content'' of an eigenstate as ${\mathcal S}\equiv\{s_1,\dots,
 s_M\}$, with $0\le s_n\le \lfloor M/n\rfloor$ the number of $n$-strings.  
-The conserved charges ${\mathcal I}_j$ of the $XXX$ chain are given as   
+The conserved charges $\hat{\mathcal I}_j$ of the $XXX$ chain are given as   
 %
 \begin{equation}
 \label{I-def}
-\left.{\mathcal I}_{j+1}\equiv\frac{i}{(j-1)!}\frac{d^j}{dy^j}\log\Lambda
+\left.\hat{\mathcal I}_{j+1}\equiv\frac{i}{(j-1)!}\frac{d^j}{dy^j}\log\Lambda
 (y)\right|_{y=i}, 
 \end{equation}
 %
 where $\Lambda$ is the eigenvalue of the quantum transfer matrix $T(y)$~\cite{kor-book}, 
-with $y$ a spectral parameter. ${\mathcal I}_2$ is the $XXX$ hamiltonian. 
+with $y$ a spectral parameter. $\hat{\mathcal I}_2$ is the $XXX$ hamiltonian. 
 The exact expression of the charges in terms of spin operators is known explicitly 
-for $j\sim 10$~\cite{grabowski-1995}. The support of ${\mathcal I}_j$, which is  
-the number of sites where ${\mathcal I}_j$ acts non trivially, increases 
+for $j\sim 10$~\cite{grabowski-1995}. The support of $\hat{\mathcal I}_j$, which is  
+the number of sites where $\hat{\mathcal I}_j$ acts non trivially, increases 
 linearly with $j$, i.e., larger $j$ correspond to less local charges. 
-The eigenvalues of ${\mathcal I}_j$ on a generic eigenstate are 
+The eigenvalues of $\hat{\mathcal I}_j$ on a generic eigenstate are 
 obtained by summing the contributions of the different BGT roots {\it independently}. 
 For instance, the energy is obtained as $E=2\sum_{n,\gamma} n/(n^2+x^2_{n;\gamma})$. 
 Similar results are obtained for other charges using~\eqref{I-def}. 
@@ -310,20 +310,21 @@ Specifically, each Monte Carlo step (mcs) consists of three moves:
  the ${\mathcal  S}'$ obtained in step $1$. Solve the corresponding Bethe-Takahashi 
  equations~\eqref{bt-eq}. 
 \item Calculate the charge eigenvalues ${\mathcal I}_j'$ and accept the new 
-eigenstate with the Metropolis probability:
+eigenstate with the Metropolis probability (sum over the repeated index $j$ 
+is assumed):
 %
 \begin{equation}
 \label{metropolis}
-\textrm{Min}\Big\{1,\frac{L-2M'+1}{L-2M+1}e^{-\lambda_j({\mathcal I}'_j-
-{\mathcal I}^{}_j)}\Big\}.
+\textrm{Min}\left(1,\frac{L-2M'+1}{L-2M+1}e^{-\lambda_j({\mathcal I}'_j-
+{\mathcal I}^{}_j)}\right).
 \end{equation}
 %
 \end{enumerate}
 %
 In~\eqref{metropolis} the factor in front of the exponential takes into account 
-that ${\mathcal I}_j$ are invariant under $SU(2)$ rotations {\bf It is trivial 
+that $\hat{\mathcal I}_j$ are invariant under $SU(2)$ rotations {\bf It is trivial 
 from their eigenvalues}. Crucially, the steps $1$ and $2$ are necessary to account 
-correctly for the density of states of the model, and are the same for 
+correctly for the density of states of the model. Steps $1$ and $2$ are the same for 
 the Gibbs ensemble~\cite{gu-2005}.The iteration of $1$-$3$ defines a Markov chain, which, 
 after some thermalization steps, generates eigenstates sampled according to~\eqref{rho-gge}. 
 Clearly, it is straightforward to simulate the GGE with fixed particle number $M$. 
@@ -342,51 +343,51 @@ the $GGE$.
  $L$ for several values of $\beta$. The dash-dotted lines are exponential fits. (b) Same as 
  in (a) for ${\mathcal I}_4$.
 }
-\label{fig2}
+\label{fig-2}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-Finally, the ensemble average $\langle{\mathcal O}\rangle$ of a generic operator  
+Finally, the ensemble average $\langle\hat{\mathcal O}\rangle$ of a generic operator  
 is obtained as  
 %
 \begin{equation}
 \label{gge-mc}
-\langle{\mathcal O}\rangle=\lim\limits_{N_\textrm{mcs}\to\infty}\frac{1}
-{N_\textrm{mcs}}\sum\limits_{|s\rangle}\langle s|{\mathcal O}
+\langle\hat{\mathcal O}\rangle=\lim\limits_{N_\textrm{mcs}\to\infty}\frac{1}
+{N_\textrm{mcs}}\sum\limits_{|s\rangle}\langle s|\hat{\mathcal O}
 |s\rangle,
 \end{equation}
 %
 where $N_{\textrm{mcs}}$ is the total number of eigenstates $|s\rangle$ sampled in 
-the Monte Carlo. For many local observables the contributions of the roots can be 
-summed independently, i.e., 
+the Monte Carlo. For many local observables the contributions of the individual 
+roots can be summed independently, i.e., 
 %
 \begin{equation}
 \label{gge-mc-1}
-\langle s|{\mathcal O}|s\rangle=\sum\limits_{n,\gamma}f_{{\mathcal O}}(x_{n;\gamma})
+\langle s|\hat{\mathcal O}|s\rangle=\sum\limits_{n,\gamma}f_{\hat{\mathcal O}}(x_{n;\gamma})
 \end{equation}
 %
-where the sum is over the BGT roots identifying the eigenstate $|s\rangle$, and 
-$f_{{\mathcal O}}(x)$ depends on the observable. For the conserved charges 
-${\mathcal I}_j$ the latter is obtained from~\eqref{I-def}.
+where $\{x_{n;\gamma}\}$ are the BGT roots identifying the eigenstate $|s\rangle$ and 
+$$
+
+
 
 
 %#############-- GGE FOR LOCAL OBSERVABLES --########################################
 \paragraph*{The-GGE-for-local-observables.---} 
 
-The correctness of the Monte Carlo approach is illustrated in Fig.~\ref{fig1}, considering 
-the charge densities $\langle {\mathcal I}_j/L\rangle$ (panels (a)-(c) in the Figure), 
-and the variance of their ensemble fluctuations $\sigma^2({\mathcal I}_j/L)\equiv
-\langle({\mathcal I}_j/L)^2\rangle-\langle{\mathcal I}_j/L\rangle^2$ (panels (e)-(g)). 
-Panels (d)(h) plot the total magnetization $\langle S_z\rangle$ (i.e., the average 
-particle number), and $\chi/\beta$, with $\chi$ the spin susceptibility. 
-Notice that $\langle{\mathcal I}_2/L\rangle$ is the energy density, 
-$\langle{\mathcal I}_3/L\rangle$ the energy current, while $\sigma^2({\mathcal I}_2/L)$ 
-and $\sigma^2({\mathcal I}_3/L)$ are related to the specific heat, and the thermal Drude 
-weight, respectively. In all panels the data correspond to the TGGE constructed with 
-the first three charges ${\mathcal I}_2,{\mathcal I}_3,{\mathcal I}_4$. Different symbols 
-correspond to different values of the associated Lagrange multipliers, namely 
-$\lambda_3=\lambda_4=0$ (Gibbs ensemble, circles in the Figure), $\lambda_3=1$ and 
-$\lambda_4=0$ (squares), and $\lambda_3=\lambda_4=1$ (rhombi). 
+The validity of the Monte Carlo method is illustrated in Fig.~\ref{fig1} considering 
+the $GGE$ expectation values of the charge densities $\langle {\mathcal I}_j/L\rangle$ 
+(panels (a)-(c) in the Figure) and the variance of their ensemble fluctuations 
+$\sigma^2({\mathcal I}_j)\equiv \langle{\mathcal I}^2_j\rangle-\langle{\mathcal I}_j\rangle^2$
+(panels (d)-(f)). Finally, panels (g)(h) plot the total magnetization $\langle S_z\rangle$ 
+(i.e., the particle number) and the spin susceptibility $\chi$ (particle number fluctutations). 
+Notice that $\sigma^2({\mathcal I}_2)$ is related to the specific heat, ${\mathcal I}_3\equiv
+\sum_{\alpha\beta\gamma}\epsilon_{\alpha\beta\gamma}\sigma^\beta_i\sigma^\gamma_{i+1}
+\sigma^\alpha_{i+2}$ is the energy current, and $\sigma^2({\mathcal I}_3)$ is related 
+to the energy Drude weight. Here the data are for the truncated TGGE constructed with the first 
+three charges ${\mathcal I}_2,{\mathcal I}_3,{\mathcal I}_4$. We consider several values of 
+the Lagrange multipliers, namely $\lambda_3=\lambda_4=0$ (Gibbs ensemble, circles in the 
+Figure), $\lambda_3=1$ and $\lambda_4=0$ (squares), and $\lambda_3=\lambda_4=1$ (rhombi). 
 All our results are plotted versus the inverse temperature $\lambda_2=\beta$. The data 
 are Monte Carlo results for $N_{\textrm{mcs}}=5\cdot 10^5$. In most of the cases, 
 especially for small $\beta$ the Monte Carlo error bars are small than the symbols. 
@@ -416,7 +417,7 @@ at least for the values of the $\lambda_j$ considered.
  effects: Monte Carlo data for $\rho^{\textrm{Gibbs}}_1$ for different values of the 
  inverse temperature $\beta$.
 }
-\label{fig3}
+\label{fig1}
 \end{figure*}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
