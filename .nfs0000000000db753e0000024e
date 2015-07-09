@@ -352,18 +352,18 @@ the $GGE$.
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-Finally, the ensemble average $\langle\hat{\mathcal O}\rangle$ of a generic operator  
-is obtained as  
+Finally, the ensemble average $\langle{\mathcal O}\rangle$ of a generic operator  
+is obtained as the Monte Carlo as 
 %
 \begin{equation}
 \label{gge-mc}
-\langle\hat{\mathcal O}\rangle=\lim\limits_{N_\textrm{mcs}\to\infty}\frac{1}
-{N_\textrm{mcs}}\sum\limits_{|s\rangle}\langle s|\hat{\mathcal O}
+\langle{\mathcal O}\rangle=\lim\limits_{N_\textrm{mcs}\to\infty}\frac{1}
+{N_\textrm{mcs}}\sum\limits_{|s\rangle}\langle s|{\mathcal O}
 |s\rangle,
 \end{equation}
 %
-where $N_{\textrm{mcs}}$ is the total number of eigenstates $|s\rangle$ sampled in 
-the Monte Carlo. 
+where $N_{\textrm{mcs}}$ is the number of Monte Carlo steps, $$ i.e. the number of 
+eigenstates in the sum. 
 
 
 
