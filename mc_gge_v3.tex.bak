@@ -60,8 +60,8 @@
 
 \begin{document}
 
-\title{The Generalized Gibbs Ensemble (GGE) via the Hilbert space 
-Monte Carlo sampling approach} 
+\title{Simulating the Generalized Gibbs Ensemble (GGE): a Hilbert space 
+Monte Carlo approach} 
 
 \author{Vincenzo Alba}
 \affiliation{International School for Advanced Studies (SISSA),
@@ -150,7 +150,7 @@ simulations~\cite{pozsgay-2014}. While one might argue that the GGE can be ``rep
 by enlarging the set of charges included in~\eqref{rho-gge}, no quantitative study 
 in this direction has been conducted yet {\bf Is that true?}. One intriguing 
 possibility is that local charges are not sufficient, and one has to include 
-quasi-local ones~\cite{ilievski-2015} {\bf more citations}. 
+quasi-local ones~\cite{prosen-2014,pereira-2014,ilievski-2015}. 
 
 On the other hand, numerical methods, such as the time dependent density 
 matrix renormalization group~\cite{white-2004,daley-2004} (tDMRG), have been mostly 
@@ -359,7 +359,7 @@ of the roots can be summed independently, i.e.,
 \langle s|{\mathcal O}|s\rangle=\sum\limits_{n,\gamma}f_{{\mathcal O}}(x_{n;\gamma})
 \end{equation}
 %
-where the sum is over the BGT roots identifying the eigenstate $|s\rangle$, and 
+where $x_{n;\gamma}$ are the BGT roots identifying the eigenstate $|s\rangle$, and 
 $f_{{\mathcal O}}(x)$ depends on the observable. 
 
 
@@ -393,7 +393,7 @@ Carlo data, signaling  that finite-size effects are negligible already for $L=16
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%e
 \begin{figure*}[t]
 \includegraphics*[width=0.99\linewidth]{./draft_figs/fig2}
-\caption{The root densities $\rho_n(x)$ (for $n=1,2,3$) for the infinite temperature 
+\caption{The root distributions $\rho_n(x)$ (for $n=1,2,3$) for the infinite temperature 
  Gibbs (panels (a)-(c)) and the GGE equilibrium states (panels (d)-(f)): Numerical  
  results for the Heisenberg spin chain obtained using the Hilbert space Monte Carlo 
  sampling. Here the GGE is constructed including only ${\mathcal I}_2$ and ${\mathcal I}_4$ 
@@ -455,251 +455,59 @@ state. Eq.~\eqref{gge-mc} and~\eqref{th-limit-1} imply that in the thermodynamic
 the histograms of the BGT roots sampled in the Monte Carlo converge to $\rho_{n}^{sp}$.  
 
 This is supported in Fig.~\ref{fig3} considering several GGEs. Panels (a)-(c) plot the  
-root densities $\rho^{sp}_n(x)$ for $n=1,2,3$ as a function of $x$ for the representative 
+root distributions $\rho^{sp}_n(x)$ for $n=1,2,3$ as a function of $x$ for the representative 
 state (saddle point) of the infinite-temperature Gibbs ensemble. In each panel 
-the different histograms correspond to different chain sizes $18\le L\le 30$. The data are 
-obtained from Monte Carlo histories with $4\cdot 10^5$ Monte Carlo steps. The width of 
-the histogram bins is varied with che chain size as $2/L$. In all the panels the full lines 
-are the analytic results obtained from the Thermodynamic Bethe Ansatz (TBA) 
-(cf.~\eqref{high-t-rho}). Remarkably, the Monte Carlo data are in good agreement with 
-the TBA results. This agreement is perfect for $n=1$, whereas it become progressively 
-worse upon considering larger $n>1$ (see panels (b)(c)). Clearly, the deviations from the 
-TBA result vanish upon increasing the system size (see for instance the arrow in panel (b)). 
-These finite-size effects are larger on the tails of the distributions. This is expected 
-since large rapidities  correspond to large quasi-momenta, which are more sensitive to the 
+the different histograms correspond to different chain sizes $18\le L\le 30$. The data 
+are obtained using $5\cdot 10^5$ Monte Carlo steps. The width of the histogram bins is 
+varied with $L$ as $2/L$. In all the panels the full lines are the analytical   
+Thermodynamic Bethe Ansatz~\cite{taka-book} (TBA) results. Clearly, deviations from 
+the TBA vanish upon increasing the chain size (see for instance the arrow in panel (b)). 
+Moreover, the corrections are larger on the tails of the distributions. This is expected 
+since large roots correspond to large quasi-momenta, which are more sensitive to the 
 lattice effects. Finally, finite-size effects increase with $n$, i.e., with the bound 
-state sizes. The finite-temperature Gibbs ensemble is discuss in Fig.~\ref{fig1} (g), 
-focusing on $\beta=1/2$ and $\beta=1$ (the different histograms in the panel). Only results 
-for $\rho_1(x)$, for a chain with $L=30$ are presented. The infinite temperature histogram is 
-reported for comparison. The continuous lines are now the analytic results obtained by 
-solving the finite-temperature TBA equations and perfectly agree with the Monte Carlo data. 
+state sizes, as expected. The results for the finite-temperature Gibbs ensemble 
+are presented in Fig.~\ref{fig1} (g), for $\beta=1/2$ and $\beta=1$ (the different 
+histograms). We focus on $\rho_1(x)$, restricting ourselves to $L=30$. The 
+infinite temperature histogram is reported for comparison. The continuous lines are now 
+finite-temperature TBA results, and perfectly agree with the Monte Carlo data. 
 Upon lowering the temperature the height of the peak at $x=0$ increases. This reflects 
 that at $\beta=\infty$ the tail of the root distributions vanish exponentially, whereas 
-for $\beta=0$ they are $\sim 1/x^4$. 
-
-Finally, panels (d)-(f) plot $\rho_n(x)$ for the GGE ensemble. Specifically, we focus on the 
-TGGE with the two charges ${\mathcal I}_2,{\mathcal I}_4$ with $\lambda_2=0$ and $\lambda_4=1$. 
-In contrast with the thermal case (see (a)) $\rho_1$ exhibits a double peak structure. Similar 
-to the infite-temperature Gibbs ensemble ((a)-(c) in the Figure), the data suggest that 
-for $L=30$ finite-size effects are negligible, at least for $-2\le x\le 2$. 
+for $\beta=0$ they are $\sim 1/x^4$~\cite{taka-book}. 
+Finally, panels (d)-(f) plot $\rho_n(x)$ for the TGGE constructed with ${\mathcal I}_2,
+{\mathcal I}_4$ at fixed  $\lambda_2=0$, $\lambda_4=1$ and for $L=30$. Interestingly, 
+in contrast with the thermal case (see (a)), $\rho_1$ exhibits a double peak 
+structure at small $x$. Similar to the infite-temperature Gibbs ensemble ((a)-(c) in 
+the Figure), the data suggest that for $L=30$ finite-size effects are negligible, 
+at least for $-2\le x\le 2$. 
 
 
 %#########-- CONCLUSIONS --################################################
-\section{Conclusions}
+\paragraph*{Conclusions.---}
 
+We presented a Monte-Carlo-based scheme for simulating the truncated Generalized 
+Gibbs ensemble (TGGE) in finite-size integrable models. The key idea is to sample the 
+eigenstates of the model using the GGE probability measure. The method relies on the 
+Bethe ansatz formalism, and, in particular, on the Bethe-Gaudin-Takahashi (BGT) equations. 
+The thermodynamic limit can be accessed by standard finite-size scaling analysis. 
+Remarkably, it is possible to extract in a simple way the steady-steate BGT root 
+distributions, which contain full information about the (GGE) ensemble averages 
+in the thermodynamic limit. Finally, it is possible to simulate extensions of 
+the GGE, in which, besides the integral of motion, one includes arbitrary functions 
+of the BGT roots. 
+We bechmarked the method focusing on the spin-$\frac{1}{2}$ isotropic Heisenberg chain. 
+We compared the numerical results with the Generalized Thermodynamic Bethe ansatz, 
+finding excellent agreement. Moreover, for local quantities the finite-size corrections 
+to the GGE expectation values decay exponentially with the chain size. 
 
-%########################################################################
-\section{The string root densities at infinite temperature}
-
-For infinite temperature the densities $\rho_n$ are given as 
-%
-\begin{equation}
-\rho_n(x)=\frac{2}{\pi}\frac{1}{(n^2+x^2)(x^2+(2+n)^2)}
-\end{equation}
-%
-Notice that 
-%
-\begin{equation}
-\int_{-\infty}^{+\infty}\rho_n(x) dx=\frac{1}{n(n+1)(n+2)}
-\end{equation}
-%
-Icluding the first order correction to the infinite temperature result 
-one obtains  
-%
-\begin{multline}
-\label{high-t-rho}
-\rho_n(x)=\frac{2}{\pi}\frac{1}{(n^2+x^2)(x^2+(2+n)^2)}\\-
-\frac{8}{\pi}\frac{n(n+2)}{(n^2+x^2)^2(x^2+(2+n)^2)^2}J\beta+{\mathcal O}
-(J^2\beta^2)
-\end{multline}
-%
-
+As an interesting research direction, we mention that it would be useful to simulate 
+the GGE at fixed value of the conserved charges. This would be the same in spirit as what is done in microcanonical 
+Monte Carlo simulations in lattice gauge theory~\cite{creutz-1983} or molecular 
+dynamics simulations~\cite{lustig-1998}. It should be possible to employ the same 
+techniques for the GGE. 
 
 %##########################################################################
+
 \begin{thebibliography}{99}
-
-\bibitem{rigol-2007}
-M.~Rigol, V.~Dunjko, V.~Yurovsky, and M.~Olshanii, Phys.\ Rev.\ Lett.\ 
-{\bf 98}, 050405 (2007). 
-
-\bibitem{popescu-2006}
-S.~Popescu, A.~J.~Short, and A.~Winter, 
-Nature\ Physics\ {\bf 2}, 754 (2006). 
-
-\bibitem{rigol-2008}
-M.~Rigol, V.~Dunjko, and M.~Olshanii, Nature {\bf 452}, 854 (2008). 
-
-\bibitem{polkovnikov-2011}
-A.~Polkovnikov, K.~Sengupta, and M.~Vengalattore, Rev.\ Mod.\ Phys.\ 
-{\bf 83}, 863 (2011). 
-
-
-\bibitem{eisert-2014}
-J.~Eisert., M.~Friesdorf, and C.~Gogolin, arXiv:1408.5148. 
-
-
-\bibitem{kollath-2007}
-C.~Kollath, A.~M.~L\"auchli, and E.~Altman, Phys.\ Rev.\ Lett.\ 
-{\bf 98}, 180601 (2007).
-
-\bibitem{manmana-2007}
-S.~R.~Manmana, S.~Wessel, R.~M.~Noack, and A.~Muramatsu, 
-Phys.\ Rev.\ Lett.\ {\bf 98}, 210405 (2007).
-
-\bibitem{calabrese-2007}
-P.~Calabrese and J.~Cardy, J.\ Stat.\ Mech.\ P06008 (2007). 
-
-\bibitem{cramer-2008}
-M.~Cramer, C.~M.~Dawson, J.~Eisert, and T.~J.~Osborne, Phys.\ Rev.\ 
-Lett.\ {\bf 100}, 030602 (2008).
-
-\bibitem{barthel-2008}
-T.~Barthel and U.~Schollw\"ock, Phys.\ Rev.\ Lett.\ {\bf 100}, 100601 
-(2008). 
-
-\bibitem{cramer-2008a}
-M.~Cramer, A.~Flesch, I.~P.~McCulloch, U.~Schollw\"ock, and J.~Eisert, 
-Phys.\ Rev.\ Lett.\ {\bf 101}, 063001 (2008).
-
-\bibitem{kollar-2008}
-M.~Kollar and M.~Eckstein, Phys.\ Rev.\ A {\bf 78}, 013626 (2008). 
-
-\bibitem{iucci-2009}
-A.~Iucci and M.~A.~Cazalilla, Phys.\ Rev.\ A {\bf 80}, 063619 
-(2009).
-
-\bibitem{sotiriadis-2009}
-S.~Sotiriadis, P.~Calabrese, and J.~Cardy, EPL {\bf 87}, 20002 (2009). 
-
-\bibitem{roux-2009}
-G. Roux, Phys.\ Rev.\ A {\bf 79}, 021608 (2009). 
-
-\bibitem{rigol-2009}
-M.~Rigol, Phys.\ Rev.\ Lett.\ {\bf 103}, 100403 (2009).
-
-\bibitem{rigol-2009a}
-M.~Rigol,  Phys.\ Rev.\ A {\bf 80}, 053607 (2009).
-
-\bibitem{barmettler-2009}
-P.~Barmettler, M.~Punk, V.~Gritsev, E.~Demler, and E.~Altman, Phys.\ Rev.\ 
-Lett.\ {\bf 102}, 130603 (2009).
-
-\bibitem{barmettler-2010}
-P.~Barmettler, M.~Punk, V.~Gritsev, E.~Demler, and E.~Altman, New\ J.\ Phys.\ 
-{\bf 12}, 055017 (2010).
-
-\bibitem{cramer-2010}
-M.~Cramer and J.~Eisert, New\ J.\ Phys.\ {\bf 12}, 055020 (2010). 
-
-\bibitem{flesch-2010}
-A.~Flesch, M.~Cramer, I.~P.~McCulloch, U.~Schollw\"ock, and 
-J.~Eisert, Phys.\ Rev.\ A {\bf 78}, 033608 (2008).
-
-\bibitem{roux-2010}
-G.~Roux, Phys.\ Rev.\ A {\bf 81}, 053604 (2010).
-
-\bibitem{fioretto-2010}
-D.~Fioretto and G.~Mussardo, New\ J.\ Phys.\ {\bf 12}, 
-055015 (2010).
-
-\bibitem{biroli-2010}
-G.~Biroli, C.~Kollath, and A.~M.~L\"auchli, Phys.\ Rev.\ Lett.\ 
-{\bf 105}, 250401 (2010). 
-
-\bibitem{santos-2010}
-L.~F.~Santos and M.~Rigol, Phys.\ Rev.\ E {\bf 82}, 031130 (2010). 
-
-\bibitem{banuls-2011}
-M.~C.~Ba\~nuls, J.~I.~Cirac, and M.~B.~Hastings, Phys.\ Rev.\ Lett.\ 
-{\bf 106}, 050405 (2011). 
-
-\bibitem{calabrese-2011}
-P.~Calabrese, F.~H.~L.~Essler, and M.~Fagotti, Phys.\ Rev.\ Lett. 
-{\bf 106}, 227203 (2011).
-
-\bibitem{gogolin-2011}
-C.~Gogolin, M.~P.~Mueller, and J.~Eisert, Phys.\ Rev.\ Lett.\ 
-{\bf 106}, 040401 (2011).
-
-\bibitem{rigol-2011}
-M.~Rigol and M.~Fitzpatrick, Phys.\ Rev.\ A {\bf 84}, 033640 (2011).
-
-\bibitem{caneva-2011}
-T.~Caneva, E.~Canovi, D.~Rossini, G.~E.~Santoro, and A.~Silva, 
-J.\ Stat.\ Mech.\ (2011) P07015. 
-
-\bibitem{santos-2011}
-L.~Santos, A.~Polkovnikov, and M.~Rigol, Phys.\ Rev.\ Lett.\ {\bf 107}, 
-040601 (2011).
-
-\bibitem{cassidy-2011}
-A.~C.~Cassidy, C.~W.~Clark, and M.~Rigol, 
-Phys.\ Rev.\ Lett.\ {\bf 106}, 140405 (2011). 
-
-\bibitem{essler-2012}
-F.~H.~L.~Essler, S.~Evangelisti, and M.~Fagotti, Phys.\ Rev.\ Lett.\ 
-{\bf 109}, 247206 (2012). 
-
-\bibitem{cazalilla-2012}
-M.~A.~Cazalilla, A.~Iucci, and M.-C.~Chung, Phys.\ Rev.\ E {\bf 85}, 
-011133 (2012). 
-
-\bibitem{mossel-2012a}
-J.~Mossel and J.-S.~Caux, New\ J.\ Phys.\ {\bf 14} 075006 (2012).
-
-\bibitem{rigol-2012}
-M.~Rigol and M.~Srednicki, Phys.\ Rev.\ Lett.\ {\bf 108}, 110601 
-(2012).
-
-
-\bibitem{mossel-2012}
-J.~Mossel and J.-S.~Caux, J.\ Phys.\ A:\ Math.\ Theor.\ {\bf 45}, 
-255001 (2012). 
-
-\bibitem{fagotti-2013}
-M.~Fagotti and F.~H.~L.~Essler, Phys.\ Rev.\ B {\bf 87}, 245107 (2013).
-
-\bibitem{fagotti-2013a}
-M.~Fagotti, Phys.\ Rev.\ B {\bf 87}, 165106 (2013). 
-
-
-\bibitem{collura-2013}
-M.~Collura, S.~Sotiriadis, and P.~Calabrese, Phys.\ Rev.\ Lett.\ 
-{\bf 110}, 245301 (2013). 
-
-\bibitem{caux-2013}
-J.-S.~Caux and F.~H.~L.~Essler, Phys.\ Rev.\ Lett.\ {\bf 110}, 
-257203 (2013). 
-
-\bibitem{kormos-2013}
-M.~Kormos, A.~Shashi, Y.-Z.~Chou, J.-S.~Caux, and A.~Imambekov, 
-Phys.\ Rev.\ B {\bf 88}, 205131 (2013). 
-
-\bibitem{bertini-2014}
-B.~Bertini, D.~Schuricht, and F.~H.~L.~Essler, arXiv:1405.4813 (2014).
-
-\bibitem{sotiriadis-2014}
-S.~Sotiriadis and P.~Calabrese, J.\ Stat.\ Mech.\ (2014) P07024. 
-
-\bibitem{essler-2014}
-F.~H.~L.~Essler, S.~Kehrein, S.~R.~Manmana, and N.~J.~Robinson, Phys.\ Rev.\ 
-B {\bf 89}, 165104 (2014).
-
-\bibitem{fagotti-2014}
-M.~Fagotti, M.~Collura, F.~H.~L.~Essler, and P.~Calabrese, Phys.\ Rev.\ B 
-{\bf 89}, 125101 (2014).
-
-\bibitem{fagotti-2014a}
-M.~Fagotti, J.\ Stat.\ Mech.\ (2014) P03016. 
-
-\bibitem{wouters-2014}
-B.~Wouters, J.~De~Nardis, M.~Brockmann, D.~Fioretto, M.~Rigol, and 
-J.-S.~Caux, Phys.\ Rev.\ Lett.\ {\bf 113}, 117202 (2014). 
-
-\bibitem{pozsgay-2014}
-B.~Pozsgay, M.~Mesty\'an, M.~A.~Werner, M.~Kormos, G.~Zar\`and, and 
-G.~Tak\'acs, Phys.\ Rev.\ Lett.\ {\bf 113}, 117203 (2014).
-
 \bibitem{greiner-2002}
 M.~Greiner, O.~Mandel, T. H\"ansch, and I.~Bloch, Nature (London) 
 {\bf 419}, 51 (2002). 
@@ -764,215 +572,31 @@ S.~Braun, M.~Friesdorf, S.~Hodgman, M.~Schreiber, J.~Ronzheimer, A.~Riera, M.~de
 I.~Bloch, J.~Eisert, and U.~Schneider, arXiv:1403.7199.
 
 
-\bibitem{deutsch-1991}
-J.~M.~Deutsch, Phys.\ Rev.\ A {\bf 43}, 2046 (1991).
+\bibitem{polkovnikov-2011}
+A.~Polkovnikov, K.~Sengupta, and M.~Vengalattore, Rev.\ Mod.\ Phys.\ 
+{\bf 83}, 863 (2011). 
 
-\bibitem{srednicki-1994}
-M.~Srednicki, Phys.\ Rev.\ E {\bf 50}, 888 (1994). 
+\bibitem{barthel-2008}
+T.~Barthel and U.~Schollw\"ock, Phys.\ Rev.\ Lett.\ {\bf 100}, 100601 
+(2008). 
 
-\bibitem{srednicki-1996}
-M.~Srednicki, J.\ Phys.\ A {\bf 29}, L75 (1996).
+\bibitem{rigol-2008}
+M.~Rigol, V.~Dunjko, and M.~Olshanii, Nature {\bf 452}, 854 (2008). 
 
-\bibitem{srednicki-1999}
-M.~Srednicki, J.\ Phys.\ A {\bf 32}, 1163 (1999).  
-
-\bibitem{goldstein-2006}
-S.~Goldstein, J.~L.~Lebowitz, R.~Tumulka, and N.~Zangh\'i, 
-Phys.\ Rev.\ Lett.\ {\bf 96}, 050403 (2006). 
-
-\bibitem{goldstein-2010}
-S.~Goldstein, J.~L.~Lebowitz, C.~Mastrodonato, R.~Tumulka, and 
-N.~Zanghi, Proc.\ R.\ Soc.\ A {\bf 466}, 3203 (2010).
-
-\bibitem{goldstein-2010a}
-S.~Goldstein, J.~L.~Lebowitz, R.~Tumulka, and N.~Zanghi, 
-Eur.\ Phys.\ J.\ H {\bf 35}, 173 (2010). 
-
-\bibitem{ikeda-2011}
-T.~N.~Ikeda, Y.~Watanabe, and M.~Ueda, Phys.\ Rev.\ E {\bf 84}, 
-021130 (2011). 
-
-\bibitem{ikeda-2013} 
-T.~N.~Ikeda, Y.~Watanabe, and M.~Ueda, Phys.\ Rev.\ E {\bf 87}, 
-012125 (2013). 
-
-\bibitem{steinigeweg-2013}
-    R.~Steinigeweg, J.~Herbrych, and P.~Prelov\v{s}ek, Phys.\ Rev.\ E 
-{\bf 87}, 012118 (2013).
-
-\bibitem{beugeling-2013} 
-W.~Beugeling, R.~Moessner, and M.~Haque, Phys.\ Rev.\ E {\bf 89}, 
-042112 (2014). 
-
-\bibitem{steinigeweg-2014}
-R.~Steinigeweg, A.~Khodja, H.~Niemeyer, C.~Gogolin, and 
-J.~Gemmer, Phys.\ Rev.\ Lett.\ {\bf 112}, 130403 (2014). 
-
-\bibitem{sorg-2014}
-S.~Sorg, L.~Vidmar, L.~Pollet, and F.~Heidrich-Meisner, 
-arXiv:1405.5404v2. 
-
-\bibitem{beugeling-2014} 
-W.~Beugeling, R.~Moessner, and M.~Haque, arXiv:1407.2043. 
-
-\bibitem{khemani-2014}
-V.~Khemani, A.~Chandran, H.~Kim, and S.~L.~Sondhi, 
-arXiv:1406.4863. 
-
-\bibitem{kim-2014}
-H.~Kim, T.~N.~Ikeda, and D.~Huse, arXiv:1408.0535. 
-
-
-\bibitem{bonnes-2014}
-L.~Bonnes, F.~H.~L.~Essler, and A.~M.~L\"auchli, arXiv:1404.4062 (2014).
-
-\bibitem{caux-2011}
-J.-S.~Caux and J.~Mossel, J.\ Stat.\ Mech.\ (2011) P02023. 
-
-\bibitem{alba-2009}
-V.~Alba, M.~Fagotti, and P.~Calabrese, J.\ Stat.\ Mech.\ (2009) 
-P10020. 
-
-\bibitem{kitanine-1999}
-N.~Kitanine, J.~M.~Maillet, and V.~Terras, Nucl.\ Phys.\ B {\bf 554}, 
-647 (1999).
-
-\bibitem{kitanine-2000}
-N.~Kitanine, J.~M.~Maillet, and V.~Terras, Nucl.\ Phys.\ B {\bf 567}, 
-554 (2000).
-
-\bibitem{amico-2008} L.~Amico, R.~Fazio, 
-A.~Osterloh, and V.~Vedral, Rev.\ Mod.\ Phys.\ {\bf 80}, 517 (2008).
-
-\bibitem{taka-book}
-M.~Takahashi, {\it Thermodynamics of one-dimensional solvable models}, 
-Cambridge University Press 1999. 
-
-\bibitem{yang-1969}
-C.~N.~Yang and C.~P.~Yang, J.\ Math.\ Phys. {\bf 10}, 1115 (1969).
-
-\bibitem{takahashi-1971} 
-M.~Takahashi, Prog.\ Theor.\ Phys.\ {\bf 46}, 401 (1971). 
-
-\bibitem{grabowski-1995}
-M.~P.~Grabowski and P.~Mathieu, Ann.\ Phys.\ N.Y. {\bf 243}, 
-299 (1995). 
-
-\bibitem{eisert-2009}
-J. Eisert, M. Cramer, and M. B. Plenio, Rev.\ Mod.\ Phys.\ {\bf 82}, 
-277 (2009). 
-
-\bibitem{calabrese-2009}
-P.~Calabrese, J.~Cardy, and B. Doyon Eds., Special issue: Entanglement 
-entropy in extended systems, J.\ Phys.\ A {\bf 42}, 50 (2009).
-
-\bibitem{cc-rev}
-P.~Calabrese and J.~Cardy, J.\ Phys.\ A {\bf 42} 504005 (2009).
-
-\bibitem{kor-book}
-V.~E.~Korepin, N.~M.~Bogoliubov, and A.~G.~Izergin, \emph{Quantum 
-Inverse Scattering Methods and Correlation Functions}, Cambridge 
-University Press 1997. 
-
-\bibitem{zotos-1996}
-X.~Zotos and P.~Prelov\v{s}ek, Phys.\ Rev.\ B {\bf 53}, 
-983 (1996).
-
-\bibitem{castella-1996}
-H.~Castella and X.~Zotos, Phys.\ Rev.\ B {\bf 54}, 4375 (1996).
-
-\bibitem{zotos-1997}
-X.~Zotos, F.~Naef, and P.~Prelov\v{s}ek, Phys.\ Rev.\ B {\bf 55}, 
-11029 (1997)
-
-\bibitem{alcaraz-2011}
-F.~C.~Alcaraz, M.~I.~Berganza, and G.~Sierra, Phys.\ Rev.\ Lett.\ 
-{\bf 106}, 201601 (2011).
-
-\bibitem{pizorn-2012}
-I.~Pizorn, arXiv:1202.3336. 
-
-\bibitem{berganza-2012}
-M.~I.~Berganza, F.~C.~Alcaraz, and G.~Sierra, J.\ Stat.\ Mech.\ 
-(2012) P01016. 
-
-\bibitem{wong-2013}
-G.~Wong, I.~Klich, L.~A.~P.~Zayas, and D.~Vaman, 
-JHEP {\bf12} (2013) 020. 
-
-\bibitem{storms-2013}
-M.~Storms, and R.~R.~P.~Singh, Phys.\ Rev.\ E {\bf 89}, 012125 
-(2014). 
-
-\bibitem{berkovits-2013}
-R.~Berkovits, Phys.\ Rev.\ B {\bf 87}, 075141 (2013). 
-
-\bibitem{essler-2013}
-F.~H.~L.~Essler, A.~M.~L\"auchli, and P.~Calabrese, Phys.\ Rev.\ Lett.\ 
-{\bf 110}, 115701 (2013).  
-
-\bibitem{nozaki-2014}
-M.~Nozaki, T.~Numasawa, T.~Takayanagi, Phys.\ Rev.\ Lett.\ {\bf 112}, 
-111602 (2014).
-
-\bibitem{ramirez-2014}
-G.~Ramirez, J.~Rodriguez-Laguna, and G.~Sierra, arXiv:1402.5015.
-
-\bibitem{ares-2014}
-F.~Ares, J.~G.~Esteve, F.~Falceto, and E.~S\'anchez-Burillo, 
-arXiv:1401.5922.
-
-\bibitem{huang-2014}
-Y.~ Huang, and J.~Moore,  arXiv:1405.1817.
-
-\bibitem{palmai-2014}
-T.~P\'almai, arXiv:1406.3182.
-
-\bibitem{molter-2014}
-J.~M\"olter, T.~Barthel,U.~Schollw\"ock, and V.~Alba, 
-arXiv:1407.0066. 
-
-\bibitem{lai-2014}
-H.-H.~Lai and K.~Yang, arXiv:1409:1224
-
-
-\bibitem{sato-2011}
-J.~Sato, B.~Aufgebauer, H.~Boos, F.~G\"ohmann, A.~Kl\"umper, 
-M.~Takahashi, and C.~Trippe, Phys.\ Rev.\ Lett.\ {\bf 106}, 257201 
-(2011). 
-
-\bibitem{fagotti-2008}
-M.~Fagotti and P.~Calabrese, Phys.\ Rev.\ A {\bf 78}, 010306 (2008).
-
-\bibitem{gurarie-2013}
-V.~Gurarie, J.\ Stat.\ Mech.\ (2014) P02014. 
-
-\bibitem{collura-2014}
-M.~Collura, M.~Kormos, and P.~Calabrese, J.\ Stat.\ Mech.\ (2014) P01009. 
-
-\bibitem{kormos-2014}
-M.~Kormos, L.~Bucciantini, and P.~Calabrese, EPL {\bf 107}, 40002 (2014). 
-
-\bibitem{caux-2005}
-J.-S.~Caux and J.-M.~Maillet, Phys.\ Rev.\ Lett.\ {\bf 95}, 077201 (2005).
-
-\bibitem{caux-2005a}
-J.-S.~Caux, R.~Hagemans and J.-M.~Maillet, J.\ Stat.\ Mech.\ P09003 (2005). 
-
-\bibitem{caux-2009}
-J.-S.~Caux, J.\ Math.\ Phys.\ {\bf 50}, 095214 (2009).
-
+\bibitem{caux-2013}
+J.-S.~Caux and F.~H.~L.~Essler, Phys.\ Rev.\ Lett.\ {\bf 110}, 
+257203 (2013). 
 
 \bibitem{pozsgay-2014}
 B.~Pozsgay, M.~Mesty\'an, M.~A.~Werner, M.~Kormos, G.~Zar\'and, and G.~Tak\'acs,
 Phys.\ Rev.\ Lett.\ {\bf 113}, 117203 (2014). 
 
-\bibitem{wouters-2014}
-B.~Wouters, M.~Brockmann, J.~De~Nardis, D.~Fioretto, M.~Rigol, and J.-S.~Caux, 
-Phys.\ Rev.\ Lett.\ {\bf 113}, 117202 (2014). 
+\bibitem{prosen-2014}
+T.~Prosen, Nucl.\ Phys.\ B\ {\bf 886}, (2014) 1177.
 
-\bibitem{gu-2005}
-S.-J.~Gu, N.~M.~R.~Peres, Y.-Q.~Li, Eur.\ Phys.\ J.\ B {\bf 48}, 157 (2005). 
+\bibitem{pereira-2014}
+R.~G.~Pereira, V.~Pasquier, J.~Sirker, and I.~Affleck, J.\ Stat.\ Mech.\ 
+(2014) P09037. 
 
 \bibitem{ilievski-2015}
 E.~Ilievski, M.~Medejak, and T.~Prosen, arXiv:1506.05049.
@@ -984,39 +608,402 @@ S.~R.~White and A.~E.~Feiguin, Phys.\ Rev.\ Lett.\ {\bf 93}, 076401 (2004).
 A.~J.~Daley, C.~Kollath, U.~Schollock, and G.~Vidal, J.\ Stat.\ Mech.\ (2004) P04005.
 
 
-\bibitem{calabrese-2007}
-P.~Calabrese and J.~Cardy, J.\ Stat.\ Mech.\ (2007) P06008.
+\bibitem{gu-2005}
+S.-J.~Gu, N.~M.~R.~Peres, Y.-Q.~Li, Eur.\ Phys.\ J.\ B {\bf 48}, 157 (2005). 
 
-\bibitem{iucci-2009}
-A.~Iucci and M.~A.~Cazalilla, Phys.\ Rev.\ A\ {\bf 80}, 063619 (2009).
-
-\bibitem{calabrese-2011}
-P.~Calabrese, F.~H.~L.~Essler, and M.~Fagotti, Phys.\ Rev.\ Lett.\ {\bf106}, 227203 (2011).
-
-\bibitem{calabrese-2012}
-P.~Calabrese, F.~H.~L.~Essler, and M.~Fagotti, J.\ Stat.\ Mech.\ (2012) P07016.
-
-\bibitem{calabrese-2012-a}
-P.~Calabrese, F.~H.~L.~Essler, and M.~Fagotti, J.\ Stat.\ Mech.\ (2012) P07022.
-
-\bibitem{fagotti-2013}
-M.~Fagotti and F.~H.~L.~Essler, Phys.\ Rev.\ B\ {\bf87}, 245107 (2013).
+\bibitem{grabowski-1995}
+M.~P.~Grabowski and P.~Mathieu, Ann.\ Phys.\ N.Y. {\bf 243}, 
+299 (1995). 
 
 
-\bibitem{collura-2013}
-M.~Collura, S.~Sotiriadis and P.~Calabrese, Phys.\ Rev.\ Lett.\ {\bf 110}, 245301 (2013)
 
-\bibitem{collura-2013-a}
-M.~Collura, S.~Sotiriadis and P.~Calabrese, J.\ Stat.\ Mech.\ (2013) P09025.
+\bibitem{taka-book}
+M.~Takahashi, {\it Thermodynamics of one-dimensional solvable models}, 
+Cambridge University Press 1999. 
 
-\bibitem{kormos-2013}
-M.~Kormos, M.~Collura and P.~Calabrese, arXiv:1307.2142.
+\bibitem{kor-book}
+V.~E.~Korepin, N.~M.~Bogoliubov, and A.~G.~Izergin, \emph{Quantum 
+Inverse Scattering Methods and Correlation Functions}, Cambridge 
+University Press 1997. 
 
-\bibitem{mussardo-2013}
-G.~Mussardo, Phys.\ Rev.\ Lett.\ {\bf 111}, 100401 (2013).
+\bibitem{creutz-1983}
+M.~Creutz, Phys.\ Rev.\ Lett.\ {\bf 50}, 1411 (1983).
+
+\bibitem{lustig-1998}
+R.~Lustig, J.\ Chem.\ Phys.\ {\bf 109}, 8816 (1998).
+
+%\bibitem{goldstein-2006}
+
+%S.~Goldstein, J.~L.~Lebowitz, R.~Tumulka, and N.~Zangh\'i, 
+
+%Phys.\ Rev.\ Lett.\ {\bf 96}, 050403 (2006). 
+
+%\bibitem{goldstein-2010}
+
+%S.~Goldstein, J.~L.~Lebowitz, C.~Mastrodonato, R.~Tumulka, and 
+
+%N.~Zanghi, Proc.\ R.\ Soc.\ A {\bf 466}, 3203 (2010).
+
+%\bibitem{goldstein-2010a}
+
+%S.~Goldstein, J.~L.~Lebowitz, R.~Tumulka, and N.~Zanghi, 
+
+%Eur.\ Phys.\ J.\ H {\bf 35}, 173 (2010). 
+
+%\bibitem{ikeda-2011}
+
+%T.~N.~Ikeda, Y.~Watanabe, and M.~Ueda, Phys.\ Rev.\ E {\bf 84}, 
+
+%021130 (2011). 
+
+%\bibitem{ikeda-2013} 
+
+%T.~N.~Ikeda, Y.~Watanabe, and M.~Ueda, Phys.\ Rev.\ E {\bf 87}, 
+
+%012125 (2013). 
+
+%\bibitem{steinigeweg-2013}
+
+%    R.~Steinigeweg, J.~Herbrych, and P.~Prelov\v{s}ek, Phys.\ Rev.\ E 
+
+%{\bf 87}, 012118 (2013).
+
+%\bibitem{beugeling-2013} 
+
+%W.~Beugeling, R.~Moessner, and M.~Haque, Phys.\ Rev.\ E {\bf 89}, 
+
+%042112 (2014). 
+
+%\bibitem{steinigeweg-2014}
+
+%R.~Steinigeweg, A.~Khodja, H.~Niemeyer, C.~Gogolin, and 
+
+%J.~Gemmer, Phys.\ Rev.\ Lett.\ {\bf 112}, 130403 (2014). 
+
+%\bibitem{sorg-2014}
+
+%S.~Sorg, L.~Vidmar, L.~Pollet, and F.~Heidrich-Meisner, 
+
+%arXiv:1405.5404v2. 
+
+%\bibitem{beugeling-2014} 
+
+%W.~Beugeling, R.~Moessner, and M.~Haque, arXiv:1407.2043. 
+
+%\bibitem{khemani-2014}
+
+%V.~Khemani, A.~Chandran, H.~Kim, and S.~L.~Sondhi, 
+
+%arXiv:1406.4863. 
+
+%\bibitem{kim-2014}
+
+%H.~Kim, T.~N.~Ikeda, and D.~Huse, arXiv:1408.0535. 
+
+%\bibitem{bonnes-2014}
+
+%L.~Bonnes, F.~H.~L.~Essler, and A.~M.~L\"auchli, arXiv:1404.4062 (2014).
+
+%\bibitem{alba-2009}
+
+%V.~Alba, M.~Fagotti, and P.~Calabrese, J.\ Stat.\ Mech.\ (2009) 
+
+%P10020. 
+
+%\bibitem{kitanine-1999}
+
+%N.~Kitanine, J.~M.~Maillet, and V.~Terras, Nucl.\ Phys.\ B {\bf 554}, 
+
+%647 (1999).
+
+%\bibitem{kitanine-2000}
+
+%N.~Kitanine, J.~M.~Maillet, and V.~Terras, Nucl.\ Phys.\ B {\bf 567}, 
+
+%554 (2000).
+
+%\bibitem{amico-2008} L.~Amico, R.~Fazio, 
+
+%A.~Osterloh, and V.~Vedral, Rev.\ Mod.\ Phys.\ {\bf 80}, 517 (2008).
+
+%\bibitem{eisert-2009}
+
+%J. Eisert, M. Cramer, and M. B. Plenio, Rev.\ Mod.\ Phys.\ {\bf 82}, 
+
+%277 (2009). 
+
+%\bibitem{calabrese-2009}
+
+%P.~Calabrese, J.~Cardy, and B. Doyon Eds., Special issue: Entanglement 
+
+%entropy in extended systems, J.\ Phys.\ A {\bf 42}, 50 (2009).
+
+%\bibitem{cc-rev}
+
+%P.~Calabrese and J.~Cardy, J.\ Phys.\ A {\bf 42} 504005 (2009).
+
+%\bibitem{alcaraz-2011}
+
+%.~C.~Alcaraz, M.~I.~Berganza, and G.~Sierra, Phys.\ Rev.\ Lett.\ 
+
+%\bf 106}, 201601 (2011).
+
+%bibitem{pizorn-2012}
+
+%.~Pizorn, arXiv:1202.3336. 
+
+%bibitem{berganza-2012}
+
+%.~I.~Berganza, F.~C.~Alcaraz, and G.~Sierra, J.\ Stat.\ Mech.\ 
+
+%(2012) P01016. 
+
+%\bibitem{wong-2013}
+
+%G.~Wong, I.~Klich, L.~A.~P.~Zayas, and D.~Vaman, 
+
+%JHEP {\bf12} (2013) 020. 
+
+%\bibitem{storms-2013}
+
+%M.~Storms, and R.~R.~P.~Singh, Phys.\ Rev.\ E {\bf 89}, 012125 
+
+%(2014). 
+
+%\bibitem{berkovits-2013}
+
+%R.~Berkovits, Phys.\ Rev.\ B {\bf 87}, 075141 (2013). 
+
+%\bibitem{essler-2013}
+
+%F.~H.~L.~Essler, A.~M.~L\"auchli, and P.~Calabrese, Phys.\ Rev.\ Lett.\ 
+
+%{\bf 110}, 115701 (2013).  
+
+%\bibitem{nozaki-2014}
+
+%M.~Nozaki, T.~Numasawa, T.~Takayanagi, Phys.\ Rev.\ Lett.\ {\bf 112}, 
+
+%111602 (2014).
+
+%\bibitem{ramirez-2014}
+
+%G.~Ramirez, J.~Rodriguez-Laguna, and G.~Sierra, arXiv:1402.5015.
+
+%\bibitem{ares-2014}
+
+%F.~Ares, J.~G.~Esteve, F.~Falceto, and E.~S\'anchez-Burillo, 
+
+%arXiv:1401.5922.
+
+%\bibitem{huang-2014}
+
+%Y.~ Huang, and J.~Moore,  arXiv:1405.1817.
+
+%\bibitem{palmai-2014}
+
+%T.~P\'almai, arXiv:1406.3182.
+
+%\bibitem{molter-2014}
+
+%J.~M\"olter, T.~Barthel,U.~Schollw\"ock, and V.~Alba, 
+
+%arXiv:1407.0066. 
+
+%\bibitem{lai-2014}
+
+%H.-H.~Lai and K.~Yang, arXiv:1409:1224
+
+%\bibitem{sato-2011}
+
+%J.~Sato, B.~Aufgebauer, H.~Boos, F.~G\"ohmann, A.~Kl\"umper, 
+
+%M.~Takahashi, and C.~Trippe, Phys.\ Rev.\ Lett.\ {\bf 106}, 257201 
+
+%(2011). 
+
+%\bibitem{gurarie-2013}
+
+%V.~Gurarie, J.\ Stat.\ Mech.\ (2014) P02014. 
 
 \end{thebibliography}
 
+
+%Unused bibitems
+
+%\bibitem{collura-2014}
+%M.~Collura, M.~Kormos, and P.~Calabrese, J.\ Stat.\ Mech.\ (2014) P01009. 
+%\bibitem{collura-2013}
+%M.~Collura, S.~Sotiriadis and P.~Calabrese, Phys.\ Rev.\ Lett.\ {\bf 110}, 245301 (2013)
+%\bibitem{flesch-2010}
+%A.~Flesch, M.~Cramer, I.~P.~McCulloch, U.~Schollw\"ock, and 
+%J.~Eisert, Phys.\ Rev.\ A {\bf 78}, 033608 (2008).
+%\bibitem{kormos-2014}
+%M.~Kormos, L.~Bucciantini, and P.~Calabrese, EPL {\bf 107}, 40002 (2014). 
+%\bibitem{fagotti-2014a}
+%M.~Fagotti, J.\ Stat.\ Mech.\ (2014) P03016. 
+%\bibitem{barmettler-2009}
+%P.~Barmettler, M.~Punk, V.~Gritsev, E.~Demler, and E.~Altman, Phys.\ Rev.\ 
+%Lett.\ {\bf 102}, 130603 (2009).
+%\bibitem{yang-1969}
+%C.~N.~Yang and C.~P.~Yang, J.\ Math.\ Phys. {\bf 10}, 1115 (1969).
+%\bibitem{manmana-2007}
+%S.~R.~Manmana, S.~Wessel, R.~M.~Noack, and A.~Muramatsu, 
+%Phys.\ Rev.\ Lett.\ {\bf 98}, 210405 (2007).
+%\bibitem{fagotti-2013}
+%M.~Fagotti and F.~H.~L.~Essler, Phys.\ Rev.\ B\ {\bf87}, 245107 (2013).
+%
+%\bibitem{srednicki-1996}
+%M.~Srednicki, J.\ Phys.\ A {\bf 29}, L75 (1996).
+%\bibitem{kormos-2013}
+%M.~Kormos, M.~Collura and P.~Calabrese, arXiv:1307.2142.
+%\bibitem{kollar-2008}
+%M.~Kollar and M.~Eckstein, Phys.\ Rev.\ A {\bf 78}, 013626 (2008). 
+%\bibitem{cassidy-2011}
+%A.~C.~Cassidy, C.~W.~Clark, and M.~Rigol, 
+%Phys.\ Rev.\ Lett.\ {\bf 106}, 140405 (2011). 
+%\bibitem{essler-2012}
+%F.~H.~L.~Essler, S.~Evangelisti, and M.~Fagotti, Phys.\ Rev.\ Lett.\ 
+%{\bf 109}, 247206 (2012). 
+%\bibitem{santos-2011}
+%L.~Santos, A.~Polkovnikov, and M.~Rigol, Phys.\ Rev.\ Lett.\ {\bf 107}, 
+%040601 (2011).
+%\bibitem{fioretto-2010}
+%D.~Fioretto and G.~Mussardo, New\ J.\ Phys.\ {\bf 12}, 
+%055015 (2010).
+%\bibitem{caux-2011}
+%J.-S.~Caux and J.~Mossel, J.\ Stat.\ Mech.\ (2011) P02023. 
+%
+%
+%\bibitem{rigol-2012}
+%M.~Rigol and M.~Srednicki, Phys.\ Rev.\ Lett.\ {\bf 108}, 110601 
+%(2012).
+%
+%\bibitem{kollath-2007}
+%C.~Kollath, A.~M.~L\"auchli, and E.~Altman, Phys.\ Rev.\ Lett.\ 
+%{\bf 98}, 180601 (2007).
+%\bibitem{srednicki-1999}
+%M.~Srednicki, J.\ Phys.\ A {\bf 32}, 1163 (1999).  
+%
+%
+%
+%
+%
+%
+%
+%\bibitem{sotiriadis-2014}
+%S.~Sotiriadis and P.~Calabrese, J.\ Stat.\ Mech.\ (2014) P07024. 
+%\bibitem{fagotti-2013a}
+%M.~Fagotti, Phys.\ Rev.\ B {\bf 87}, 165106 (2013). 
+%
+%\bibitem{iucci-2009}
+%A.~Iucci and M.~A.~Cazalilla, Phys.\ Rev.\ A\ {\bf 80}, 063619 (2009).
+%\bibitem{bertini-2014}
+%B.~Bertini, D.~Schuricht, and F.~H.~L.~Essler, arXiv:1405.4813 (2014).
+%\bibitem{santos-2010}
+%L.~F.~Santos and M.~Rigol, Phys.\ Rev.\ E {\bf 82}, 031130 (2010). 
+%\bibitem{cramer-2008a}
+%M.~Cramer, A.~Flesch, I.~P.~McCulloch, U.~Schollw\"ock, and J.~Eisert, 
+%Phys.\ Rev.\ Lett.\ {\bf 101}, 063001 (2008).
+%\bibitem{calabrese-2012-a}
+%P.~Calabrese, F.~H.~L.~Essler, and M.~Fagotti, J.\ Stat.\ Mech.\ (2012) P07022.
+%\bibitem{roux-2010}
+%G.~Roux, Phys.\ Rev.\ A {\bf 81}, 053604 (2010).
+%\bibitem{gogolin-2011}
+%C.~Gogolin, M.~P.~Mueller, and J.~Eisert, Phys.\ Rev.\ Lett.\ 
+%{\bf 106}, 040401 (2011).
+%\bibitem{collura-2013-a}
+%M.~Collura, S.~Sotiriadis and P.~Calabrese, J.\ Stat.\ Mech.\ (2013) P09025.
+%\bibitem{deutsch-1991}
+%J.~M.~Deutsch, Phys.\ Rev.\ A {\bf 43}, 2046 (1991).
+%\bibitem{zotos-1997}
+%X.~Zotos, F.~Naef, and P.~Prelov\v{s}ek, Phys.\ Rev.\ B {\bf 55}, 
+%11029 (1997)
+%
+%
+%
+%
+%
+%
+%
+%
+%\bibitem{fagotti-2014}
+%M.~Fagotti, M.~Collura, F.~H.~L.~Essler, and P.~Calabrese, Phys.\ Rev.\ B 
+%{\bf 89}, 125101 (2014).
+%\bibitem{wouters-2014}
+%B.~Wouters, M.~Brockmann, J.~De~Nardis, D.~Fioretto, M.~Rigol, and J.-S.~Caux, 
+%Phys.\ Rev.\ Lett.\ {\bf 113}, 117202 (2014). 
+%\bibitem{calabrese-2012}
+%P.~Calabrese, F.~H.~L.~Essler, and M.~Fagotti, J.\ Stat.\ Mech.\ (2012) P07016.
+%\bibitem{barmettler-2010}
+%P.~Barmettler, M.~Punk, V.~Gritsev, E.~Demler, and E.~Altman, New\ J.\ Phys.\ 
+%{\bf 12}, 055017 (2010).
+%\bibitem{mussardo-2013}
+%G.~Mussardo, Phys.\ Rev.\ Lett.\ {\bf 111}, 100401 (2013).
+%\bibitem{calabrese-2011}
+%P.~Calabrese, F.~H.~L.~Essler, and M.~Fagotti, Phys.\ Rev.\ Lett.\ {\bf106}, 227203 (2011).
+%\bibitem{rigol-2011}
+%M.~Rigol and M.~Fitzpatrick, Phys.\ Rev.\ A {\bf 84}, 033640 (2011).
+%\bibitem{roux-2009}
+%G. Roux, Phys.\ Rev.\ A {\bf 79}, 021608 (2009). 
+%\bibitem{cramer-2010}
+%M.~Cramer and J.~Eisert, New\ J.\ Phys.\ {\bf 12}, 055020 (2010). 
+%\bibitem{eisert-2014}
+%J.~Eisert., M.~Friesdorf, and C.~Gogolin, arXiv:1408.5148. 
+%
+%\bibitem{cazalilla-2012}
+%M.~A.~Cazalilla, A.~Iucci, and M.-C.~Chung, Phys.\ Rev.\ E {\bf 85}, 
+%011133 (2012). 
+%\bibitem{calabrese-2007}
+%P.~Calabrese and J.~Cardy, J.\ Stat.\ Mech.\ (2007) P06008.
+%\bibitem{banuls-2011}
+%M.~C.~Ba\~nuls, J.~I.~Cirac, and M.~B.~Hastings, Phys.\ Rev.\ Lett.\ 
+%{\bf 106}, 050405 (2011). 
+%\bibitem{caux-2009}
+%J.-S.~Caux, J.\ Math.\ Phys.\ {\bf 50}, 095214 (2009).
+%
+%\bibitem{srednicki-1994}
+%M.~Srednicki, Phys.\ Rev.\ E {\bf 50}, 888 (1994). 
+%\bibitem{caux-2005a}
+%J.-S.~Caux, R.~Hagemans and J.-M.~Maillet, J.\ Stat.\ Mech.\ P09003 (2005). 
+%\bibitem{castella-1996}
+%H.~Castella and X.~Zotos, Phys.\ Rev.\ B {\bf 54}, 4375 (1996).
+%\bibitem{rigol-2009}
+%M.~Rigol, Phys.\ Rev.\ Lett.\ {\bf 103}, 100403 (2009).
+%\bibitem{caneva-2011}
+%T.~Caneva, E.~Canovi, D.~Rossini, G.~E.~Santoro, and A.~Silva, 
+%J.\ Stat.\ Mech.\ (2011) P07015. 
+%\bibitem{mossel-2012a}
+%J.~Mossel and J.-S.~Caux, New\ J.\ Phys.\ {\bf 14} 075006 (2012).
+%\bibitem{cramer-2008}
+%M.~Cramer, C.~M.~Dawson, J.~Eisert, and T.~J.~Osborne, Phys.\ Rev.\ 
+%Lett.\ {\bf 100}, 030602 (2008).
+%\bibitem{caux-2005}
+%J.-S.~Caux and J.-M.~Maillet, Phys.\ Rev.\ Lett.\ {\bf 95}, 077201 (2005).
+%\bibitem{rigol-2009a}
+%M.~Rigol,  Phys.\ Rev.\ A {\bf 80}, 053607 (2009).
+%\bibitem{zotos-1996}
+%X.~Zotos and P.~Prelov\v{s}ek, Phys.\ Rev.\ B {\bf 53}, 
+%983 (1996).
+%\bibitem{essler-2014}
+%F.~H.~L.~Essler, S.~Kehrein, S.~R.~Manmana, and N.~J.~Robinson, Phys.\ Rev.\ 
+%B {\bf 89}, 165104 (2014).
+%\bibitem{takahashi-1971} 
+%M.~Takahashi, Prog.\ Theor.\ Phys.\ {\bf 46}, 401 (1971). 
+%\bibitem{mossel-2012}
+%J.~Mossel and J.-S.~Caux, J.\ Phys.\ A:\ Math.\ Theor.\ {\bf 45}, 
+%255001 (2012). 
+%\bibitem{rigol-2007}
+%M.~Rigol, V.~Dunjko, V.~Yurovsky, and M.~Olshanii, Phys.\ Rev.\ Lett.\ 
+%{\bf 98}, 050405 (2007). 
+%\bibitem{sotiriadis-2009}
+%S.~Sotiriadis, P.~Calabrese, and J.~Cardy, EPL {\bf 87}, 20002 (2009). 
+%\bibitem{biroli-2010}
+%G.~Biroli, C.~Kollath, and A.~M.~L\"auchli, Phys.\ Rev.\ Lett.\ 
+%{\bf 105}, 250401 (2010). 
+%\bibitem{fagotti-2008}
+%M.~Fagotti and P.~Calabrese, Phys.\ Rev.\ A {\bf 78}, 010306 (2008).
+%
 \end{document}
 
 

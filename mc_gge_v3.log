@@ -1,8 +1,8 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2015.1.29)  10 JUL 2015 15:43
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2015.1.29)  12 JUL 2015 18:36
 entering extended mode
  %&-line parsing enabled.
-**mc_gge_v2.tex
-(./mc_gge_v2.tex
+**mc_gge_v3.tex
+(./mc_gge_v3.tex
 LaTeX2e <2005/12/01>
 Babel <v3.8h> and hyphenation patterns for english, usenglishmax, dumylang, noh
 yphenation, arabic, basque, bulgarian, coptic, welsh, czech, slovak, german, ng
@@ -272,33 +272,8 @@ Class revtex4-1 Info: Robustifying \LaTeX's \boldmath command on input line 61.
 Class revtex4-1 Info: cite was not loaded (OK!) on input line 61.
 Class revtex4-1 Info: mcite was not loaded (OK!) on input line 61.
 Class revtex4-1 Info: multicol was not loaded (OK!) on input line 61.
- (./mc_gge_v2.aux
-
-Package natbib Warning: Citation `pozsgay-2014' multiply defined.
-
-
-Package natbib Warning: Citation `wouters-2014' multiply defined.
-
-
-Package natbib Warning: Citation `calabrese-2007' multiply defined.
-
-
-Package natbib Warning: Citation `iucci-2009' multiply defined.
-
-
-Package natbib Warning: Citation `calabrese-2011' multiply defined.
-
-
-Package natbib Warning: Citation `fagotti-2013' multiply defined.
-
-
-Package natbib Warning: Citation `collura-2013' multiply defined.
-
-
-Package natbib Warning: Citation `kormos-2013' multiply defined.
-
-)
-\openout1 = `mc_gge_v2.aux'.
+ (./mc_gge_v3.aux)
+\openout1 = `mc_gge_v3.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 61.
 LaTeX Font Info:    ... okay on input line 61.
@@ -315,7 +290,8 @@ LaTeX Font Info:    ... okay on input line 61.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 61.
 LaTeX Font Info:    ... okay on input line 61.
 LaTeX Font Info:    Try loading font information for OT1+ptm on input line 61.
- (/usr/share/texmf/tex/latex/psnfss/ot1ptm.fd
+
+(/usr/share/texmf/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 Package hyperref Info: Link coloring ON on input line 61.
@@ -331,7 +307,7 @@ Package: refcount 2006/02/20 v3.0 Data extraction from references (HO)
 LaTeX Info: Redefining \ref on input line 61.
 LaTeX Info: Redefining \pageref on input line 61.
 Class revtex4-1 Info: Taking \maketitle back from hyperref on input line 61.
-\openout3 = `mc_gge_v2Notes.bib'.
+\openout3 = `mc_gge_v3Notes.bib'.
 
 LaTeX Font Info:    Try loading font information for U+msa on input line 79.
 
@@ -345,167 +321,111 @@ File: umsb.fd 2002/01/19 v2.2g AMS font definitions
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 97.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 116.
 
-Underfull \hbox (badness 1859) in paragraph at lines 155--180
-[]\OT1/ptm/m/n/10 On the other hand, nu-mer-i-cal meth-ods, such as the
- []
-
-<./draft_figs/fig1.pdf, id=23, 1299.85625pt x 344.28625pt>
+<./draft_figs/fig1.pdf, id=34, 1299.85625pt x 344.28625pt>
 File: ./draft_figs/fig1.pdf Graphic file (type pdf)
 
-<use ./draft_figs/fig1.pdf> [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.ma
-p}]
-Underfull \hbox (badness 10000) in paragraph at lines 230--233
+<use ./draft_figs/fig1.pdf>
+Underfull \hbox (badness 2119) in paragraph at lines 212--231
+[]\OT1/ptm/m/n/10 We bench-mark the ap-proach fo-cus-ing on the spin-$[]$
+ []
+
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+Underfull \hbox (badness 10000) in paragraph at lines 236--239
  []\OT1/ptm/m/it/10 The-Heisenberg-spin-chain.---[] \OT1/ptm/m/n/10 The isotrop
 ic spin-$[]$
  []
 
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 254.
 [2 <./draft_figs/fig1.pdf>]
-<./draft_figs/fig3.pdf, id=104, 731.73375pt x 377.41pt>
+<./draft_figs/fig3.pdf, id=127, 731.73375pt x 377.41pt>
 File: ./draft_figs/fig3.pdf Graphic file (type pdf)
 
 <use ./draft_figs/fig3.pdf>
-Underfull \hbox (badness 7468) in paragraph at lines 369--392
+Underfull \hbox (badness 7468) in paragraph at lines 375--398
  []\OT1/ptm/m/it/10 The-GGE-for-local-observables.---[] \OT1/ptm/m/n/10 The cor
 -rect-ness of
  []
 
-<./draft_figs/fig2.pdf, id=110, 1314.9125pt x 345.29pt>
+<./draft_figs/fig2.pdf, id=133, 1314.9125pt x 345.29pt>
 File: ./draft_figs/fig2.pdf Graphic file (type pdf)
 
 <use ./draft_figs/fig2.pdf>
-Underfull \hbox (badness 10000) in paragraph at lines 427--433
+Underfull \hbox (badness 10000) in paragraph at lines 433--439
  []\OT1/ptm/m/it/10 Extracting-the-root-distributions.---[] \OT1/ptm/m/n/10 In 
 the ther-mo-dy-
  []
 
 
-Underfull \hbox (badness 1715) in paragraph at lines 427--433
+Underfull \hbox (badness 1715) in paragraph at lines 433--439
 \OT1/ptm/m/n/10 ob-serv-able $\OMS/cmsy/m/n/10 O$\OT1/ptm/m/n/10 , the $\OML/cm
 m/m/it/10 GGE$ \OT1/ptm/m/n/10 av-er-age be-comes a func-tional
  []
 
 [3 <./draft_figs/fig3.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 493--507
+ []\OT1/ptm/m/it/10 Conclusions.---[] \OT1/ptm/m/n/10 We pre-sented a Monte-Car
+lo-based
+ []
+
+
+Underfull \hbox (badness 2269) in paragraph at lines 493--507
+\OT1/ptm/m/n/10 scheme for sim-u-lat-ing the trun-cated Gen-er-al-ized Gibbs
+ []
+
+[4 <./draft_figs/fig2.pdf>]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 488.
- [4 <./draft_figs/fig2.pdf>]
-Underfull \hbox (badness 6792) in paragraph at lines 720--722
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 527.
+
+Underfull \hbox (badness 8132) in paragraph at lines 543--545
  []\OT1/ptm/m/n/9 S. Trotzky, Y.-A. Chen, A. Flesch, I. P. Mc-Cul-loch,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 763--765
+Underfull \hbox (badness 10000) in paragraph at lines 586--588
  []\OT1/ptm/m/n/9 S. Braun, M. Fries-dorf, S. Hodg-man, M. Schreiber,
  []
 
 
-Underfull \hbox (badness 1057) in paragraph at lines 763--765
+Underfull \hbox (badness 1377) in paragraph at lines 586--588
  \OT1/ptm/m/n/9 J. Ronzheimer, A. Ri-era, M. del Rey, I. Bloch, J. Eis-ert,
  []
 
+
+Underfull \hbox (badness 1259) in paragraph at lines 777--779
+ []\OT1/ptm/m/n/9 M. Taka-hashi, \OT1/ptm/m/it/9 Ther-mo-dy-nam-ics of one-dime
+nsional solv-able
+ []
+
 [5]
-Underfull \hbox (badness 2626) in paragraph at lines 812--814
- []\OT1/ptm/m/n/9 S. Sorg, L. Vid-mar, L. Pol-let, and F. Heidrich-Meisner,
- []
-
-
-Underfull \hbox (badness 2941) in paragraph at lines 819--821
- []\OT1/ptm/m/n/9 V. Khe-mani, A. Chan-dran, H. Kim, and S. L. Sondhi,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 919--920
- []\OT1/ptm/m/n/9 G. Ramirez, J. Rodriguez-Laguna, and G. Sierra,
- []
-
-
-Underfull \hbox (badness 1117) in paragraph at lines 922--924
- []\OT1/ptm/m/n/9 F. Ares, J. G. Es-teve, F. Fal-ceto, and E. S[]anchez-Burillo
-,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 932--934
- []\OT1/ptm/m/n/9 J. M[]olter, T. Barthel,U. Schollw[]ock, and V. Alba,
- []
-
-pdfTeX warning (ext4): destination with the same identifier (name{cite.pozsgay-
-2014}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.966 \bibitem{pozsgay-2014}
-                            pdfTeX warning (ext4): destination with the same id
-entifier (name{cite.wouters-2014}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.970 \bibitem{wouters-2014}
-                            pdfTeX warning (ext4): destination with the same id
-entifier (name{cite.calabrese-2007}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.987 \bibitem{calabrese-2007}
-                              pdfTeX warning (ext4): destination with the same 
-identifier (name{cite.iucci-2009}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.990 \bibitem{iucci-2009}
-                          pdfTeX warning (ext4): destination with the same iden
-tifier (name{cite.calabrese-2011}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.993 \bibitem{calabrese-2011}
-                              pdfTeX warning (ext4): destination with the same 
-identifier (name{cite.fagotti-2013}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.1002 \bibitem{fagotti-2013}
-                             pdfTeX warning (ext4): destination with the same i
-dentifier (name{cite.collura-2013}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.1006 \bibitem{collura-2013}
-                             pdfTeX warning (ext4): destination with the same i
-dentifier (name{cite.kormos-2013}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.1012 \bibitem{kormos-2013}
-                            
-No file mc_gge_v2.bbl.
-
-Package natbib Warning: There were multiply defined citations.
-
-[6] (./mc_gge_v2.aux
-
-Package natbib Warning: Citation(s) may have changed.
-(natbib)                Rerun to get citations correct.
-
-) ) 
+No file mc_gge_v3.bbl.
+[6] (./mc_gge_v3.aux) ) 
 Here is how much of TeX's memory you used:
- 5573 strings out of 256216
- 72726 string characters out of 1917072
- 182660 words of memory out of 1500000
- 8642 multiletter control sequences out of 10000+200000
+ 5457 strings out of 256216
+ 71007 string characters out of 1917072
+ 161362 words of memory out of 1500000
+ 8585 multiletter control sequences out of 10000+200000
  25128 words of font info for 55 fonts, out of 1200000 for 2000
  645 hyphenation exceptions out of 8191
- 28i,9n,27p,1508b,571s stack positions out of 5000i,500n,6000p,200000b,15000s
-{/usr/share/texmf/fonts/enc/dvips/base/8r.enc}</usr/share/texmf/fonts/type1/
-bluesky/cm/cmex10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmmi10.pfb></usr
-/share/texmf/fonts/type1/bluesky/cm/cmmi12.pfb></usr/share/texmf/fonts/type1/bl
-uesky/cm/cmmi5.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmmi6.pfb></usr/sha
-re/texmf/fonts/type1/bluesky/cm/cmmi7.pfb></usr/share/texmf/fonts/type1/bluesky
-/cm/cmmi9.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr10.pfb></usr/share/te
-xmf/fonts/type1/bluesky/cm/cmr6.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cm
-r7.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr9.pfb></usr/share/texmf/font
-s/type1/bluesky/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy5.pf
-b></usr/share/texmf/fonts/type1/bluesky/cm/cmsy7.pfb></usr/share/texmf/fonts/ty
-pe1/bluesky/cm/cmsy9.pfb></usr/share/texmf/fonts/type1/bluesky/ams/msbm10.pfb><
-/usr/share/texmf/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf/fonts/type1
-/urw/times/utmr8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmri8a.pfb>
-Output written on mc_gge_v2.pdf (6 pages, 304539 bytes).
+ 28i,9n,27p,1508b,569s stack positions out of 5000i,500n,6000p,200000b,15000s
+{/usr/share/texmf/fonts/enc/dvips/base/8r.enc}</usr/shar
+e/texmf/fonts/type1/bluesky/cm/cmex10.pfb></usr/share/texmf/fonts/type1/bluesky
+/cm/cmmi10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmmi12.pfb></usr/share/
+texmf/fonts/type1/bluesky/cm/cmmi5.pfb></usr/share/texmf/fonts/type1/bluesky/cm
+/cmmi6.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmmi7.pfb></usr/share/texmf
+/fonts/type1/bluesky/cm/cmmi9.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr1
+0.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr6.pfb></usr/share/texmf/fonts
+/type1/bluesky/cm/cmr7.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr9.pfb></
+usr/share/texmf/fonts/type1/bluesky/cm/cmsy10.pfb></usr/share/texmf/fonts/type1
+/bluesky/cm/cmsy5.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy7.pfb></usr/
+share/texmf/fonts/type1/bluesky/cm/cmsy9.pfb></usr/share/texmf/fonts/type1/blue
+sky/ams/msbm10.pfb></usr/share/texmf/fonts/type1/urw/times/utmb8a.pfb></usr/sha
+re/texmf/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf/fonts/type1/urw/tim
+es/utmri8a.pfb>
+Output written on mc_gge_v3.pdf (6 pages, 293571 bytes).
 PDF statistics:
- 381 PDF objects out of 1000 (max. 8388607)
- 160 named destinations out of 1000 (max. 131072)
+ 328 PDF objects out of 1000 (max. 8388607)
+ 101 named destinations out of 1000 (max. 131072)
  50 words of extra memory for PDF output out of 10000 (max. 10000000)
 

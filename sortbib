@@ -1,0 +1,129 @@
+#!/usr/bin/perl -w
+# 1) Save this script into a file called sortbib.
+# 2) Type chmod 755 sortbib.
+# 3) Change the first line to identify the location of perl on your
+#    machine. (Type "which perl" or "whereis perl".) 
+# 4) Take a Latex file which uses \cite{} to reference \bibitem{}'s,
+#    and type sortbib file.tex.
+
+# Written by Steven R. White
+# Usage: sortbib latexfile.tex
+# Sort \bibitems in order by \cites
+# Comments out unused bibitems, reports on citations without references,
+# and makes a backup file file.tex.bak.
+# sortbib understands Latex comments, and doesn't get fooled
+# by \%, etc.
+
+$\ = "\n";		# set output record separator
+
+sub removecomments	# comments: %, \\%, \\\\%, etc
+    {			# not comments: \%, \\\%, etc
+    $_[0] =~ s/\\\\/\xbb\xbb/g;	# Change double \ to weird chars
+    $_[0] =~ s/\\\%/\xcc\xcc/g;	# Change \% to weird chars
+    $_[0] =~ s/\%[^\n]*\n//g;
+    $_[0] =~ s/\xcc\xcc/\\\%/g; # Change back
+    $_[0] =~ s/\xbb\xbb/\\\\/g;
+    }
+
+sub getcomments
+    {
+    local($txt) = @_;
+    $txt =~ s/\\\\/\xbb\xbb/g;
+    $txt =~ s/\\\%/\xcc\xcc/g;
+    @bibco = ($txt =~ /(\%[^\n]*\n)/g);
+    for($i=0; $i <= $#bibco; $i++)
+	{
+	$bibco[$i] =~ s/\xcc\xcc/\\\%/g;
+	$bibco[$i] =~ s/\xbb\xbb/\\\\/g;
+	}
+    @bibco;
+    }
+
+foreach $file (@ARGV) 
+    {
+    `cp $file $file.bak`;
+    open(FILE,"<$file");
+    undef $/;
+    $wholefile = <FILE>;
+    close FILE;
+    open(OUT,">sortbib.tmp");
+    $dothebib = ($wholefile =~ /thebibliography/);
+    $bibpat = '';
+    if($dothebib)
+	{
+	$wholefile =~ /(\\begin\{thebibliography\}\{\d+\})/;
+	$bibpat = $1;
+	@fileparts = split( 
+	/\\begin\{thebibliography\}\{\d+\}|\\end\{thebibliography\}/,
+    				$wholefile,3);
+	}
+    else
+	{
+	$bibpat = "\\begin\{references\}";
+	@fileparts = split( /\\begin\{references\}|\\end\{references\}/,
+    				$wholefile,3);
+	}
+    $text = $fileparts[0];
+    $text =~ s/\n+$/\n/;
+    print OUT $text;
+    &removecomments($text);
+    $text =~ s/onlinecite/cite/g;
+
+    @cites = ($text =~ /\\cite\{([^\}]*)\}/g);
+    @citelist = split(/[\s\,]+/,join(",",@cites));
+    @uniquecites = ();
+    foreach $ci (@citelist)
+	{
+	push(@uniquecites,$ci) if !grep(/^$ci$/,@uniquecites);
+	}
+    $list = join("\n",@uniquecites);
+    print "Citations:";
+    print $list;
+    print "";
+
+    $references = $fileparts[1];
+    @bibco = &getcomments($references);
+    &removecomments($references);
+    $references =~ s/\n\n/\n/g;
+    @bibitems = split(/\\bibitem/,$references);
+    %bibhash = ();
+    @keyarray = ();
+    for($i = 1; $i <= $#bibitems; $i++)
+	{
+	$bibitems[$i] =~ s/\n$//;
+	$bibitems[$i] =~ /^\s*\{([^\}\s]+)\s*\}.*/;
+	$key = $1;
+	push(@keyarray,$key);
+	$bibhash{$key} = $bibitems[$i];
+	}
+    print OUT "$bibpat";
+    $, = '';		# set output field separator
+    foreach $key (@uniquecites)
+	{
+	if(exists $bibhash{$key})
+	    { print OUT "\\bibitem",$bibhash{"$key"},"\n"; }
+	else
+	    { print "No bibitem for ", $key; }
+	delete $bibhash{$key};
+	}
+    print OUT join("\n",@bibco) if ($#bibco != 0);
+    print OUT "\\end\{references\}\n" if !$dothebib;
+    print OUT "\\end\{thebibliography\}\n" if $dothebib;
+    $first = 1;
+    while(($key,$value) = each %bibhash)
+	{
+	$value =~ s/\n/\n\%/g;
+	print OUT "\n\%Unused bibitems\n" if $first == 1;
+	print "\n\%Unused bibitems\n" if $first == 1;
+	$first = 0;
+	print OUT "\%","\\bibitem",$value;
+	print "\%","\\bibitem",$value;
+	}
+    $lastpart = $fileparts[2];
+    $lastpart =~ s/\n$//;
+    $lastpart =~ s/^\n+//;
+    print OUT $lastpart;
+    close OUT;
+    `mv sortbib.tmp $file`;
+    }
+

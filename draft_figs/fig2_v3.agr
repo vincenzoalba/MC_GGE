@@ -63,7 +63,7 @@
 @timestamp rot 0
 @timestamp font 0
 @timestamp char size 1.000000
-@timestamp def "Thu Jun 25 14:22:22 2015"
+@timestamp def "Fri Jul 10 16:07:27 2015"
 @with line
 @    line on
 @    line loctype view
@@ -783,7 +783,7 @@
 @    yaxis  bar color 1
 @    yaxis  bar linestyle 1
 @    yaxis  bar linewidth 1.0
-@    yaxis  label "rapidity densities \xr\f{}\sn\N(x)"
+@    yaxis  label "root distributions \xr\f{}\sn\N(x)"
 @    yaxis  label layout para
 @    yaxis  label place spec
 @    yaxis  label place 0.120000, 0.120000
@@ -1438,7 +1438,7 @@
 @    xaxis  bar color 1
 @    xaxis  bar linestyle 1
 @    xaxis  bar linewidth 1.0
-@    xaxis  label "rapidity x"
+@    xaxis  label "root x"
 @    xaxis  label layout para
 @    xaxis  label place spec
 @    xaxis  label place 0.200000, 0.060000

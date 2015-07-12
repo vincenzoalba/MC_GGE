@@ -84,11 +84,10 @@ GGE expectation values of several local observables. The numerical results are i
 agreement with the Generalized Thermodynamic Bethe Ansatz (GTBA). Although the method is devised 
 for finite-size chains, finite-size effects decay exponentially with system size, and moderately 
 large chains are sufficient to extract thermodynamic quantities. Remarkably, it is possible 
-to extract in a simple way the steady-state Bethe-Gaudin-Takahashi (BGT) roots distributions, 
-which encode complete information about the GGE expectation values in the thermodynamic limit. 
-Finally, it is straightforward to simulate extensions of the GGE, in which, besides the integral 
-of motion, one includes {\it arbitrary} functions of the BGT roots. 
-
+to extract in a simple way the steady-state Bethe roots distributions, which encode complete 
+information about the GGE expectation values in the thermodynamic limit. Finally, it is 
+straightforward to simulate extensions of the GGE, in which, besides the integral of motion, 
+one includes arbitrary functions of the Bethe-Gaudin-Takahashi roots. 
 
 \end{abstract}
 
@@ -303,7 +302,7 @@ Each Monte Carlo step (mcs) consists of three moves:
 \item Choose a new particle number sector $M'$, and string content ${\mathcal S}'$ 
  with probability ${\mathcal P}(M',{\mathcal S}')$.
 \item Generate a new quantum number configuration ${\mathcal C}'$ compatible with 
- the ${\mathcal  S}'$ obtained in step $1$. Solve the corresponding BGT 
+ the ${\mathcal  S}'$ obtained in step $1$. Solve the corresponding Bethe-Takahashi 
  equations~\eqref{bt-eq}. 
 \item Calculate the charge eigenvalues ${\mathcal I}_j'$ and accept the new 
 eigenstate with the Metropolis probability:
@@ -321,11 +320,11 @@ that ${\mathcal I}_j$ are invariant under $SU(2)$ rotations. Crucially, the step
 $1$ and $2$ are necessary to account correctly for the density of states of the model, and 
 are the same for the Gibbs ensemble~\cite{gu-2005}. The iteration of $1$-$3$ defines a Markov 
 chain, which, after some thermalization steps, generates eigenstates sampled according 
-to~\eqref{rho-gge}. Clearly, it is straightforward to simulate the GGE with fixed particle 
-number $M$. More interestingly, by trivially modifying~\eqref{metropolis} it is possible to 
-simulate more exotic ensembles in which, in addtion to ${\mathcal I}_j$, one considers 
-arbitrary functions of the BGT roots. This could be useful to include the quasi-local 
-charges in the $GGE$. 
+to~\eqref{rho-gge}. Clearly, it is straightforward to simulate the GGE with fixed particle number $M$. 
+More interestingly, by trivially modifying~\eqref{metropolis} it is possible to simulate 
+more exotic ensembles in which, in addtion to ${\mathcal I}_j$, one considers arbitrary 
+functions of the BGT roots. This could be useful to include the quasi-local charges in 
+the $GGE$. 
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%e
 \begin{figure}[t]
@@ -341,7 +340,7 @@ charges in the $GGE$.
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-The ensemble average $\langle{\mathcal O}\rangle$ of a generic operator is obtained as  
+The ensemble average $\langle{\mathcal O}\rangle$ of a generic operator  is obtained as  
 %
 \begin{equation}
 \label{gge-mc}
@@ -415,20 +414,20 @@ Carlo data, signaling  that finite-size effects are negligible already for $L=16
 The finite-size corrections are more carefully investigated in Fig.~\ref{fig2},   
 plotting $\langle{\mathcal I}_2\rangle$ and $\langle {\mathcal I}_4
 \rangle$ (panels (a) and (b), respectively) versus $\beta$. Here we focus on 
-the $TGGE$ with $\lambda_2=\beta,\lambda_3=0$ and $\lambda_4=1$. Clearly,  
-finite-size effects decay exponentially with $L$ for any $\beta$. In (a) the dashed 
-lines are fits to $c_1+c_2\exp(-c_3L)$, with $c_1,c_2,c_3$ fitting parameters. Moreover, 
-corrections are larger at lower temperature, and increase with the range of the 
-operator (compare panels  (a) and (b) in Fig.~\ref{fig2}). 
+the $TGGE$ with $\lambda_2=\beta,\lambda_3=0$ and $\lambda_4=1$. Panel (a) 
+demonstrates that finite-size effects decay exponentially with $L$ for any 
+$\beta$. Clearly, corrections are larger at lower temperature, as expected.  
+Moreover, they increase with the range of the operator as shown in panel (b), 
+although the behavior remains exponential. 
 
 %#############-- EXTRACTING THE ROOT DENSITIES --###################################
-\paragraph*{Extracting-the-root-distributions.---}
+\paragraph*{Extracting-the-Bethe-roots-distributions.---}
 
 In the thermodynamic limit in each $n$-string sector the roots of~\eqref{bt-eq} become 
-dense. Thus, instead of the eigenstates, one considers the corresponding root 
-distributions $\pmb{\rho}\equiv\{\rho_n\}_{n=1}^\infty$. Formally, one has $\rho_n
-\equiv\lim_{L\to\infty}[L(x_{n;\gamma+1}-x_{n;\gamma})]^{-1}$. For a generic observable 
-${\mathcal O}$, the $GGE$ average becomes a functional integral as 
+dense. Thus, each eigenstate is characterized by the root distribution $\pmb{\rho}\equiv
+\{\rho_n\}_{n=1}^\infty$. Formally, the $\rho_n$ are defined as $\rho_n=\lim_{L\to\infty}
+[L(x_{n;\gamma+1}-x_{n;\gamma})]^{-1}$. For a generic observable ${\mathcal O}$, 
+the $GGE$ average becomes a functional integral as 
 %
 \begin{equation}
 \label{th-limit}
@@ -437,24 +436,19 @@ ${\mathcal O}$, the $GGE$ average becomes a functional integral as
 \lambda_j{\mathcal I}_j[\pmb{\rho}]\big){\mathcal O}[\pmb{\rho}].
 \end{equation}
 %
-Here $S[\pmb{\rho}]$ is the Yang-Yang entropy, which counts the number of eigenstates 
-leading to the same $\pmb{\rho}$, and it is extensive. In~\eqref{th-limit} 
-it is assumed that ${\mathcal O}$ becomes a smooth functional of $\pmb{\rho}$ 
-in the thermodynamic limit. In particular,~\eqref{gge-mc-1} becomes 
-%
-\begin{equation}
-\label{th-limit-1}
-\langle s|{\mathcal O}|s\rangle\to\sum\limits_{n}\int dx\rho_n(x)f_{{\mathcal O}}(x).
-\end{equation}
-%
-Since both $S[\pmb{\rho}]$ and ${\mathcal I}_j[\pmb{\rho}]$ are extensive, the functional 
-integral in~\eqref{th-limit} is dominated by the saddle point $\pmb{\rho}^{sp}$, with $\delta(S+\lambda_j{\mathcal I}_j)/
-\delta\pmb{\rho}|_{\pmb{\rho}=\pmb{\rho}^{sp}}=0$. Here $\pmb{\rho}^{sp}$ acts as a representative 
-state for the ensemble, and it contains the full information about the GGE equilibrium steady 
-state. Eq.~\eqref{gge-mc} and~\eqref{th-limit-1} imply that in the thermodynamic limit 
-the histograms of the BGT roots sampled in the Monte Carlo converge to $\rho_{n}^{sp}$.  
+Here $S[\pmb{\rho}]$ is the Yang-Yang entropy. $S[\pmb{\rho}]$ counts the number of 
+eigenstates leading to the same $\pmb{\rho}$, and it is extensive. In~\eqref{th-limit} 
+${\mathcal O}$ is assumed that ${\mathcal O}$ becomes a smooth function of $\pmb{\rho}$ 
+in the thermodynamic limit. Since both $S$ and ${\mathcal I}_j$ are extensive, the integral 
+in~\eqref{th-limit} is dominated by the saddle point $\pmb{\rho}^{sp}$, with 
+$\delta(S+\lambda_j{\mathcal I}_j)/\delta\pmb{\rho}|_{\pmb{\rho}=\pmb{\rho}^{sp}}=0$.
+Here $\pmb{\rho}^{sp}$ acts as a representative state for the ensemble, and it 
+contains the full information about the GGE equilibrium steady state. Eq.~\eqref{gge-mc} 
+suggests/implies that the representative state root densities $\rho_n^{sp}$ can be obtained 
+the histograms of the roots $x_{n;\gamma}$ sampled in the Monte Carlo history, in the limit 
+$L\to\infty$.  
 
-This is supported in Fig.~\ref{fig3} considering several GGEs. Panels (a)-(c) plot the  
+This is supported in Fig.~\ref{fig1} considering several GGEs. Panels (a)-(c) plot the  
 root densities $\rho^{sp}_n(x)$ for $n=1,2,3$ as a function of $x$ for the representative 
 state (saddle point) of the infinite-temperature Gibbs ensemble. In each panel 
 the different histograms correspond to different chain sizes $18\le L\le 30$. The data are 
