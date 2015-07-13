@@ -63,7 +63,7 @@
 @timestamp rot 0
 @timestamp font 0
 @timestamp char size 1.000000
-@timestamp def "Fri Jun 19 18:43:21 2015"
+@timestamp def "Mon Jul 13 10:39:47 2015"
 @with string
 @    string on
 @    string loctype view
@@ -203,11 +203,11 @@
 @    yaxis  bar color 1
 @    yaxis  bar linestyle 1
 @    yaxis  bar linewidth 1.0
-@    yaxis  label "\+\+<\-\-I\s2\N/L\+\+>\-\-"
+@    yaxis  label "R1"
 @    yaxis  label layout para
 @    yaxis  label place auto
 @    yaxis  label char size 1.560000
-@    yaxis  label font 4
+@    yaxis  label font 0
 @    yaxis  label color 1
 @    yaxis  label place normal
 @    yaxis  tick on
@@ -675,7 +675,7 @@
 @g1 fixedpoint format general general
 @g1 fixedpoint prec 6, 6
 @with g1
-@    world 3.47074128, -0.1047947965, 12.7531786, 0.134227684
+@    world 3.47074128, -0.104794796, 12.7531786, 0.134227684
 @    stack world 0, 0, 0, 0
 @    znorm 1
 @    view 0.734575, 0.335274, 1.193248, 0.850000
@@ -749,12 +749,12 @@
 @    yaxis  bar color 1
 @    yaxis  bar linestyle 1
 @    yaxis  bar linewidth 1.0
-@    yaxis  label "\+\+<\-\-I\s4\N/L\+\+>\-\-"
+@    yaxis  label "R2"
 @    yaxis  label layout para
 @    yaxis  label place spec
 @    yaxis  label place 0.000000, 0.080000
 @    yaxis  label char size 1.560000
-@    yaxis  label font 4
+@    yaxis  label font 0
 @    yaxis  label color 1
 @    yaxis  label place normal
 @    yaxis  tick on

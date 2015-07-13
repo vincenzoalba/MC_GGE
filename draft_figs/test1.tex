@@ -1,0 +1,24 @@
+\documentclass[12pt]{article}
+\usepackage{psfrag}
+\usepackage[helvet]{sfmath}
+
+\usepackage[dvips]{graphicx,color}
+\thispagestyle{empty}
+\normalfont
+
+    % You can run this by typing the following commands:
+    %    latex 2dplot.tex
+    %    dvips -o 2dplot.ps 2dplot.dvi
+
+\begin{document}
+
+% The syntax of the "psfrag" command is:
+%    \psfrag{tag}[<posn>][<psposn>][<scale>][<rot>]{replacement}
+% See the file pfgguide.ps for full documentation.
+
+\begin{figure}
+\psfrag{R1}[][][1.9]{$\langle{\mathcal I}_2\rangle/\mathrm{L}$}
+\psfrag{R2}[][][1.9]{$\langle{\mathcal I}_4\rangle/\mathrm{L}$}
+\includegraphics{fig3.eps}
+\end{figure}
+\end{document}
