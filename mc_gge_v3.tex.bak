@@ -1,17 +1,16 @@
 \documentclass[twocolumn,superscriptaddress,prb,10pt]{revtex4-1}
 %\usepackage{verbatim}
 \usepackage{amsmath,amssymb}
-%\usepackage{unicode-math}
+\usepackage{tikz}
 \usepackage{graphicx}
 \usepackage{color}
 \usepackage[colorlinks,bookmarks=false,citecolor=blue,linkcolor=red,urlcolor=blue]{hyperref}
 \usepackage{times}
 
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
 
 
-
-
-%\usepackage[dvips]{graphics}
 
 
 
@@ -78,16 +77,17 @@ INFN, Sezione di Trieste}
 By combining {\it classical} Monte Carlo and Bethe ansatz techniques we devise a numerical 
 method to construct the Truncated Generalized Gibbs Ensemble (TGGE) for the spin-$\frac{1}{2}$ 
 isotropic Heisenberg ($XXX$) chain. The key idea is to sample the Hilbert space of the model 
-with the appropriate GGE probability measure. The method can be trivially extended to other 
-integrable systems, such as the Lieb-Liniger model. We benchmark our approach focusing on 
-GGE expectation values of several local observables. The numerical results are in spectacular 
-agreement with the Generalized Thermodynamic Bethe Ansatz (GTBA). Although the method is devised 
-for finite-size chains, finite-size effects decay exponentially with system size, and moderately 
-large chains are sufficient to extract thermodynamic quantities. Remarkably, it is possible 
-to extract in a simple way the steady-state Bethe-Gaudin-Takahashi (BGT) roots distributions, 
-which encode complete information about the GGE expectation values in the thermodynamic limit. 
-Finally, it is straightforward to simulate extensions of the GGE, in which, besides the integral 
-of motion, one includes {\it arbitrary} functions of the BGT roots. 
+with the appropriate GGE probability measure. The method can be extended to other integrable 
+systems, such as the Lieb-Liniger model. We benchmark the approach focusing on 
+GGE expectation values of several local observables. The Monte Carlo results are in  
+agreement with the Generalized Thermodynamic Bethe Ansatz (GTBA). As finite-size effects decay 
+exponentially with system size, moderately large chains are sufficient to extract thermodynamic 
+quantities. Remarkably, it is possible to extract in a simple way the steady-state Bethe-Gaudin-Takahashi 
+(BGT) roots distributions, which encode complete information about the GGE expectation values in 
+the thermodynamic limit. Finally, it is straightforward to simulate extensions of the GGE, in which, 
+besides the local integral of motion (local charges), one includes {\it arbitrary} functions of the 
+BGT roots. As an example, we include in the GGE the first non-trivial quasi-local integral of 
+motion. 
 
 
 \end{abstract}
@@ -102,30 +102,35 @@ of motion, one includes {\it arbitrary} functions of the BGT roots.
 
 The issue of how statistical ensembles arise from the out-of-equilibrium 
 dynamics in {\it isolated} quantum many-body system is still a fundamental, 
-yet challenging, problem. The main motivation of the renewed interest 
+yet challenging, problem. The main motivation for the renewed interest 
 in this topic is the high degree of control reached in out-of-equilibrium 
-experiments with cold atomic gases~\cite{greiner-2002,kinoshita-2006,
-hofferberth-2007,bloch-2008,trotzky-2012,gring-2012,cheneau-2012,
+experiments with cold atomic gases~\cite{bloch-2008,greiner-2002,kinoshita-2006,
+hofferberth-2007,trotzky-2012,gring-2012,cheneau-2012,
 schneider-2012,kunhert-2013,langen-2013,meinert-2013,fukuhara-2013,
-ronzheimer-2013,braun-2014}. The paradigm experiment is the so-called gloabal 
+ronzheimer-2013,braun-2014,langen-2015}. The paradigm experiment is the so-called gloabal 
 {\it quantum quench}~\cite{polkovnikov-2011}, in which a system is initially 
 prepared in an eigenstate $|\Psi_0\rangle$ of a many-body Hamiltonian ${\mathcal 
 H}$. Then a global parameter of ${\mathcal H}$ is suddenly changed, and the 
-system is let to evolve unitarily under the new Hamiltonian ${\mathcal H}'$. 
-At long times after the quench the system is expected to equilibrate, due to 
-dephasing~\cite{barthel-2008} {\bf more, Eisert??  la citazione e' a cazzo}, 
-as confirmed by experiments {\bf cite experiments}. 
-On the other hand, in integrable models the 
+system evolves unitarily under the new Hamiltonian ${\mathcal H}'$. At long times 
+after the quench the system reaches a steady state, as it has been confirmed by 
+experiments~\cite{kinoshita-2006}. In integrable models the 
 presence of non-trivial {\it local} conserved quantities, besides the energy, 
 strongly affects the dynamics and the nature of the steady state. As for now,  
+despite the tremendous theoretical effort~\cite{calabrese-2006,rigol-2007,calabrese-2007,
+kollath-2007,manmana-2007,rigol-2008,cramer-2008,barthel-2008,kollar-2008,moeckel-2008,
+iucci-2009,rossini-2009,barmettler-2009,biroli-2010,rossini-2010,fioretto-2010,
+gogolin-2011,banuls-2011,calabrese-2011,rigol-2011,calabrese-2012,caux-2012,essler-2012,
+cazalilla-2012,mossel-2012a,collura-2013,mussardo-2013,caux-2013,fagotti-2013a,fagotti-2013,
+sotiriadis-2014,fagotti-2014,essler-2014,goldstein-2014,de-nardis-2014,wright-2014,
+pozsgay-2014,wouters-2014,mestyian-2015,ilievski-2015a}, 
 it is still unclear wheather such steady-state can be described by a statistical 
 ensemble, and how to construct it. 
 
-Recently, it has been proposed that the long-time stationary value of a generic 
+It has been proposed that the long-time stationary value of a generic 
 local operator ${\mathcal O}$ is described by a Generalized Gibbs Ensemble~\cite{
-rigol-2008} (GGE) as $\langle{\mathcal O}\rangle\equiv\textrm{Tr}({\mathcal O}
+rigol-2007,rigol-2008} (GGE) as $\langle{\mathcal O}\rangle\equiv\textrm{Tr}({\mathcal O}
 \rho^{GGE})$. Here $\rho^{GGE}$ extends the Gibbs density matrix by including  all 
-the local conserved quantities $ {\mathcal I}_j$ (charges) as 
+the extra conserved quantities $ {\mathcal I}_j$ (charges) as 
 %
 \begin{equation}
 \rho^{GGE}=Z^{-1}\exp\big(-\lambda_j{\mathcal I}_j\big). 
@@ -136,58 +141,35 @@ In~\eqref{rho-gge}, and in the rest of the paper, repeated indices are summed ov
 $Z$ is a normalization factor. The $\lambda_j$ are Lagrange multipliers to be fixed 
 by imposing $\langle\Psi_0|{\mathcal I}_j|\Psi_0\rangle=\langle{\mathcal 
 I}_j\rangle$, and ${\mathcal I}_2={\mathcal H}'$ is the post-quench Hamiltonian. 
-In realistic situations one deals with the truncated GGE (TGGE), i.e., considering 
-only a finite subset of the charges {\bf citations}. 
+In realistic situations one deals with the truncated GGE~\cite{fagotti-2013} (TGGE), 
+i.e., considering only the ``most local'' charges. 
 
 While the validity of the GGE has been largely confirmed in non-interacting field 
-theories {\bf cite papers}, in interacting ones the scenario is far less clear. For 
-Bethe ansatz solvable models the so-called quench-action method~\cite{caux-2013} {\bf 
-cite more} allows for an exact treatement of the steady state, provided that the 
-overlap between the initial state $|\Psi_0\rangle$ and the eigenstates of ${\mathcal H}'$ 
-are known. Surprisingly, in several cases the quench-action is in disagreement with 
-the TGGE {\bf citations}, whereas it seems to be supported by numerical 
-simulations~\cite{pozsgay-2014}. While one might argue that the GGE can be ``repaired'' 
-by enlarging the set of charges included in~\eqref{rho-gge}, no quantitative study 
-in this direction has been conducted yet {\bf Is that true?}. One intriguing 
+theories~\cite{calabrese-2011,calabrese-2012,fagotti-2013,kcc14,kcc14a}, in interacting ones the 
+scenario is far less clear (see Ref.~\onlinecite{fagotti-2014} for numerical results in an 
+interacting spin chain). For Bethe ansatz solvable models the so-called Quench Action 
+method~\cite{caux-2013} allows for an exact treatement of the steady state, 
+provided that the overlap between the initial state $|\Psi_0\rangle$ and the eigenstates 
+of ${\mathcal H}'$ are known. In several cases the Quench Action is in disagreement with 
+the TGGE~\cite{de-nardis-2014,pozsgay-2014,wouters-2014,mestyian-2015}, whereas it is 
+supported by numerical simulations~\cite{pozsgay-2014}. While one might argue that the 
+GGE can be ``repaired'' by enlarging the set of charges included in~\eqref{rho-gge}, 
+no quantitative study in this direction has been conducted yet. One intriguing 
 possibility is that local charges are not sufficient, and one has to include 
-quasi-local ones~\cite{prosen-2014,pereira-2014,ilievski-2015}. 
-
-On the other hand, numerical methods, such as the time dependent density 
-matrix renormalization group~\cite{white-2004,daley-2004} (tDMRG), have been mostly 
-used to simulate the post-quench dynamics in microscopic models. However, no numerical 
-attempt to explore the GGE {\it per se} has been undertaken yet. The aim of this work is to 
-provide a Monte-Carlo-based framework for studying the GGE, and its possible extensions,   
-in Bethe ansatz solvable models. Although we restrict ourselves to finite-size systems, 
-thermodynamic quantities can be extracted by a standard finite-size scaling analysis. 
-Moreover, as finite-size corrections decay exponentially with system size, moderately 
-large systems are sufficient to access the thermodynamic limit. 
-The method relies on the detailed knowledge of the Hilbert space structure provided by 
-the Bethe ansatz formalism, and on the Bethe-Gaudin-Takahashi (BGT) equations {\bf cite 
-Takahashi book, revies}. The key idea is to sample the model Hilbert space according to 
-the GGE probability measure given in~\eqref{rho-gge}. We should mention that the same idea 
-has been already explored in Ref.~\onlinecite{gu-2005} for the Gibbs ensemble.
-The method allows one to obtain GGE expectation value for generic observables, provided 
-that their expression in terms of the roots of the BGT equations are known. Remarkably, 
-it is also possible to extract the steady-state roots distributions, which encode 
-the complete information about ensemble averages in the thermodynamic limit. It is also 
-straightforward to extend  the GGE including in~\eqref{rho-gge} arbitrary functions of 
-the BGT roots, besided the ${\mathcal I}_j$. This could be useful, for instance, to 
-investigate the effects of quasi-local charges. Finally, we should mention that, in 
-principle, GGE averages of local observables can be computed using exact diagonalization 
-or Quantum Monte Carlo. However, both these methods require the operatorial expression of 
-the conserved charges (see Re.~\onlinecite{grabowski-1995} for the $XXX$ chain), whereas 
-our approach relies only on their expression (typically simple) in terms of the BGT roots. 
+quasi-local ones~\cite{prosen-2014,pereira-2014,ilievski-2015} (see Ref.~\onlinecite{
+ilievski-2015a} for recent exciting results in this direction). 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%e
 \begin{figure*}[t]
 \includegraphics*[width=0.93\linewidth]{./draft_figs/fig1}
 \caption{The Generalized Gibbs Ensemble (GGE) for the Heisenberg spin chain with 
- $L=16$ sites: numerical results obtained using the Hilbert space Monte 
- Carlo sampling approach. Only the first three conserved charges ${\mathcal I}_j$ 
- ($j=1,2,3$) are included in the GGE. ${\mathcal I}_2$ is the Hamiltonian. In all 
+ $L=16$ sites: Numerical results obtained using the Hilbert space Monte 
+ Carlo sampling approach. Only the first three local conserved charges ${\mathcal I}_j$ 
+ ($j=2,3,4$) and the first quasi-local one ${\mathcal I}_{QS}$ are included in the GGE. 
+ ${\mathcal I}_2$ is the Hamiltonian. In all 
  the panels different symbols correspond to different  values of the Lagrange multipliers 
- $\lambda_3,\lambda_4$. The circles correspond to the Gibbs ensemble, i.e., 
- $\lambda_3=\lambda_4=0$. The $x$-axis shows the inverse temperature  $\lambda_2=\beta$. 
+ $\lambda_3,\lambda_4,\lambda_{QS}$. The circles correspond to the Gibbs ensemble, i.e., 
+ $\lambda_3=\lambda_4=\lambda_{QS}0$. The $x$-axis shows the inverse temperature  $\lambda_2=\beta$. 
  (a) The GGE average $\langle {\mathcal I}_2/L\rangle$. (b) Variance 
  of the GGE fluctuations $\sigma^2({\mathcal I}_2/L)\equiv \langle ({\mathcal I}_2/L)^2
  \rangle-\langle {\mathcal I}_2/L\rangle^2$ as a function of $\beta$. (c)(d) and (e)(f): 
@@ -203,22 +185,49 @@ our approach relies only on their expression (typically simple) in terms of the 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-We perform a detailed benchmark of the approach focusing on the spin-$\frac{1}{2}$ isotropic 
-Heisenberg chain ($XXX$ chain), which is the venerable prototype of integrable models 
-{\bf cite Bethe and more}. We consider several TGGEs 
+
+On the other hand, numerical methods, such as the time dependent density 
+matrix renormalization group~\cite{white-2004,daley-2004} (tDMRG), have been mostly 
+used to simulate the post-quench dynamics in microscopic models. However, no numerical 
+attempt to explore the GGE {\it per se} has been undertaken yet. The aim of this work is to 
+provide a Monte-Carlo-based framework for studying the GGE, and its possible extensions,   
+in Bethe ansatz solvable models. We restrict ourselves to finite-size systems.  
+Thermodynamic quantities can be extracted by a standard finite-size scaling analysis. 
+Moreover, as finite-size corrections decay exponentially with system size~\cite{iyer-2015}, 
+moderately large systems are sufficient to access the thermodynamic limit. 
+The method relies on the detailed knowledge of the Hilbert space structure provided by 
+the Bethe ansatz formalism, and on the Bethe-Gaudin-Takahashi (BGT) equations~\cite{takahashi-1971,
+taka-book}. The key idea is to sample the model Hilbert space according to 
+the GGE probability measure given in~\eqref{rho-gge}. We should mention that the same 
+idea has been already explored in Ref.~\onlinecite{gu-2005} for the Gibbs ensemble.
+The method allows one to obtain GGE expectation value for generic observables, provided 
+that their expression in terms of the roots of the BGT equations are known. Remarkably, 
+it is also possible to extract the steady-state roots distributions, which encode 
+the complete information about the (GGE) ensemble. It is also straightforward to extend 
+the GGE including in~\eqref{rho-gge} arbitrary functions of the BGT roots. This could 
+be useful, for instance, to investigate the effects of quasi-local charges. Finally, 
+we should mention that, in principle, GGE averages of local observables can be computed 
+using exact diagonalization or Quantum Monte Carlo. However, both these methods require 
+the operatorial expression of the conserved charges (see Ref.~\onlinecite{grabowski-1995} 
+for the $XXX$ chain), whereas our results rely only on their expression (typically simple) 
+in terms of the BGT roots. 
+
+We benchmark the approach focusing on the spin-$\frac{1}{2}$ isotropic 
+Heisenberg chain ($XXX$ chain), which is the venerable prototype of integrable 
+models~\cite{bethe-1931}. We consider several TGGEs 
 (cf.~\eqref{rho-gge}) constructed including ${\mathcal I}_2,{\mathcal I}_3,
-{\mathcal I}_4$, and varying the associated Lagrange multipliers $\lambda_j$. 
-We focus on the conserved charges averages $\langle{\mathcal I}_j/L\rangle$  
-and their ensemble fluctuations $\sigma^2({\mathcal I}_j/L)\equiv\langle({\mathcal I}_j/L)^2
-\rangle-\langle{\mathcal I}_j/L\rangle^2$. All these 
-quantities are related to well-known physical observables, such as the energy density, 
-the energy current per site, the specific heat, and the thermal Drude weight {\bf Cite something 
-since it is non-trivial quantity}. We also compute the average magnetization and the spin 
-susceptibility per site $\chi/L$. Already for a chain with $L=20$ sites the Monte Carlo 
-data perfectly agree with the Generalized Thermodynamic Bethe Ansatz (GTBA) approach. We stress that 
-this is the first direct numerical check of the GTBA for the $XXX$ chain. Finally, we extract 
-the BGT roots distributions for the Gibbs ensemble at several temperatures, and the GGE. 
-For both ensembles the finite-size effects are negligible for small roots, which are the 
+{\mathcal I}_4$, and the first of the recently discovered~\cite{ilievski-2015,ilievski-2015a} 
+quasi-local charges ${\mathcal I}_{QS}$ ($H_1^2$ in Ref.~\onlinecite{ilievski-2015a}). 
+We focus on the conserved charges averages $\langle{\mathcal I}_j/L\rangle$, 
+and on their ensemble fluctuations $\sigma^2({\mathcal I}_j/L)\equiv\langle({\mathcal I}_j/L)^2
+\rangle-\langle{\mathcal I}_j/L\rangle^2$, which  are related to well-known physical 
+observables, such as the energy density, the energy current per site, the specific heat, 
+and the thermal Drude weight~\cite{klumper-2002}. We also compute the spin susceptibility 
+per site $\chi$. Already for a chain with $L=16$ sites the Monte Carlo data perfectly agree 
+with the Generalized Thermodynamic Bethe Ansatz (GTBA) approach~\cite{mossel-2012,fagotti-2013a}. 
+We stress that this is the first direct numerical check of the GTBA for the $XXX$ chain. Finally, 
+we extract the BGT roots distributions for both the Gibbs ensemble and the GGE. 
+In both cases the finite-size effects are negligible for small roots, which are the 
 relevant ones to describe the long-wavelength physics. For the Gibbs ensemble we compare 
 our numerical data with standard finite-temperature Thermodynamic Bethe Ansatz (TBA) results, 
 finding excellent agreement. 
@@ -227,8 +236,7 @@ finding excellent agreement.
 %#############-- THE HEISENBERG SPIN CHAIN --########################################
 \paragraph*{The-Heisenberg-spin-chain.---}
 
-The isotropic spin-$\frac{1}{2}$ Heisenberg ($XXX$) chain with $L$ sites is defined by 
-the Hamiltonian 
+The $XXX$ chain with $L$ sites is defined by the Hamiltonian 
 %
 \begin{align}
 \label{xxx-ham}
@@ -240,19 +248,19 @@ where $S^{\pm}_i\equiv (\sigma_i^x\pm i\sigma_i^y)/2$ are spin operators acting 
 site $i$, $S_i^z\equiv\sigma_i^z/2$, and $\sigma^{x,y,z}_i$ the Pauli matrices. We fix 
 $J=1$ and use periodic boundary conditions, identifying sites $L+1$ and $1$. The total 
 magnetization $S_{T}^z\equiv\sum_iS_i^z=L/2-M$, with $M$ number of down spins (particles), 
-commutes with~\eqref{xxx-ham}, and it is here used to label the $XXX$ chain eigenstates. 
+commutes with~\eqref{xxx-ham}, and it is here used to label its eigenstates. 
 
 In the Bethe ansatz formalism each eigenstate of~\eqref{xxx-ham} is univocally identified 
 by $M$ parameters  $\{x_\alpha\in\mathbb{C}\}_{\alpha=1}^M$. In the limit $L\to\infty$ they 
 form ``string'' patterns along the imaginary axis of the complex 
-plane (string hypothesis){\bf cita Bethe Takahashi}. Strings of length $1\le n\le M$ 
+plane (string hypothesis~\cite{bethe-1931,taka-book}). Strings of length $1\le n\le M$ 
 (so-called $n$-strings) are parametrized as $x_{n;\gamma}^{j}=x_{n;\gamma}-i(n-1-2j)$. 
 Here $x_{n;\gamma}\in\mathbb{R}$ is the string real part (string center), $j=0,1,\dots,n-1$ 
 labels different string components, and $\gamma$ denotes different string centers. The 
 string hypothesis is not correct for finite chains, although deviations typically decay 
 exponentially with $L$. Physically, the $n$-strings correspond to eigenstate components 
-containing $n$-particle bound states. The $\{x_{n;\gamma}\}$ are the roots of the 
-Bethe-Gaudin-Takahashi (BGT) equations 
+containing $n$-particle bound states. The $\{x_{n;\gamma}\}$ are obtained as the roots 
+of the Bethe-Gaudin-Takahashi (BGT) equations~\cite{takahashi-1971,taka-book} 
 %
 \begin{equation}
 L\vartheta_n(x_{n;\gamma})=2\pi I_{n;\gamma}+\sum\limits_{(m,\beta)
@@ -261,13 +269,14 @@ L\vartheta_n(x_{n;\gamma})=2\pi I_{n;\gamma}+\sum\limits_{(m,\beta)
 \end{equation}
 %
 Here $\vartheta_n(x)\equiv2\arctan(x/n)$, $\Theta_{m,n}(x)$ is the scattering 
-phase between different roots, and $I_{n;\gamma}\in\frac{1}{2}\mathbb{Z}$ are the so-called 
-Bethe-Takahashi quantum numbers. The $I_{n;\gamma}$ satisfy the upper bound $|I_{n;\gamma}|
-\le I_{\textrm{MAX}}(n,L,M)$, with $I_{\textrm{MAX}}$ a known function of $n,M,L$~\cite{taka-book}. 
+phase between different roots~\cite{taka-book}, and $I_{n;\gamma}\in\frac{1}{2}\mathbb{Z}$ are 
+the so-called Bethe-Gaudin-Takahashi quantum numbers. The $I_{n;\gamma}$ satisfy the upper 
+bound $|I_{n;\gamma}|\le I_{\textrm{MAX}}(n,L,M)$, with $I_{\textrm{MAX}}$ a known 
+function~\cite{taka-book} $n,L,M$. 
 Every choice of $I_{n;\gamma}$ identifies an eigenstate of~\eqref{xxx-ham}. 
-The ``string content'' of each eigenstate is denoted as ${\mathcal S}\equiv\{s_1,\dots,
+We define the ``string content'' of each eigenstate as ${\mathcal S}\equiv\{s_1,\dots,
 s_M\}$, with $0\le s_n\le \lfloor M/n\rfloor$ the number of $n$-strings.  
-The conserved charges ${\mathcal I}_j$ of the $XXX$ chain are given as   
+The local conserved charges ${\mathcal I}_j$ of the $XXX$ chain are given as   
 %
 \begin{equation}
 \label{I-def}
@@ -276,36 +285,44 @@ The conserved charges ${\mathcal I}_j$ of the $XXX$ chain are given as
 \end{equation}
 %
 where $\Lambda(y)$ is the eigenvalue of the quantum transfer matrix~\cite{kor-book}, 
-with $y$ a spectral parameter. ${\mathcal I}_2$ is the $XXX$ hamiltonian. 
-The exact expression of the charges in terms of spin operators is known explicitly 
-for $j\le 10$~\cite{grabowski-1995}. Larger values of $j$ in~\eqref{I-def} correspond 
-to less local charges. Precisely, the support of ${\mathcal I}_j$, i.e., the number of 
-adjacent sites where ${\mathcal I}_j$ acts non trivially, increases linearly with $j$.  
+with $y$ a spectral parameter. ${\mathcal I}_2$ is the $XXX$ Hamiltonian. 
+The analytic expression of ${\mathcal I}_j$ in terms of the Pauli matrices is known~\cite{grabowski-1995}  
+for $j\le 10$. The support of ${\mathcal I}_j$, i.e., the number of 
+adjacent sites where ${\mathcal I}_j$ acts non trivially, increases linearly with $j$, i.e., 
+larger $j$ correspond to less local charges.  
 The eigenvalues of ${\mathcal I}_j$ on a generic eigenstate are 
 obtained by summing the contributions of the different BGT roots {\it independently}. 
-For instance, the energy is obtained as $E=2\sum_{n,\gamma} n/(n^2+x^2_{n;\gamma})$. 
-Similar results are obtained for other charges using~\eqref{I-def}. 
+For instance, the energy eigenvalue is obtained as $E=2\sum_{n,\gamma} n/(n^2+x^2_{n;\gamma})$. 
+A similar result holds true for the quasi-local charges~\cite{ilievski-2015a}. 
 
 
 %#############-- HILBERT SPACE MONTE CARLO --########################################
 \paragraph*{The-Hilbert-space-Monte-Carlo-sampling.---}
 
-
-For a finite chain the GGE ensemble~\eqref{rho-gge} can be simulated by sampling the 
-eigenstates of~\eqref{xxx-ham}. One starts with an initial $M$-particle 
-eigenstate, with string content ${\mathcal S}=\{s_1,\dots,s_M\}$, and identified by a 
-BGT quantum number configuration ${\mathcal C}=\{I_{n;\gamma}\}_{n=1}^M$ ($\gamma=1,
-\dots,s_n$). The corresponding charges eigenvalues are $\{{\mathcal I_j}\}$. 
+For a finite chain the GGE (cf.~\eqref{rho-gge}) can be obtained by importance 
+sampling~\cite{landau-binder} of the eigenstates of~\eqref{xxx-ham}. One starts with an 
+initial $M$-particle eigenstate, with string content ${\mathcal S}=\{s_1,\dots,s_M\}$, and 
+identified by a BGT quantum number configuration ${\mathcal C}=\{I_{n;\gamma}\}_{n=1}^M$ 
+($\gamma=1,\dots,s_n$). The corresponding charges eigenvalues are $\{{\mathcal I_j}\}$. 
 Then a new eigenstate is generated with a Monte Carlo scheme. 
 Each Monte Carlo step (mcs) consists of three moves:
 %
 \begin{enumerate}
-\item Choose a new particle number sector $M'$, and string content ${\mathcal S}'$ 
- with probability ${\mathcal P}(M',{\mathcal S}')$.
-\item Generate a new quantum number configuration ${\mathcal C}'$ compatible with 
+\item[\circled{1}] Choose a new particle number sector $M'$, and string content ${\mathcal S}'
+ \equiv\{s_1',\dots,s_{M'}'\}$ with probability~\cite{faddeev-1996} ${\mathcal P}(M',{\mathcal S}')$
+%
+\vspace{-5pt}
+\begin{equation}
+\label{dos}
+{\mathcal P}(M',{\mathcal S}')=\frac{1}{B(L,L/2)}\prod_{i=1}^{M'} B\left({\mathcal L}_i,{
+\mathcal S}'_i\right).
+\end{equation}
+%
+\vspace{-16pt}
+\item[\circled{2}] Generate a new quantum number configuration ${\mathcal C}'$ compatible with 
  the ${\mathcal  S}'$ obtained in step $1$. Solve the corresponding BGT 
  equations~\eqref{bt-eq}. 
-\item Calculate the charge eigenvalues ${\mathcal I}_j'$ and accept the new 
+\item[\circled{3}] Calculate the charge eigenvalues ${\mathcal I}_j'$ and accept the new 
 eigenstate with the Metropolis probability:
 %
 \begin{equation}
@@ -316,16 +333,17 @@ eigenstate with the Metropolis probability:
 %
 \end{enumerate}
 %
+In~\eqref{dos} $B(x,y)\equiv x!/(y!(x-y)!)$ is the Newton binomial and ${\mathcal L}_i\equiv L-\sum_{j=1}^{M'}t_{ij}
+{\mathcal S}'_j$, with $t_{ij}\equiv2\textrm{Min}(i,j)-\delta_{ij}$.
 In~\eqref{metropolis} the factor in front of the exponential takes into account 
-that ${\mathcal I}_j$ are invariant under $SU(2)$ rotations. Crucially, the steps 
-$1$ and $2$ are necessary to account correctly for the density of states of the model, and 
-are the same for the Gibbs ensemble~\cite{gu-2005}. The iteration of $1$-$3$ defines a Markov 
-chain, which, after some thermalization steps, generates eigenstates sampled according 
-to~\eqref{rho-gge}. Clearly, it is straightforward to simulate the GGE with fixed particle 
-number $M$. More interestingly, by trivially modifying~\eqref{metropolis} it is possible to 
+that ${\mathcal I}_j$ and the observables that we consider are invariant under $SU(2)$ rotations. 
+Crucially, the steps $1$ and $2$ are necessary to account for the density of states of the model 
+(equivalently, the Yang-Yang entropy, see below), 
+and are the same as for the Gibbs ensemble~\cite{gu-2005}. The iteration of $1$-$3$ defines a Markov 
+chain, which, after some thermalization steps, generates eigenstates distributed according 
+to~\eqref{rho-gge}. Interestingly, by trivially modifying~\eqref{metropolis} it is possible to 
 simulate more exotic ensembles in which, in addtion to ${\mathcal I}_j$, one considers 
-arbitrary functions of the BGT roots. This could be useful to include the quasi-local 
-charges in the $GGE$. 
+arbitrary functions of the BGT roots.  
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%e
 \begin{figure}[t]
@@ -341,7 +359,7 @@ charges in the $GGE$.
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-The ensemble average $\langle{\mathcal O}\rangle$ of a generic operator is obtained as  
+The GGE average $\langle{\mathcal O}\rangle$ of a generic operator is obtained as  
 %
 \begin{equation}
 \label{gge-mc}
@@ -352,14 +370,14 @@ The ensemble average $\langle{\mathcal O}\rangle$ of a generic operator is obtai
 %
 where $N_{\textrm{mcs}}$ is the total number of eigenstates $|s\rangle$ sampled in 
 the Monte Carlo. Moreover, for all the observables considered here the contributions 
-of the roots can be summed independently, i.e., 
+of the BGT roots can be summed independently, i.e., 
 %
 \begin{equation}
 \label{gge-mc-1}
-\langle s|{\mathcal O}|s\rangle=\sum\limits_{n,\gamma}f_{{\mathcal O}}(x_{n;\gamma})
+\langle s|{\mathcal O}|s\rangle=\sum\limits_{n,\gamma}f_{{\mathcal O}}(x_{n;\gamma}), 
 \end{equation}
 %
-where $x_{n;\gamma}$ are the BGT roots identifying the eigenstate $|s\rangle$, and 
+where $x_{n;\gamma}$ are the roots identifying the eigenstate $|s\rangle$, and 
 $f_{{\mathcal O}}(x)$ depends on the observable. 
 
 
@@ -370,24 +388,25 @@ The correctness of the Monte Carlo approach is illustrated in Fig.~\ref{fig1}, c
 the charge densities $\langle {\mathcal I}_j/L\rangle$ (panels (a)-(c) in the Figure), 
 and the variance of their ensemble fluctuations $\sigma^2({\mathcal I}_j/L)\equiv
 \langle({\mathcal I}_j/L)^2\rangle-\langle{\mathcal I}_j/L\rangle^2$ (panels (e)-(g)). 
-Panels (d)(h) plot the total magnetization $\langle S_z\rangle$, i.e., the average 
-particle number, and $\chi/\beta$, with $\chi$ the spin susceptibility. 
-Notice that $\langle{\mathcal I}_2/L\rangle$ is the energy density, 
-$\langle{\mathcal I}_3/L\rangle$ the energy current per site, while $\sigma^2({\mathcal I}_2/L)$ 
-and $\sigma^2({\mathcal I}_3/L)$ are related to the specific heat, and the thermal Drude 
-weight, respectively. In all panels the data correspond to the TGGE constructed with 
-the first three charges ${\mathcal I}_2,{\mathcal I}_3,{\mathcal I}_4$. Different symbols 
-correspond to different values of the associated Lagrange multipliers, namely 
-$\lambda_3=\lambda_4=0$ (Gibbs ensemble, circles in the Figure), $\lambda_3=1$ and 
-$\lambda_4=0$ (squares), and $\lambda_3=\lambda_4=1$ (rhombi). 
+Panels (d)(h) plot the total magnetization $\langle S_z\rangle$ and $\chi/\beta$, 
+with $\chi$ the spin susceptibility. Notice that $\langle{\mathcal I}_2/L\rangle$ is the energy 
+density, $\langle{\mathcal I}_3/L\rangle$ the energy current per site, while $\sigma^2({
+\mathcal I}_2/L)$ and $\sigma^2({\mathcal I}_3/L)$ are related to the specific heat, and the 
+thermal Drude weight, respectively. In all panels the data correspond to the TGGE constructed 
+with the first three charges ${\mathcal I}_2,{\mathcal I}_3,{\mathcal I}_4$, and the first 
+non-trivial quasi-local charge ${\mathcal I}_{QS}$~\cite{ilievski-2015,ilievski-2015a}. 
+Different symbols correspond to different values of the associated Lagrange multipliers, 
+namely $\lambda_3=\lambda_4=\lambda_{QS}=0$ (Gibbs ensemble, circles in the Figure), $\lambda_3=1$ and 
+$\lambda_4=\lambda_{QS}=0$ (squares), $\lambda_3=\lambda_4=1,\lambda_{QS}=0$ (rhombi), and 
+$\lambda_3=\lambda_4=0,\lambda_{QS}=1$ (crosses). 
 In all panels the $x$-axis shows the inverse temperature $\lambda_2=\beta$. The data 
 are Monte Carlo averages with $N_{\textrm{mcs}}=5\cdot 10^5$ (cf.~\eqref{gge-mc}). 
-As expected, the different ensemble give different expectation values, implying that 
-the local observables we consider are able to distinguish different $GGE$s. In panel 
-(b) $\langle {\mathcal I}_3\rangle=0$ for the Gibbs ensemble due to parity 
+As expected, the different ensembles give different expectation values, implying that 
+local observables are able to distinguish different GGEs. In panel 
+(b) $\langle {\mathcal I}_3\rangle=0$ in the Gibbs ensemble due to the parity 
 symmetry, while in (d) $\langle S_z\rangle=0$ due to the $SU(2)$ symmetry of~\eqref{xxx-ham}. 
 In Fig.~\ref{fig1} the continuous lines are the analyitic results obtained 
-in the thermodynamic limit by solving the $GTBA$ equations. These fully match the Monte 
+in the thermodynamic limit by solving the GTBA equations. These fully match the Monte 
 Carlo data, signaling  that finite-size effects are negligible already for $L=16$.  
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%e
@@ -414,21 +433,21 @@ Carlo data, signaling  that finite-size effects are negligible already for $L=16
 
 The finite-size corrections are more carefully investigated in Fig.~\ref{fig2},   
 plotting $\langle{\mathcal I}_2\rangle$ and $\langle {\mathcal I}_4
-\rangle$ (panels (a) and (b), respectively) versus $\beta$. Here we focus on 
-the $TGGE$ with $\lambda_2=\beta,\lambda_3=0$ and $\lambda_4=1$. Clearly,  
-finite-size effects decay exponentially with $L$ for any $\beta$. In (a) the dashed 
-lines are fits to $c_1+c_2\exp(-c_3L)$, with $c_1,c_2,c_3$ fitting parameters. Moreover, 
-corrections are larger at lower temperature, and increase with the range of the 
-operator (compare panels  (a) and (b) in Fig.~\ref{fig2}). 
+\rangle$ (panels (a) and (b), respectively) versus $\beta$. We focus on 
+the TGGE with $\lambda_2=\beta,\lambda_3=\lambda_{QS}=0$ and $\lambda_4=1$. Clearly,  
+finite-size effects decay exponentially~\cite{iyer-2015} with $L$ for any $\beta$. In (a) the dashed 
+lines are fits to $c_1+c_2\exp(-c_3L)$, with $c_1,c_2,c_3$ fitting parameters. 
+Finite-size  corrections are larger at lower temperature, and increase with the 
+range of the operator (compare panels  (a) and (b) in Fig.~\ref{fig2}), as expected. 
 
 %#############-- EXTRACTING THE ROOT DENSITIES --###################################
 \paragraph*{Extracting-the-root-distributions.---}
 
 In the thermodynamic limit in each $n$-string sector the roots of~\eqref{bt-eq} become 
 dense. Thus, instead of the eigenstates, one considers the corresponding root 
-distributions $\pmb{\rho}\equiv\{\rho_n\}_{n=1}^\infty$. Formally, one has $\rho_n
-\equiv\lim_{L\to\infty}[L(x_{n;\gamma+1}-x_{n;\gamma})]^{-1}$. For a generic observable 
-${\mathcal O}$, the $GGE$ average becomes a functional integral as 
+distributions $\pmb{\rho}\equiv\{\rho_n\}_{n=1}^\infty$. Formally, $\rho_n\equiv
+\lim_{L\to\infty}[L(x_{n;\gamma+1}-x_{n;\gamma})]^{-1}$. The GGE average of a 
+generic observable ${\mathcal O}$ becomes a functional integral as~\cite{yang-1969,mossel-2012} 
 %
 \begin{equation}
 \label{th-limit}
@@ -438,9 +457,9 @@ ${\mathcal O}$, the $GGE$ average becomes a functional integral as
 \end{equation}
 %
 Here $S[\pmb{\rho}]$ is the Yang-Yang entropy, which counts the number of eigenstates 
-leading to the same $\pmb{\rho}$, and it is extensive. In~\eqref{th-limit} 
-it is assumed that ${\mathcal O}$ becomes a smooth functional of $\pmb{\rho}$ 
-in the thermodynamic limit. In particular,~\eqref{gge-mc-1} becomes 
+leading to the same $\pmb{\rho}$ in the thermodynamic limit, and it is extensive. 
+In~\eqref{th-limit} it is assumed that ${\mathcal O}$ becomes a smooth functional 
+of $\pmb{\rho}$ in the thermodynamic limit. Eq.~\eqref{gge-mc-1} becomes 
 %
 \begin{equation}
 \label{th-limit-1}
@@ -448,13 +467,14 @@ in the thermodynamic limit. In particular,~\eqref{gge-mc-1} becomes
 \end{equation}
 %
 Since both $S[\pmb{\rho}]$ and ${\mathcal I}_j[\pmb{\rho}]$ are extensive, the functional 
-integral in~\eqref{th-limit} is dominated by the saddle point $\pmb{\rho}^{sp}$, with $\delta(S+\lambda_j{\mathcal I}_j)/
-\delta\pmb{\rho}|_{\pmb{\rho}=\pmb{\rho}^{sp}}=0$. Here $\pmb{\rho}^{sp}$ acts as a representative 
+integral in~\eqref{th-limit} is dominated by the saddle point~\cite{mossel-2012} 
+$\pmb{\rho}^{sp}$, with $\delta(S+\lambda_j{\mathcal I}_j)/\delta\pmb{\rho}|_{\pmb{\rho}=
+\pmb{\rho}^{sp}}=0$. Here $\pmb{\rho}^{sp}$ acts as a representative 
 state for the ensemble, and it contains the full information about the GGE equilibrium steady 
 state. Eq.~\eqref{gge-mc} and~\eqref{th-limit-1} imply that in the thermodynamic limit 
-the histograms of the BGT roots sampled in the Monte Carlo converge to $\rho_{n}^{sp}$.  
+the histograms of the BGT roots sampled in the Monte Carlo converge to $\pmb{\rho}^{sp}$.  
 
-This is supported in Fig.~\ref{fig3} considering several GGEs. Panels (a)-(c) plot the  
+This is numerically supported in Fig.~\ref{fig3}. Panels (a)-(c) plot the  
 root distributions $\rho^{sp}_n(x)$ for $n=1,2,3$ as a function of $x$ for the representative 
 state (saddle point) of the infinite-temperature Gibbs ensemble. In each panel 
 the different histograms correspond to different chain sizes $18\le L\le 30$. The data 
@@ -466,17 +486,17 @@ Moreover, the corrections are larger on the tails of the distributions. This is 
 since large roots correspond to large quasi-momenta, which are more sensitive to the 
 lattice effects. Finally, finite-size effects increase with $n$, i.e., with the bound 
 state sizes, as expected. The results for the finite-temperature Gibbs ensemble 
-are presented in Fig.~\ref{fig1} (g), for $\beta=1/2$ and $\beta=1$ (the different 
-histograms). We focus on $\rho_1(x)$, restricting ourselves to $L=30$. The 
+are reported in Fig.~\ref{fig1} (g), for $\beta=1/2$ and $\beta=1$ (the different 
+histograms). We focus on $\rho^{sp}_1(x)$, restricting ourselves to $L=30$. The 
 infinite temperature histogram is reported for comparison. The continuous lines are now 
 finite-temperature TBA results, and perfectly agree with the Monte Carlo data. 
 Upon lowering the temperature the height of the peak at $x=0$ increases. This reflects 
 that at $\beta=\infty$ the tail of the root distributions vanish exponentially, whereas 
-for $\beta=0$ they are $\sim 1/x^4$~\cite{taka-book}. 
+for $\beta=0$ they are~\cite{taka-book} $\sim 1/x^4$. 
 Finally, panels (d)-(f) plot $\rho_n(x)$ for the TGGE constructed with ${\mathcal I}_2,
 {\mathcal I}_4$ at fixed  $\lambda_2=0$, $\lambda_4=1$ and for $L=30$. Interestingly, 
-in contrast with the thermal case (see (a)), $\rho_1$ exhibits a double peak 
-structure at small $x$. Similar to the infite-temperature Gibbs ensemble ((a)-(c) in 
+in contrast with the thermal case (see (a)), $\rho^{sp}_1$ exhibits a double peak 
+at small $x$. Similar to the infinite-temperature Gibbs ensemble ((a)-(c) in 
 the Figure), the data suggest that for $L=30$ finite-size effects are negligible, 
 at least for $-2\le x\le 2$. 
 
@@ -485,29 +505,46 @@ at least for $-2\le x\le 2$.
 \paragraph*{Conclusions.---}
 
 We presented a Monte-Carlo-based scheme for simulating the truncated Generalized 
-Gibbs ensemble (TGGE) in finite-size integrable models. The key idea is to sample the 
-eigenstates of the model using the GGE probability measure. The method relies on the 
-Bethe ansatz formalism, and, in particular, on the Bethe-Gaudin-Takahashi (BGT) equations. 
-The thermodynamic limit can be accessed by standard finite-size scaling analysis. 
-Remarkably, it is possible to extract in a simple way the steady-steate BGT root 
+Gibbs ensemble (TGGE) in finite-size integrable models. The key idea is the importance 
+sampling of the model eigenstates using the GGE probability measure. The method relies 
+on the Bethe ansatz formalism, and, in particular, on the Bethe-Gaudin-Takahashi (BGT) 
+equations. The thermodynamic limit can be accessed by standard finite-size scaling analysis. 
+For local quantities we observed that the finite-size corrections decay exponentially 
+with the system size. 
+Remarkably, the method allows to extract in a simple way the steady-steate BGT root 
 distributions, which contain full information about the (GGE) ensemble averages 
 in the thermodynamic limit. Finally, it is possible to simulate extensions of 
 the GGE, in which, besides the integral of motion, one includes arbitrary functions 
-of the BGT roots. 
-We bechmarked the method focusing on the spin-$\frac{1}{2}$ isotropic Heisenberg chain. 
-We compared the numerical results with the Generalized Thermodynamic Bethe ansatz, 
-finding excellent agreement. Moreover, for local quantities the finite-size corrections 
-to the GGE expectation values decay exponentially with the chain size. 
+of the BGT roots. We bechmarked the method focusing on the spin-$\frac{1}{2}$ isotropic 
+Heisenberg chain. Specifically, we compared the Monte Carlo results with the Generalized 
+Thermodynamic Bethe ansatz, finding excellent agreement. Finally, we simulated 
+an extended GGE obtained by including the first non-trivial quasi-local charge. 
 
-As an interesting research direction, we mention that it would be useful to simulate 
-the GGE at fixed value of the conserved charges. This would be the same in spirit as what is done in microcanonical 
-Monte Carlo simulations in lattice gauge theory~\cite{creutz-1983} or molecular 
-dynamics simulations~\cite{lustig-1998}. It should be possible to employ the same 
-techniques for the GGE. 
+As an interesting research direction, we mention that it would be useful to generalize the 
+method to simulate the GGE at fixed value of the conserved charges. This should be possible 
+using the standard microcanonical Monte Carlo techniques that have been developed in lattice 
+gauge theory~\cite{creutz-1983} and in molecular dynamics simulations~\cite{lustig-1998}. 
+Finally, by including in~\eqref{metropolis} the overlap contribution 
+$\log|\langle\Psi_0|\Psi_j\rangle|$, with $|\Psi_0\rangle$ the pre-quench initial state, 
+and $|\Psi_j\rangle$ the eigenstates of the model,  it should be possible to simulate the 
+Quench Action~\cite{prep}.
+
+\paragraph*{Acknowledgements.---}
+I would like to thank Maurizio Fagotti for providing the analytical GTBA results in 
+Fig.~\ref{fig1} and Lorenzo Piroli for the finite-temperature TBA in Fig.~\ref{fig3}. 
+I would like to thank P.~Calabrese, M.~Fagotti, F.~Essler, and L.~Piroli,  for useful 
+discussions and comments. I acknowledge financial support by the ERC under Starting 
+Grant 279391 EDEQS. The simulations were done on the main SISSA cluster. Using Mathematica 
+the simulation of $L=30$ (see Fig.~\ref{fig3}) took approximately $2$ days on a single core 
+of a standard commercial CPU. 
 
 %##########################################################################
 
 \begin{thebibliography}{99}
+\bibitem{bloch-2008}
+I.~Bloch, J.~Dalibard, and W.~Zwerger, Rev.\ Mod.\ Phys.\ {\bf 80}, 
+885 (2008).
+
 \bibitem{greiner-2002}
 M.~Greiner, O.~Mandel, T. H\"ansch, and I.~Bloch, Nature (London) 
 {\bf 419}, 51 (2002). 
@@ -519,10 +556,6 @@ T.~Kinoshita, T.~Wenger, and D.~S.~Weiss, Nature (London) {\bf 440},
 \bibitem{hofferberth-2007}
 S.~Hofferberth, I.~Lesanovsky, B.~Fischer, T.~Schumm, and J.~Schiedmayer, 
 Nature (London) {\bf 449}, 324 (2007). 
-
-\bibitem{bloch-2008}
-I.~Bloch, J.~Dalibard, and W.~Zwerger, Rev.\ Mod.\ Phys.\ {\bf 80}, 
-885 (2008).
 
 \bibitem{trotzky-2012}
 S.~Trotzky, Y.-A.~Chen, A.~Flesch, I.~P.~McCulloch, U.~Schollw\"ock, 
@@ -569,27 +602,171 @@ F. Heidrich-Meisner, I.~Bloch, and U.~Schneider, Phys.\ Rev.\ Lett.\ {\bf 110},
 
 \bibitem{braun-2014}
 S.~Braun, M.~Friesdorf, S.~Hodgman, M.~Schreiber, J.~Ronzheimer, A.~Riera, M.~del Rey, 
-I.~Bloch, J.~Eisert, and U.~Schneider, arXiv:1403.7199.
+I.~Bloch, J.~Eisert, and U.~Schneider, PNAS {\bf 112}, 3641 (2015).
+
+\bibitem{langen-2015}
+T.~Langen, S.~Erne, R.~Geiger, B.~Rauer, T.~Schweigier, M.~Kuhnert, W.~Rohringer, 
+I.~E.~Mazets, T.~Gasenzer, J.~Schmiedmayer, Science {\bf 348}, 6231 (2015). 
 
 
 \bibitem{polkovnikov-2011}
-A.~Polkovnikov, K.~Sengupta, and M.~Vengalattore, Rev.\ Mod.\ Phys.\ 
+A.~Polkovnikov, K.~Sengupta, A~Silva, and M.~Vengalattore, Rev.\ Mod.\ Phys.\ 
 {\bf 83}, 863 (2011). 
+
+
+\bibitem{calabrese-2006}
+P.~Calabrese and J.~Cardy, Phys.\ Rev.\ Lett.\ {\bf 96}, 136801 (2006). 
+
+\bibitem{rigol-2007}
+M.~Rigol, V.~Dunjko, V.~Yurovsky, and M.~Olshanii, Phys.\ Rev.\ Lett.\ 
+{\bf 98}, 050405 (2007). 
+
+\bibitem{calabrese-2007}
+P.~Calabrese and J.~Cardy, J.\ Stat.\ Mech.\ (2007) P06008.
+
+\bibitem{kollath-2007}
+C.~Kollath, A.~M.~L\"auchli, and E.~Altman, Phys.\ Rev.\ Lett.\ 
+{\bf 98}, 180601 (2007).
+
+\bibitem{manmana-2007}
+S.~R.~Manmana, S.~Wessel, R.~M.~Noack, and A.~Muramatsu, 
+Phys.\ Rev.\ Lett.\ {\bf 98}, 210405 (2007).
+
+\bibitem{rigol-2008}
+M.~Rigol, V.~Dunjko, and M.~Olshanii, Nature {\bf 452}, 854 (2008). 
+
+\bibitem{cramer-2008}
+M.~Cramer, C.~M.~Dawson, J.~Eisert, and T.~J.~Osborne, Phys.\ Rev.\ 
+Lett.\ {\bf 100}, 030602 (2008).
 
 \bibitem{barthel-2008}
 T.~Barthel and U.~Schollw\"ock, Phys.\ Rev.\ Lett.\ {\bf 100}, 100601 
 (2008). 
 
-\bibitem{rigol-2008}
-M.~Rigol, V.~Dunjko, and M.~Olshanii, Nature {\bf 452}, 854 (2008). 
+\bibitem{kollar-2008}
+M.~Kollar and M.~Eckstein, Phys.\ Rev.\ A {\bf 78}, 013626 (2008). 
+
+\bibitem{moeckel-2008}
+M.~Moeckel and S.~Kehrein, Phys.\ Rev.\ Lett.\ {\bf 100}, 175702 (2008). 
+
+\bibitem{iucci-2009}
+A.~Iucci and M.~A.~Cazalilla, Phys.\ Rev.\ A\ {\bf 80}, 063619 (2009).
+
+\bibitem{rossini-2009}
+D.~Rossini, A.~Silva, G.~Mussardo, and G.~E.~Santoro, Phys.\ Rev.\ 
+Lett.\ {\bf 102}, 127204 (2009).
+
+\bibitem{barmettler-2009}
+P.~Barmettler, M.~Punk, V.~Gritsev, E.~Demler, and E.~Altman, Phys.\ Rev.\ 
+Lett.\ {\bf 102}, 130603 (2009).
+
+\bibitem{biroli-2010}
+G.~Biroli, C.~Kollath, and A.~M.~L\"auchli, Phys.\ Rev.\ Lett.\ 
+{\bf 105}, 250401 (2010). 
+
+\bibitem{rossini-2010}
+D.~Rossini, S.~Suzuki, G.~Mussardo, G.~E.~Santoro, and A.~Silva, 
+Phys.\ Rev.\ B\ {\bf 82}, 144302 (2010).
+
+\bibitem{fioretto-2010}
+D.~Fioretto and G.~Mussardo, New\ J.\ Phys.\ {\bf 12}, 
+055015 (2010).
+
+\bibitem{gogolin-2011}
+C.~Gogolin, M.~P.~Mueller, and J.~Eisert, Phys.\ Rev.\ Lett.\ 
+{\bf 106}, 040401 (2011).
+
+\bibitem{banuls-2011}
+M.~C.~Ba\~nuls, J.~I.~Cirac, and M.~B.~Hastings, Phys.\ Rev.\ Lett.\ 
+{\bf 106}, 050405 (2011). 
+
+\bibitem{calabrese-2011}
+P.~Calabrese, F.~H.~L.~Essler, and M.~Fagotti, Phys.\ Rev.\ Lett.\ {\bf106}, 227203 (2011).
+
+\bibitem{rigol-2011}
+M.~Rigol and M.~Fitzpatrick, Phys.\ Rev.\ A {\bf 84}, 033640 (2011).
+
+\bibitem{calabrese-2012}
+P.~Calabrese, F.~H.~L.~Essler, and M.~Fagotti, J.\ Stat.\ Mech.\ (2012) P07016.
+
+\bibitem{caux-2012}
+J.-S.~Caux and R.~M.~Konik, Phys.\ Rev.\ Lett.\ {\bf 109}, 175301 (2012).
+
+\bibitem{essler-2012}
+F.~H.~L.~Essler, S.~Evangelisti, and M.~Fagotti, Phys.\ Rev.\ Lett.\ 
+{\bf 109}, 247206 (2012). 
+
+\bibitem{cazalilla-2012}
+M.~A.~Cazalilla, A.~Iucci, and M.-C.~Chung, Phys.\ Rev.\ E {\bf 85}, 
+011133 (2012). 
+
+\bibitem{mossel-2012a}
+J.~Mossel and J.-S.~Caux, New\ J.\ Phys.\ {\bf 14} 075006 (2012).
+
+\bibitem{collura-2013}
+M.~Collura, S.~Sotiriadis and P.~Calabrese, Phys.\ Rev.\ Lett.\ {\bf 110}, 245301 (2013)
+
+\bibitem{mussardo-2013}
+G.~Mussardo, Phys.\ Rev.\ Lett.\ {\bf 111}, 100401 (2013).
 
 \bibitem{caux-2013}
 J.-S.~Caux and F.~H.~L.~Essler, Phys.\ Rev.\ Lett.\ {\bf 110}, 
 257203 (2013). 
 
+\bibitem{fagotti-2013a}
+M.~Fagotti and F.~H.~L.~Essler, J.\ Stat.\ Mech.\ (2013), P07012. 
+
+\bibitem{fagotti-2013}
+M.~Fagotti and F.~H.~L.~Essler, Phys.\ Rev.\ B\ {\bf87}, 245107 (2013).
+
+\bibitem{sotiriadis-2014}
+S.~Sotiriadis and P.~Calabrese, J.\ Stat.\ Mech.\ (2014) P07024. 
+
+\bibitem{fagotti-2014}
+M.~Fagotti, M.~Collura, F.~H.~L.~Essler, and P.~Calabrese, Phys.\ Rev.\ B {\bf 89}, 
+125101 (2014).
+
+\bibitem{essler-2014}
+F.~H.~L.~Essler, S.~Kehrein, S.~R.~Manmana, and N.~J.~Robinson, Phys.\ Rev.\ B {\bf 89}, 
+165104 (2014).
+
+\bibitem{goldstein-2014}
+G.~Goldstein and N.~Andrei, arXiv:1405.4224. 
+
+
+\bibitem{de-nardis-2014}
+J.~De Nardis, B.~Wouters, M.~Brockmann, and J.-S.~Caux, Phys.\ Rev.\ A {\bf 89}, 
+033601 (2014). 
+
+\bibitem{wright-2014}
+T.~M.~Wright, M.~Rigol, M.~J.~Davis, and K.~V.~Kheruntsyan, Phys.\ Rev.\ Lett.\ {\bf 113}, 
+050601 (2014).
+
 \bibitem{pozsgay-2014}
 B.~Pozsgay, M.~Mesty\'an, M.~A.~Werner, M.~Kormos, G.~Zar\'and, and G.~Tak\'acs,
 Phys.\ Rev.\ Lett.\ {\bf 113}, 117203 (2014). 
+
+\bibitem{wouters-2014}
+B.~Wouters, M.~Brockmann, J.~De~Nardis, D.~Fioretto, M.~Rigol, and J.-S.~Caux, 
+Phys.\ Rev.\ Lett.\ {\bf 113}, 117202 (2014). 
+
+\bibitem{mestyian-2015}
+M~Mesty\'an, B.~Pozsgay, G.~Tak\'acs, and M.~A.~Werner, J.\ Stat.\ Mech.\ (2015) 
+P04001.
+
+
+\bibitem{ilievski-2015a}
+E.~Ilieveski, J.~De~Nardis, B.~Wouters, J.-S.~Caux, F.~H.~Essler, and T.~Prosen, 
+arXiv:1507.02993. 
+
+\bibitem{kcc14}
+M.~Kormos, M.~Collura, and P.~Calabrese, Phys.\ Rev.\ A {\bf 89}, 013609 
+(2014).
+
+
+\bibitem{kcc14a}
+P.~P.~Mazza, M.\ Collura, M.\ Kormos, and P.\ Calabrese, J.\ Stat.\ Mech.\  
+(2014) P11016.
 
 \bibitem{prosen-2014}
 T.~Prosen, Nucl.\ Phys.\ B\ {\bf 886}, (2014) 1177.
@@ -607,6 +784,15 @@ S.~R.~White and A.~E.~Feiguin, Phys.\ Rev.\ Lett.\ {\bf 93}, 076401 (2004).
 \bibitem{daley-2004}
 A.~J.~Daley, C.~Kollath, U.~Schollock, and G.~Vidal, J.\ Stat.\ Mech.\ (2004) P04005.
 
+\bibitem{iyer-2015}
+D.~Iyer, M.~Srednicki, and M.~Rigol, Phys.\ Rev.\ E\ {\bf 91}, 062142 (2015).
+
+\bibitem{takahashi-1971} 
+M.~Takahashi, Prog.\ Theor.\ Phys.\ {\bf 46}, 401 (1971). 
+
+\bibitem{taka-book}
+M.~Takahashi, {\it Thermodynamics of one-dimensional solvable models}, 
+Cambridge University Press, Cambridge, 1999. 
 
 \bibitem{gu-2005}
 S.-J.~Gu, N.~M.~R.~Peres, Y.-Q.~Li, Eur.\ Phys.\ J.\ B {\bf 48}, 157 (2005). 
@@ -615,16 +801,31 @@ S.-J.~Gu, N.~M.~R.~Peres, Y.-Q.~Li, Eur.\ Phys.\ J.\ B {\bf 48}, 157 (2005).
 M.~P.~Grabowski and P.~Mathieu, Ann.\ Phys.\ N.Y. {\bf 243}, 
 299 (1995). 
 
+\bibitem{bethe-1931}
+H.~Bethe, Z.\ Phys.\ {\bf 71}, 205 (1931). 
 
+\bibitem{klumper-2002}
+A.~Kl\"umper and K.~Sakai, J.\ Phys.\ A\ {\bf 35}, 2173 (2002).
 
-\bibitem{taka-book}
-M.~Takahashi, {\it Thermodynamics of one-dimensional solvable models}, 
-Cambridge University Press 1999. 
+\bibitem{mossel-2012}
+J.~Mossel and J.-S.~Caux, J.\ Phys.\ A:\ Math.\ Theor.\ {\bf 45}, 
+255001 (2012). 
+
 
 \bibitem{kor-book}
 V.~E.~Korepin, N.~M.~Bogoliubov, and A.~G.~Izergin, \emph{Quantum 
 Inverse Scattering Methods and Correlation Functions}, Cambridge 
-University Press 1997. 
+University Press, Cambridge, 1997. 
+
+\bibitem{landau-binder}
+D.~P.~Landau and K.~Binder, \emph{A Guide to Monte Carlo Simulations in 
+Statistical Physics}, Cambridge University Press, Cambridge, 2000.
+
+\bibitem{faddeev-1996}
+L.~D.~Faddeev, arXiv:9605187.
+
+\bibitem{yang-1969}
+C.~N.~Yang and C.~P.~Yang, J.\ Math.\ Phys. {\bf 10}, 1115 (1969).
 
 \bibitem{creutz-1983}
 M.~Creutz, Phys.\ Rev.\ Lett.\ {\bf 50}, 1411 (1983).
@@ -632,379 +833,15 @@ M.~Creutz, Phys.\ Rev.\ Lett.\ {\bf 50}, 1411 (1983).
 \bibitem{lustig-1998}
 R.~Lustig, J.\ Chem.\ Phys.\ {\bf 109}, 8816 (1998).
 
-%\bibitem{goldstein-2006}
+\bibitem{prep}
+In preparation. 
 
-%S.~Goldstein, J.~L.~Lebowitz, R.~Tumulka, and N.~Zangh\'i, 
 
-%Phys.\ Rev.\ Lett.\ {\bf 96}, 050403 (2006). 
-
-%\bibitem{goldstein-2010}
-
-%S.~Goldstein, J.~L.~Lebowitz, C.~Mastrodonato, R.~Tumulka, and 
-
-%N.~Zanghi, Proc.\ R.\ Soc.\ A {\bf 466}, 3203 (2010).
-
-%\bibitem{goldstein-2010a}
-
-%S.~Goldstein, J.~L.~Lebowitz, R.~Tumulka, and N.~Zanghi, 
-
-%Eur.\ Phys.\ J.\ H {\bf 35}, 173 (2010). 
-
-%\bibitem{ikeda-2011}
-
-%T.~N.~Ikeda, Y.~Watanabe, and M.~Ueda, Phys.\ Rev.\ E {\bf 84}, 
-
-%021130 (2011). 
-
-%\bibitem{ikeda-2013} 
-
-%T.~N.~Ikeda, Y.~Watanabe, and M.~Ueda, Phys.\ Rev.\ E {\bf 87}, 
-
-%012125 (2013). 
-
-%\bibitem{steinigeweg-2013}
-
-%    R.~Steinigeweg, J.~Herbrych, and P.~Prelov\v{s}ek, Phys.\ Rev.\ E 
-
-%{\bf 87}, 012118 (2013).
-
-%\bibitem{beugeling-2013} 
-
-%W.~Beugeling, R.~Moessner, and M.~Haque, Phys.\ Rev.\ E {\bf 89}, 
-
-%042112 (2014). 
-
-%\bibitem{steinigeweg-2014}
-
-%R.~Steinigeweg, A.~Khodja, H.~Niemeyer, C.~Gogolin, and 
-
-%J.~Gemmer, Phys.\ Rev.\ Lett.\ {\bf 112}, 130403 (2014). 
-
-%\bibitem{sorg-2014}
-
-%S.~Sorg, L.~Vidmar, L.~Pollet, and F.~Heidrich-Meisner, 
-
-%arXiv:1405.5404v2. 
-
-%\bibitem{beugeling-2014} 
-
-%W.~Beugeling, R.~Moessner, and M.~Haque, arXiv:1407.2043. 
-
-%\bibitem{khemani-2014}
-
-%V.~Khemani, A.~Chandran, H.~Kim, and S.~L.~Sondhi, 
-
-%arXiv:1406.4863. 
-
-%\bibitem{kim-2014}
-
-%H.~Kim, T.~N.~Ikeda, and D.~Huse, arXiv:1408.0535. 
-
-%\bibitem{bonnes-2014}
-
-%L.~Bonnes, F.~H.~L.~Essler, and A.~M.~L\"auchli, arXiv:1404.4062 (2014).
-
-%\bibitem{alba-2009}
-
-%V.~Alba, M.~Fagotti, and P.~Calabrese, J.\ Stat.\ Mech.\ (2009) 
-
-%P10020. 
-
-%\bibitem{kitanine-1999}
-
-%N.~Kitanine, J.~M.~Maillet, and V.~Terras, Nucl.\ Phys.\ B {\bf 554}, 
-
-%647 (1999).
-
-%\bibitem{kitanine-2000}
-
-%N.~Kitanine, J.~M.~Maillet, and V.~Terras, Nucl.\ Phys.\ B {\bf 567}, 
-
-%554 (2000).
-
-%\bibitem{amico-2008} L.~Amico, R.~Fazio, 
-
-%A.~Osterloh, and V.~Vedral, Rev.\ Mod.\ Phys.\ {\bf 80}, 517 (2008).
-
-%\bibitem{eisert-2009}
-
-%J. Eisert, M. Cramer, and M. B. Plenio, Rev.\ Mod.\ Phys.\ {\bf 82}, 
-
-%277 (2009). 
-
-%\bibitem{calabrese-2009}
-
-%P.~Calabrese, J.~Cardy, and B. Doyon Eds., Special issue: Entanglement 
-
-%entropy in extended systems, J.\ Phys.\ A {\bf 42}, 50 (2009).
-
-%\bibitem{cc-rev}
-
-%P.~Calabrese and J.~Cardy, J.\ Phys.\ A {\bf 42} 504005 (2009).
-
-%\bibitem{alcaraz-2011}
-
-%.~C.~Alcaraz, M.~I.~Berganza, and G.~Sierra, Phys.\ Rev.\ Lett.\ 
-
-%\bf 106}, 201601 (2011).
-
-%bibitem{pizorn-2012}
-
-%.~Pizorn, arXiv:1202.3336. 
-
-%bibitem{berganza-2012}
-
-%.~I.~Berganza, F.~C.~Alcaraz, and G.~Sierra, J.\ Stat.\ Mech.\ 
-
-%(2012) P01016. 
-
-%\bibitem{wong-2013}
-
-%G.~Wong, I.~Klich, L.~A.~P.~Zayas, and D.~Vaman, 
-
-%JHEP {\bf12} (2013) 020. 
-
-%\bibitem{storms-2013}
-
-%M.~Storms, and R.~R.~P.~Singh, Phys.\ Rev.\ E {\bf 89}, 012125 
-
-%(2014). 
-
-%\bibitem{berkovits-2013}
-
-%R.~Berkovits, Phys.\ Rev.\ B {\bf 87}, 075141 (2013). 
-
-%\bibitem{essler-2013}
-
-%F.~H.~L.~Essler, A.~M.~L\"auchli, and P.~Calabrese, Phys.\ Rev.\ Lett.\ 
-
-%{\bf 110}, 115701 (2013).  
-
-%\bibitem{nozaki-2014}
-
-%M.~Nozaki, T.~Numasawa, T.~Takayanagi, Phys.\ Rev.\ Lett.\ {\bf 112}, 
-
-%111602 (2014).
-
-%\bibitem{ramirez-2014}
-
-%G.~Ramirez, J.~Rodriguez-Laguna, and G.~Sierra, arXiv:1402.5015.
-
-%\bibitem{ares-2014}
-
-%F.~Ares, J.~G.~Esteve, F.~Falceto, and E.~S\'anchez-Burillo, 
-
-%arXiv:1401.5922.
-
-%\bibitem{huang-2014}
-
-%Y.~ Huang, and J.~Moore,  arXiv:1405.1817.
-
-%\bibitem{palmai-2014}
-
-%T.~P\'almai, arXiv:1406.3182.
-
-%\bibitem{molter-2014}
-
-%J.~M\"olter, T.~Barthel,U.~Schollw\"ock, and V.~Alba, 
-
-%arXiv:1407.0066. 
-
-%\bibitem{lai-2014}
-
-%H.-H.~Lai and K.~Yang, arXiv:1409:1224
-
-%\bibitem{sato-2011}
-
-%J.~Sato, B.~Aufgebauer, H.~Boos, F.~G\"ohmann, A.~Kl\"umper, 
-
-%M.~Takahashi, and C.~Trippe, Phys.\ Rev.\ Lett.\ {\bf 106}, 257201 
-
-%(2011). 
-
-%\bibitem{gurarie-2013}
-
-%V.~Gurarie, J.\ Stat.\ Mech.\ (2014) P02014. 
 
 \end{thebibliography}
 
-
-%Unused bibitems
-
-%\bibitem{collura-2014}
-%M.~Collura, M.~Kormos, and P.~Calabrese, J.\ Stat.\ Mech.\ (2014) P01009. 
-%\bibitem{collura-2013}
-%M.~Collura, S.~Sotiriadis and P.~Calabrese, Phys.\ Rev.\ Lett.\ {\bf 110}, 245301 (2013)
-%\bibitem{flesch-2010}
-%A.~Flesch, M.~Cramer, I.~P.~McCulloch, U.~Schollw\"ock, and 
-%J.~Eisert, Phys.\ Rev.\ A {\bf 78}, 033608 (2008).
-%\bibitem{kormos-2014}
-%M.~Kormos, L.~Bucciantini, and P.~Calabrese, EPL {\bf 107}, 40002 (2014). 
-%\bibitem{fagotti-2014a}
-%M.~Fagotti, J.\ Stat.\ Mech.\ (2014) P03016. 
-%\bibitem{barmettler-2009}
-%P.~Barmettler, M.~Punk, V.~Gritsev, E.~Demler, and E.~Altman, Phys.\ Rev.\ 
-%Lett.\ {\bf 102}, 130603 (2009).
-%\bibitem{yang-1969}
-%C.~N.~Yang and C.~P.~Yang, J.\ Math.\ Phys. {\bf 10}, 1115 (1969).
-%\bibitem{manmana-2007}
-%S.~R.~Manmana, S.~Wessel, R.~M.~Noack, and A.~Muramatsu, 
-%Phys.\ Rev.\ Lett.\ {\bf 98}, 210405 (2007).
-%\bibitem{fagotti-2013}
-%M.~Fagotti and F.~H.~L.~Essler, Phys.\ Rev.\ B\ {\bf87}, 245107 (2013).
-%
-%\bibitem{srednicki-1996}
-%M.~Srednicki, J.\ Phys.\ A {\bf 29}, L75 (1996).
-%\bibitem{kormos-2013}
-%M.~Kormos, M.~Collura and P.~Calabrese, arXiv:1307.2142.
-%\bibitem{kollar-2008}
-%M.~Kollar and M.~Eckstein, Phys.\ Rev.\ A {\bf 78}, 013626 (2008). 
-%\bibitem{cassidy-2011}
-%A.~C.~Cassidy, C.~W.~Clark, and M.~Rigol, 
-%Phys.\ Rev.\ Lett.\ {\bf 106}, 140405 (2011). 
-%\bibitem{essler-2012}
-%F.~H.~L.~Essler, S.~Evangelisti, and M.~Fagotti, Phys.\ Rev.\ Lett.\ 
-%{\bf 109}, 247206 (2012). 
-%\bibitem{santos-2011}
-%L.~Santos, A.~Polkovnikov, and M.~Rigol, Phys.\ Rev.\ Lett.\ {\bf 107}, 
-%040601 (2011).
-%\bibitem{fioretto-2010}
-%D.~Fioretto and G.~Mussardo, New\ J.\ Phys.\ {\bf 12}, 
-%055015 (2010).
-%\bibitem{caux-2011}
-%J.-S.~Caux and J.~Mossel, J.\ Stat.\ Mech.\ (2011) P02023. 
-%
-%
-%\bibitem{rigol-2012}
-%M.~Rigol and M.~Srednicki, Phys.\ Rev.\ Lett.\ {\bf 108}, 110601 
-%(2012).
-%
-%\bibitem{kollath-2007}
-%C.~Kollath, A.~M.~L\"auchli, and E.~Altman, Phys.\ Rev.\ Lett.\ 
-%{\bf 98}, 180601 (2007).
-%\bibitem{srednicki-1999}
-%M.~Srednicki, J.\ Phys.\ A {\bf 32}, 1163 (1999).  
-%
-%
-%
-%
-%
-%
-%
-%\bibitem{sotiriadis-2014}
-%S.~Sotiriadis and P.~Calabrese, J.\ Stat.\ Mech.\ (2014) P07024. 
-%\bibitem{fagotti-2013a}
-%M.~Fagotti, Phys.\ Rev.\ B {\bf 87}, 165106 (2013). 
-%
-%\bibitem{iucci-2009}
-%A.~Iucci and M.~A.~Cazalilla, Phys.\ Rev.\ A\ {\bf 80}, 063619 (2009).
-%\bibitem{bertini-2014}
-%B.~Bertini, D.~Schuricht, and F.~H.~L.~Essler, arXiv:1405.4813 (2014).
-%\bibitem{santos-2010}
-%L.~F.~Santos and M.~Rigol, Phys.\ Rev.\ E {\bf 82}, 031130 (2010). 
-%\bibitem{cramer-2008a}
-%M.~Cramer, A.~Flesch, I.~P.~McCulloch, U.~Schollw\"ock, and J.~Eisert, 
-%Phys.\ Rev.\ Lett.\ {\bf 101}, 063001 (2008).
-%\bibitem{calabrese-2012-a}
-%P.~Calabrese, F.~H.~L.~Essler, and M.~Fagotti, J.\ Stat.\ Mech.\ (2012) P07022.
-%\bibitem{roux-2010}
-%G.~Roux, Phys.\ Rev.\ A {\bf 81}, 053604 (2010).
-%\bibitem{gogolin-2011}
-%C.~Gogolin, M.~P.~Mueller, and J.~Eisert, Phys.\ Rev.\ Lett.\ 
-%{\bf 106}, 040401 (2011).
-%\bibitem{collura-2013-a}
-%M.~Collura, S.~Sotiriadis and P.~Calabrese, J.\ Stat.\ Mech.\ (2013) P09025.
-%\bibitem{deutsch-1991}
-%J.~M.~Deutsch, Phys.\ Rev.\ A {\bf 43}, 2046 (1991).
-%\bibitem{zotos-1997}
-%X.~Zotos, F.~Naef, and P.~Prelov\v{s}ek, Phys.\ Rev.\ B {\bf 55}, 
-%11029 (1997)
-%
-%
-%
-%
-%
-%
-%
-%
-%\bibitem{fagotti-2014}
-%M.~Fagotti, M.~Collura, F.~H.~L.~Essler, and P.~Calabrese, Phys.\ Rev.\ B 
-%{\bf 89}, 125101 (2014).
-%\bibitem{wouters-2014}
-%B.~Wouters, M.~Brockmann, J.~De~Nardis, D.~Fioretto, M.~Rigol, and J.-S.~Caux, 
-%Phys.\ Rev.\ Lett.\ {\bf 113}, 117202 (2014). 
-%\bibitem{calabrese-2012}
-%P.~Calabrese, F.~H.~L.~Essler, and M.~Fagotti, J.\ Stat.\ Mech.\ (2012) P07016.
-%\bibitem{barmettler-2010}
-%P.~Barmettler, M.~Punk, V.~Gritsev, E.~Demler, and E.~Altman, New\ J.\ Phys.\ 
-%{\bf 12}, 055017 (2010).
-%\bibitem{mussardo-2013}
-%G.~Mussardo, Phys.\ Rev.\ Lett.\ {\bf 111}, 100401 (2013).
-%\bibitem{calabrese-2011}
-%P.~Calabrese, F.~H.~L.~Essler, and M.~Fagotti, Phys.\ Rev.\ Lett.\ {\bf106}, 227203 (2011).
-%\bibitem{rigol-2011}
-%M.~Rigol and M.~Fitzpatrick, Phys.\ Rev.\ A {\bf 84}, 033640 (2011).
-%\bibitem{roux-2009}
-%G. Roux, Phys.\ Rev.\ A {\bf 79}, 021608 (2009). 
-%\bibitem{cramer-2010}
-%M.~Cramer and J.~Eisert, New\ J.\ Phys.\ {\bf 12}, 055020 (2010). 
-%\bibitem{eisert-2014}
-%J.~Eisert., M.~Friesdorf, and C.~Gogolin, arXiv:1408.5148. 
-%
-%\bibitem{cazalilla-2012}
-%M.~A.~Cazalilla, A.~Iucci, and M.-C.~Chung, Phys.\ Rev.\ E {\bf 85}, 
-%011133 (2012). 
-%\bibitem{calabrese-2007}
-%P.~Calabrese and J.~Cardy, J.\ Stat.\ Mech.\ (2007) P06008.
-%\bibitem{banuls-2011}
-%M.~C.~Ba\~nuls, J.~I.~Cirac, and M.~B.~Hastings, Phys.\ Rev.\ Lett.\ 
-%{\bf 106}, 050405 (2011). 
-%\bibitem{caux-2009}
-%J.-S.~Caux, J.\ Math.\ Phys.\ {\bf 50}, 095214 (2009).
-%
-%\bibitem{srednicki-1994}
-%M.~Srednicki, Phys.\ Rev.\ E {\bf 50}, 888 (1994). 
-%\bibitem{caux-2005a}
-%J.-S.~Caux, R.~Hagemans and J.-M.~Maillet, J.\ Stat.\ Mech.\ P09003 (2005). 
-%\bibitem{castella-1996}
-%H.~Castella and X.~Zotos, Phys.\ Rev.\ B {\bf 54}, 4375 (1996).
-%\bibitem{rigol-2009}
-%M.~Rigol, Phys.\ Rev.\ Lett.\ {\bf 103}, 100403 (2009).
-%\bibitem{caneva-2011}
-%T.~Caneva, E.~Canovi, D.~Rossini, G.~E.~Santoro, and A.~Silva, 
-%J.\ Stat.\ Mech.\ (2011) P07015. 
-%\bibitem{mossel-2012a}
-%J.~Mossel and J.-S.~Caux, New\ J.\ Phys.\ {\bf 14} 075006 (2012).
-%\bibitem{cramer-2008}
-%M.~Cramer, C.~M.~Dawson, J.~Eisert, and T.~J.~Osborne, Phys.\ Rev.\ 
-%Lett.\ {\bf 100}, 030602 (2008).
-%\bibitem{caux-2005}
-%J.-S.~Caux and J.-M.~Maillet, Phys.\ Rev.\ Lett.\ {\bf 95}, 077201 (2005).
-%\bibitem{rigol-2009a}
-%M.~Rigol,  Phys.\ Rev.\ A {\bf 80}, 053607 (2009).
-%\bibitem{zotos-1996}
-%X.~Zotos and P.~Prelov\v{s}ek, Phys.\ Rev.\ B {\bf 53}, 
-%983 (1996).
-%\bibitem{essler-2014}
-%F.~H.~L.~Essler, S.~Kehrein, S.~R.~Manmana, and N.~J.~Robinson, Phys.\ Rev.\ 
-%B {\bf 89}, 165104 (2014).
-%\bibitem{takahashi-1971} 
-%M.~Takahashi, Prog.\ Theor.\ Phys.\ {\bf 46}, 401 (1971). 
-%\bibitem{mossel-2012}
-%J.~Mossel and J.-S.~Caux, J.\ Phys.\ A:\ Math.\ Theor.\ {\bf 45}, 
-%255001 (2012). 
-%\bibitem{rigol-2007}
-%M.~Rigol, V.~Dunjko, V.~Yurovsky, and M.~Olshanii, Phys.\ Rev.\ Lett.\ 
-%{\bf 98}, 050405 (2007). 
-%\bibitem{sotiriadis-2009}
-%S.~Sotiriadis, P.~Calabrese, and J.~Cardy, EPL {\bf 87}, 20002 (2009). 
-%\bibitem{biroli-2010}
-%G.~Biroli, C.~Kollath, and A.~M.~L\"auchli, Phys.\ Rev.\ Lett.\ 
-%{\bf 105}, 250401 (2010). 
-%\bibitem{fagotti-2008}
-%M.~Fagotti and P.~Calabrese, Phys.\ Rev.\ A {\bf 78}, 010306 (2008).
-%
 \end{document}
+
 
 
 
