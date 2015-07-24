@@ -124,7 +124,7 @@ gogolin-2011,banuls-2011,calabrese-2011,rigol-2011,calabrese-2012,caux-2012,essl
 cazalilla-2012,mossel-2012a,collura-2013,mussardo-2013,caux-2013,fagotti-2013a,fagotti-2013,
 sotiriadis-2014,fagotti-2014,essler-2014,goldstein-2014,de-nardis-2014,wright-2014,
 pozsgay-2014,wouters-2014,mestyian-2015,ilievski-2015a}, 
-it is still unclear wheather such steady-state can be described by a statistical 
+it is still unclear whether such steady-state can be described by a statistical 
 ensemble, and how to construct it. 
 
 It has been proposed that the long-time stationary value of a generic 
@@ -149,7 +149,7 @@ While the validity of the GGE has been largely confirmed in non-interacting
 theories~\cite{calabrese-2011,calabrese-2012,fagotti-2013,kcc14,kcc14a}, in interacting ones the 
 scenario is far less clear (see Ref.~\onlinecite{fagotti-2014} for numerical results in an 
 interacting spin chain). For Bethe ansatz solvable models the so-called Quench Action 
-method~\cite{caux-2013} allows for an exact treatement of the steady state, 
+method~\cite{caux-2013} allows for an exact treatment of the steady state, 
 provided that the overlap between the initial state $|\Psi_0\rangle$ and the eigenstates 
 of ${\mathcal H}'$ are known. In several cases the Quench Action is in disagreement with 
 the TGGE~\cite{de-nardis-2014,pozsgay-2014,wouters-2014,mestyian-2015}, whereas it is 
@@ -164,7 +164,7 @@ appropriate set of local and quasi-local charges is considered.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%e
 \begin{figure*}[t]
-\includegraphics*[width=0.93\linewidth]{./draft_figs/fig1}
+\includegraphics*[width=0.93\linewidth]{./fig1}
 \caption{The Generalized Gibbs Ensemble (GGE) for the Heisenberg spin chain with 
  $L=16$ sites: Numerical results obtained using the Hilbert space Monte 
  Carlo sampling approach. Only the first two even conserved charges ${\mathcal I}_2,{\mathcal I}_4$ 
@@ -341,12 +341,12 @@ Crucially, the steps $1$ and $2$ are necessary to account for the density of sta
 and are the same as for the Gibbs ensemble~\cite{gu-2005}. The iteration of $1$-$3$ defines a Markov 
 chain, which, after some thermalization steps, generates eigenstates distributed according 
 to~\eqref{rho-gge}. Interestingly, by trivially modifying~\eqref{metropolis} it is possible to 
-simulate more exotic ensembles in which, in addtion to ${\mathcal I}_j$, one considers 
+simulate more exotic ensembles in which, in addition to ${\mathcal I}_j$, one considers 
 arbitrary functions of the BGT roots.  
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%e
 \begin{figure}[t]
-\includegraphics*[width=0.93\linewidth]{./draft_figs/fig3}
+\includegraphics*[width=0.93\linewidth]{./fig2}
 \caption{Finite-size scaling of the GGE averages in the Heisenberg chain: Numerical results 
  obtained from the Hilbert space Monte Carlo sampling. Here the GGE is constructed including 
  ${\mathcal I}_2,{\mathcal I}_4$, with Lagrange multipliers $\lambda_2=\beta,
@@ -400,13 +400,13 @@ In all panels the $x$-axis shows the inverse temperature $\lambda_2=\beta$. The 
 are Monte Carlo averages with $N_{\textrm{mcs}}=5\cdot 10^5$ (cf.~\eqref{gge-mc}). 
 As expected, the different ensembles give different expectation values, implying that 
 local observables are able to distinguish different GGEs.
-In Fig.~\ref{fig1} the continuous lines are the analyitic results obtained 
+In Fig.~\ref{fig1} the continuous lines are the analytic results obtained 
 in the thermodynamic limit using the QTM approach. These fully match the Monte 
 Carlo data, signaling  that finite-size effects are negligible already for $L=16$.  
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%e
 \begin{figure*}[t]
-\includegraphics*[width=0.99\linewidth]{./draft_figs/fig2}
+\includegraphics*[width=0.99\linewidth]{./fig3}
 \caption{The root distributions $\rho_n(x)$ (for $n=1,2,3$) for the infinite temperature 
  Gibbs (panels (a)-(c)) and the GGE equilibrium states (panels (d)-(f)): Numerical  
  results for the Heisenberg spin chain obtained using the Hilbert space Monte Carlo 
@@ -506,11 +506,11 @@ on the Bethe ansatz formalism, and, in particular, on the Bethe-Gaudin-Takahashi
 equations. The thermodynamic limit can be accessed by standard finite-size scaling analysis. 
 For local quantities we observed that the finite-size corrections decay exponentially 
 with the system size. 
-Remarkably, the method allows to extract in a simple way the steady-steate BGT root 
+Remarkably, the method allows to extract in a simple way the steady-state BGT root 
 distributions, which contain full information about the (GGE) ensemble averages 
 in the thermodynamic limit. Finally, it is possible to simulate extensions of 
 the GGE, in which, besides the integral of motion, one includes arbitrary functions 
-of the BGT roots. We bechmarked the method focusing on the spin-$\frac{1}{2}$ isotropic 
+of the BGT roots. We benchmarked the method focusing on the spin-$\frac{1}{2}$ isotropic 
 Heisenberg chain. Specifically, we compared the Monte Carlo results with the standard  
 Thermodynamic Bethe ansatz and the Quantum Transfer Matrix approach, finding excellent 
 agreement. Finally, we simulated an extended GGE obtained by including the first non-trivial 
