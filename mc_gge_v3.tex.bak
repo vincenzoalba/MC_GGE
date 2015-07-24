@@ -79,15 +79,16 @@ method to construct the Truncated Generalized Gibbs Ensemble (TGGE) for the spin
 isotropic Heisenberg ($XXX$) chain. The key idea is to sample the Hilbert space of the model 
 with the appropriate GGE probability measure. The method can be extended to other integrable 
 systems, such as the Lieb-Liniger model. We benchmark the approach focusing on 
-GGE expectation values of several local observables. The Monte Carlo results are in  
-agreement with the Generalized Thermodynamic Bethe Ansatz (GTBA). As finite-size effects decay 
-exponentially with system size, moderately large chains are sufficient to extract thermodynamic 
-quantities. Remarkably, it is possible to extract in a simple way the steady-state Bethe-Gaudin-Takahashi 
-(BGT) roots distributions, which encode complete information about the GGE expectation values in 
-the thermodynamic limit. Finally, it is straightforward to simulate extensions of the GGE, in which, 
-besides the local integral of motion (local charges), one includes {\it arbitrary} functions of the 
-BGT roots. As an example, we include in the GGE the first non-trivial quasi-local integral of 
-motion. 
+GGE expectation values of several local observables. 
+As finite-size effects decay exponentially with system size, moderately large chains are sufficient to 
+extract thermodynamic quantities. The Monte Carlo results are in  
+agreement with both the Thermodynamic Bethe Ansatz (TBA) and the Quantum Transfer Matrix approach (QTM). 
+Remarkably, it is possible to extract in a simple way the steady-state 
+Bethe-Gaudin-Takahashi (BGT) roots distributions, which encode complete information about the GGE 
+expectation values in the thermodynamic limit. Finally, it is straightforward to simulate extensions 
+of the GGE, in which, besides the local integral of motion (local charges), one includes {\it arbitrary} 
+functions of the BGT roots. As an example, we include in the GGE the first non-trivial quasi-local 
+integral of motion. 
 
 
 \end{abstract}
@@ -152,39 +153,35 @@ method~\cite{caux-2013} allows for an exact treatement of the steady state,
 provided that the overlap between the initial state $|\Psi_0\rangle$ and the eigenstates 
 of ${\mathcal H}'$ are known. In several cases the Quench Action is in disagreement with 
 the TGGE~\cite{de-nardis-2014,pozsgay-2014,wouters-2014,mestyian-2015}, whereas it is 
-supported by numerical simulations~\cite{pozsgay-2014}. While one might argue that the 
-GGE can be ``repaired'' by enlarging the set of charges included in~\eqref{rho-gge}, 
-no quantitative study in this direction has been conducted yet. One intriguing 
-possibility is that local charges are not sufficient, and one has to include 
-quasi-local ones~\cite{prosen-2014,pereira-2014,ilievski-2015} (see Ref.~\onlinecite{
-ilievski-2015a} for recent exciting results in this direction). 
+supported by numerical simulations~\cite{pozsgay-2014}. 
+The origin of this discrepancy remained unknown until very recently. In 
+Ref.~\onlinecite{ilievski-2015a} it has been shown that it is possible to 
+``repair''  the GGE by including the quasi-local charges~\cite{prosen-2014,
+pereira-2014,ilievski-2015}. Remarkably, this repaired GGE is in 
+perfect agreement with the Quench Action~\cite{ilievski-2015a}. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%e
 \begin{figure*}[t]
 \includegraphics*[width=0.93\linewidth]{./draft_figs/fig1}
 \caption{The Generalized Gibbs Ensemble (GGE) for the Heisenberg spin chain with 
  $L=16$ sites: Numerical results obtained using the Hilbert space Monte 
- Carlo sampling approach. Only the first three local conserved charges ${\mathcal I}_j$ 
- ($j=2,3,4$) and the first quasi-local one ${\mathcal I}_{QS}$ are included in the GGE. 
+ Carlo sampling approach. Only the first two even conserved charges ${\mathcal I}_2,{\mathcal I}_4$ 
+ and the first quasi-local one ${\mathcal I}_{QS}$ are included in the GGE. 
  ${\mathcal I}_2$ is the Hamiltonian. In all 
  the panels different symbols correspond to different  values of the Lagrange multipliers 
- $\lambda_3,\lambda_4,\lambda_{QS}$. The circles correspond to the Gibbs ensemble, i.e., 
- $\lambda_3=\lambda_4=\lambda_{QS}0$. The $x$-axis shows the inverse temperature  $\lambda_2=\beta$. 
+ $\lambda_4,\lambda_{QS}$. The circles correspond to the Gibbs ensemble, i.e., 
+ $\lambda_4=\lambda_{QS}=0$. The $x$-axis shows the inverse temperature  $\lambda_2=\beta$. 
  (a) The GGE average $\langle {\mathcal I}_2/L\rangle$. (b) Variance 
- of the GGE fluctuations $\sigma^2({\mathcal I}_2/L)\equiv \langle ({\mathcal I}_2/L)^2
- \rangle-\langle {\mathcal I}_2/L\rangle^2$ as a function of $\beta$. (c)(d) and (e)(f): 
- Same as in (a)(b) for ${\mathcal I}_3$ and ${\mathcal I}_4$, respectively. In all panels 
- the dash-dotted lines  are the Generalized Thermodynamic Bethe Ansatz (GTBA) results. 
- (g) The GGE expectation value of the total magnetization 
- $\langle S_z\rangle$. Notice that $\langle S_z\rangle=0$ due to the $SU(2)$ 
- invariance of the conserved charges. (h) $\chi/\beta$ plotted versus $\beta$, with 
+ of the GGE fluctuations $\sigma^2({\mathcal I}_2)/L\equiv(\langle ({\mathcal I}_2)^2
+ \rangle-\langle {\mathcal I}_2\rangle^2)/L$ as a function of $\beta$. (c)(d) and (e)(f): 
+ Same as in (a)(b) for ${\mathcal I}_4$ and ${\mathcal I}_6$, respectively. In all panels 
+ the  lines  are the Quantum Transfer Matrix (QTM) results. 
+ (g) $\chi/\beta$ plotted versus $\beta$, with 
  $\chi$ being the magnetic susceptibility per site. 
 }
 \label{fig1}
 \end{figure*}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
 
 On the other hand, numerical methods, such as the time dependent density 
 matrix renormalization group~\cite{white-2004,daley-2004} (tDMRG), have been mostly 
@@ -215,18 +212,17 @@ in terms of the BGT roots.
 We benchmark the approach focusing on the spin-$\frac{1}{2}$ isotropic 
 Heisenberg chain ($XXX$ chain), which is the venerable prototype of integrable 
 models~\cite{bethe-1931}. We consider several TGGEs 
-(cf.~\eqref{rho-gge}) constructed including ${\mathcal I}_2,{\mathcal I}_3,
-{\mathcal I}_4$, and the first of the recently discovered~\cite{ilievski-2015,ilievski-2015a} 
+(cf.~\eqref{rho-gge}) constructed including ${\mathcal I}_2,{\mathcal I}_4$, and the 
+first of the recently discovered~\cite{ilievski-2015,ilievski-2015a} 
 quasi-local charges ${\mathcal I}_{QS}$ ($H_1^2$ in Ref.~\onlinecite{ilievski-2015a}). 
 We focus on the conserved charges averages $\langle{\mathcal I}_j/L\rangle$, 
-and on their ensemble fluctuations $\sigma^2({\mathcal I}_j/L)\equiv\langle({\mathcal I}_j/L)^2
-\rangle-\langle{\mathcal I}_j/L\rangle^2$, which  are related to well-known physical 
-observables, such as the energy density, the energy current per site, the specific heat, 
-and the thermal Drude weight~\cite{klumper-2002}. We also compute the spin susceptibility 
+and on their ensemble fluctuations $\sigma^2({\mathcal I}_j)\equiv\langle({\mathcal I}_j)^2
+\rangle-\langle{\mathcal I}_j\rangle^2$, which  are related to well-known physical 
+observables, such as the energy density,and the specific heat. We also compute the spin susceptibility 
 per site $\chi$. Already for a chain with $L=16$ sites the Monte Carlo data perfectly agree 
-with the Generalized Thermodynamic Bethe Ansatz (GTBA) approach~\cite{mossel-2012,fagotti-2013a}. 
-We stress that this is the first direct numerical check of the GTBA for the $XXX$ chain. Finally, 
-we extract the BGT roots distributions for both the Gibbs ensemble and the GGE. 
+with both the standard Thermodynamic Bethe Ansatz~\cite{mossel-2012} (TBA) and the Quantum Transfer 
+Matrix approach~\cite{fagotti-2013a,pozsgay-2013}. 
+Finally, we extract the BGT roots distributions for both the Gibbs ensemble and the GGE. 
 In both cases the finite-size effects are negligible for small roots, which are the 
 relevant ones to describe the long-wavelength physics. For the Gibbs ensemble we compare 
 our numerical data with standard finite-temperature Thermodynamic Bethe Ansatz (TBA) results, 
@@ -241,7 +237,7 @@ The $XXX$ chain with $L$ sites is defined by the Hamiltonian
 \begin{align}
 \label{xxx-ham}
 {\mathcal H}\equiv J\sum\limits_{i=1}^L\left[\frac{1}{2}(S_i^+S^-_{i+1} 
-+S_i^{-}S_{i+1}^+)+S_i^zS_{i+1}^z\right],  
++S_i^{-}S_{i+1}^+)+S_i^zS_{i+1}^z-\frac{1}{4}\right],  
 \end{align}
 %
 where $S^{\pm}_i\equiv (\sigma_i^x\pm i\sigma_i^y)/2$ are spin operators acting on the 
@@ -272,7 +268,7 @@ Here $\vartheta_n(x)\equiv2\arctan(x/n)$, $\Theta_{m,n}(x)$ is the scattering
 phase between different roots~\cite{taka-book}, and $I_{n;\gamma}\in\frac{1}{2}\mathbb{Z}$ are 
 the so-called Bethe-Gaudin-Takahashi quantum numbers. The $I_{n;\gamma}$ satisfy the upper 
 bound $|I_{n;\gamma}|\le I_{\textrm{MAX}}(n,L,M)$, with $I_{\textrm{MAX}}$ a known 
-function~\cite{taka-book} $n,L,M$. 
+function~\cite{taka-book} of $n,L,M$. 
 Every choice of $I_{n;\gamma}$ identifies an eigenstate of~\eqref{xxx-ham}. 
 We define the ``string content'' of each eigenstate as ${\mathcal S}\equiv\{s_1,\dots,
 s_M\}$, with $0\le s_n\le \lfloor M/n\rfloor$ the number of $n$-strings.  
@@ -385,26 +381,22 @@ $f_{{\mathcal O}}(x)$ depends on the observable.
 \paragraph*{The-GGE-for-local-observables.---} 
 
 The correctness of the Monte Carlo approach is illustrated in Fig.~\ref{fig1}, considering 
-the charge densities $\langle {\mathcal I}_j/L\rangle$ (panels (a)-(c) in the Figure), 
-and the variance of their ensemble fluctuations $\sigma^2({\mathcal I}_j/L)\equiv
-\langle({\mathcal I}_j/L)^2\rangle-\langle{\mathcal I}_j/L\rangle^2$ (panels (e)-(g)). 
-Panels (d)(h) plot the total magnetization $\langle S_z\rangle$ and $\chi/\beta$, 
-with $\chi$ the spin susceptibility. Notice that $\langle{\mathcal I}_2/L\rangle$ is the energy 
-density, $\langle{\mathcal I}_3/L\rangle$ the energy current per site, while $\sigma^2({
-\mathcal I}_2/L)$ and $\sigma^2({\mathcal I}_3/L)$ are related to the specific heat, and the 
-thermal Drude weight, respectively. In all panels the data correspond to the TGGE constructed 
-with the first three charges ${\mathcal I}_2,{\mathcal I}_3,{\mathcal I}_4$, and the first 
+the charge densities $\langle {\mathcal I}_j/L\rangle$ (panels (a)(c)(e) in the Figure), 
+and the variance of their ensemble fluctuations $\sigma^2({\mathcal I}_j)/L\equiv
+(\langle({\mathcal I}_j)^2\rangle-\langle{\mathcal I}_j\rangle^2)/L$ (panels (b)(d)(f)). 
+Panel (g) plots $\chi/\beta$, with $\chi$ the spin susceptibility. Notice that 
+$\langle{\mathcal I}_2/L\rangle$ is the energy 
+density, while $\sigma^2({\mathcal I}_2)/L$ is related to the specific heat. In all 
+panels the data correspond to the TGGE constructed 
+with the first two even charges ${\mathcal I}_2,{\mathcal I}_4$, and the first 
 non-trivial quasi-local charge ${\mathcal I}_{QS}$~\cite{ilievski-2015,ilievski-2015a}. 
 Different symbols correspond to different values of the associated Lagrange multipliers, 
-namely $\lambda_3=\lambda_4=\lambda_{QS}=0$ (Gibbs ensemble, circles in the Figure), $\lambda_3=1$ and 
-$\lambda_4=\lambda_{QS}=0$ (squares), $\lambda_3=\lambda_4=1,\lambda_{QS}=0$ (rhombi), and 
-$\lambda_3=\lambda_4=0,\lambda_{QS}=1$ (crosses). 
+namely $\lambda_4=\lambda_{QS}=0$ (Gibbs ensemble, circles in the Figure), $\lambda_4=1$ and 
+$\lambda_{QS}=0$ (squares), and $\lambda_4=0,\lambda_{QS}=1$ (crosses). 
 In all panels the $x$-axis shows the inverse temperature $\lambda_2=\beta$. The data 
 are Monte Carlo averages with $N_{\textrm{mcs}}=5\cdot 10^5$ (cf.~\eqref{gge-mc}). 
 As expected, the different ensembles give different expectation values, implying that 
-local observables are able to distinguish different GGEs. In panel 
-(b) $\langle {\mathcal I}_3\rangle=0$ in the Gibbs ensemble due to the parity 
-symmetry, while in (d) $\langle S_z\rangle=0$ due to the $SU(2)$ symmetry of~\eqref{xxx-ham}. 
+local observables are able to distinguish different GGEs.
 In Fig.~\ref{fig1} the continuous lines are the analyitic results obtained 
 in the thermodynamic limit by solving the GTBA equations. These fully match the Monte 
 Carlo data, signaling  that finite-size effects are negligible already for $L=16$.  
@@ -434,7 +426,7 @@ Carlo data, signaling  that finite-size effects are negligible already for $L=16
 The finite-size corrections are more carefully investigated in Fig.~\ref{fig2},   
 plotting $\langle{\mathcal I}_2\rangle$ and $\langle {\mathcal I}_4
 \rangle$ (panels (a) and (b), respectively) versus $\beta$. We focus on 
-the TGGE with $\lambda_2=\beta,\lambda_3=\lambda_{QS}=0$ and $\lambda_4=1$. Clearly,  
+the TGGE with $\lambda_2=\lambda_{QS}=0$ and $\lambda_4=1$. Clearly,  
 finite-size effects decay exponentially~\cite{iyer-2015} with $L$ for any $\beta$. In (a) the dashed 
 lines are fits to $c_1+c_2\exp(-c_3L)$, with $c_1,c_2,c_3$ fitting parameters. 
 Finite-size  corrections are larger at lower temperature, and increase with the 
@@ -804,13 +796,13 @@ M.~P.~Grabowski and P.~Mathieu, Ann.\ Phys.\ N.Y. {\bf 243},
 \bibitem{bethe-1931}
 H.~Bethe, Z.\ Phys.\ {\bf 71}, 205 (1931). 
 
-\bibitem{klumper-2002}
-A.~Kl\"umper and K.~Sakai, J.\ Phys.\ A\ {\bf 35}, 2173 (2002).
-
 \bibitem{mossel-2012}
 J.~Mossel and J.-S.~Caux, J.\ Phys.\ A:\ Math.\ Theor.\ {\bf 45}, 
 255001 (2012). 
 
+
+\bibitem{pozsgay-2013}
+B.~Pozsgay, J.\ Stat.\ Mech.\ (2013) P07003. 
 
 \bibitem{kor-book}
 V.~E.~Korepin, N.~M.~Bogoliubov, and A.~G.~Izergin, \emph{Quantum 

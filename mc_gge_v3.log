@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2015.1.29)  16 JUL 2015 09:19
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2015.1.29)  24 JUL 2015 14:19
 entering extended mode
  %&-line parsing enabled.
 **mc_gge_v3.tex
@@ -527,67 +527,67 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 78.
 File: umsb.fd 2002/01/19 v2.2g AMS font definitions
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 97.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 98.
 
-<./draft_figs/fig1.pdf, id=32, 1304.875pt x 344.28625pt>
+<./draft_figs/fig1.pdf, id=32, 1317.92375pt x 344.28625pt>
 File: ./draft_figs/fig1.pdf Graphic file (type pdf)
 
 <use ./draft_figs/fig1.pdf>
-Underfull \hbox (badness 2119) in paragraph at lines 213--232
+Underfull \hbox (badness 2119) in paragraph at lines 212--230
 []\OT1/ptm/m/n/10 We bench-mark the ap-proach fo-cus-ing on the spin-$[]$
  []
 
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2 <./draft_figs/fig1.pd
 f>]
-Underfull \hbox (badness 3954) in paragraph at lines 309--313
+Underfull \hbox (badness 3954) in paragraph at lines 307--311
  \OT1/ptm/m/n/10 con-tent $\OMS/cmsy/m/n/10 S[] ^^Q f\OML/cmm/m/it/10 s[]; [] ;
  s[]\OMS/cmsy/m/n/10 g$ \OT1/ptm/m/n/10 with prob-a-bil-ity$[]$
  []
 
-<./draft_figs/fig3.pdf, id=154, 719.68875pt x 376.40625pt>
+<./draft_figs/fig3.pdf, id=156, 719.68875pt x 376.40625pt>
 File: ./draft_figs/fig3.pdf Graphic file (type pdf)
 
 <use ./draft_figs/fig3.pdf>
-Underfull \hbox (badness 7468) in paragraph at lines 385--409
+Underfull \hbox (badness 7468) in paragraph at lines 383--403
  []\OT1/ptm/m/it/10 The-GGE-for-local-observables.---[] \OT1/ptm/m/n/10 The cor
 -rect-ness of
  []
 
-<./draft_figs/fig2.pdf, id=162, 1314.9125pt x 345.29pt>
+<./draft_figs/fig2.pdf, id=163, 1314.9125pt x 345.29pt>
 File: ./draft_figs/fig2.pdf Graphic file (type pdf)
 
 <use ./draft_figs/fig2.pdf>
-Underfull \hbox (badness 10000) in paragraph at lines 444--450
+Underfull \hbox (badness 10000) in paragraph at lines 438--444
  []\OT1/ptm/m/it/10 Extracting-the-root-distributions.---[] \OT1/ptm/m/n/10 In 
 the ther-mo-dy-
  []
 
 [3 <./draft_figs/fig3.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 505--520
+Underfull \hbox (badness 10000) in paragraph at lines 499--515
  []\OT1/ptm/m/it/10 Conclusions.---[] \OT1/ptm/m/n/10 We pre-sented a Monte-Car
 lo-based
  []
 
 [4 <./draft_figs/fig2.pdf>]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 543.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 538.
 
-Underfull \hbox (badness 8132) in paragraph at lines 559--561
+Underfull \hbox (badness 8132) in paragraph at lines 554--556
  []\OT1/ptm/m/n/9 S. Trotzky, Y.-A. Chen, A. Flesch, I. P. Mc-Cul-loch,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 602--604
+Underfull \hbox (badness 10000) in paragraph at lines 597--599
  []\OT1/ptm/m/n/9 S. Braun, M. Fries-dorf, S. Hodg-man, M. Schreiber,
  []
 
 
-Underfull \hbox (badness 1377) in paragraph at lines 602--604
+Underfull \hbox (badness 1377) in paragraph at lines 597--599
  \OT1/ptm/m/n/9 J. Ronzheimer, A. Ri-era, M. del Rey, I. Bloch, J. Eis-ert,
  []
 
 [5]
-Underfull \hbox (badness 1259) in paragraph at lines 792--794
+Underfull \hbox (badness 1259) in paragraph at lines 787--789
  []\OT1/ptm/m/n/9 M. Taka-hashi, \OT1/ptm/m/it/9 Ther-mo-dy-nam-ics of one-dime
 nsional solv-able
  []
@@ -595,13 +595,13 @@ nsional solv-able
 No file mc_gge_v3.bbl.
 [6] (./mc_gge_v3.aux) ) 
 Here is how much of TeX's memory you used:
- 8895 strings out of 256216
- 131025 string characters out of 1917072
- 231062 words of memory out of 1500000
- 11862 multiletter control sequences out of 10000+200000
+ 8894 strings out of 256216
+ 131015 string characters out of 1917072
+ 230634 words of memory out of 1500000
+ 11861 multiletter control sequences out of 10000+200000
  23502 words of font info for 53 fonts, out of 1200000 for 2000
  645 hyphenation exceptions out of 8191
- 46i,9n,44p,1592b,594s stack positions out of 5000i,500n,6000p,200000b,15000s
+ 46i,9n,44p,1322b,594s stack positions out of 5000i,500n,6000p,200000b,15000s
 {/usr/share/texmf/fonts/enc/dvips/base/8r.enc}</usr/shar
 e/texmf/fonts/type1/bluesky/cm/cmex10.pfb></usr/share/texmf/fonts/type1/bluesky
 /cm/cmmi10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmmi12.pfb></usr/share/
@@ -616,9 +616,9 @@ share/texmf/fonts/type1/bluesky/cm/cmsy9.pfb></usr/share/texmf/fonts/type1/blue
 sky/ams/msbm10.pfb></usr/share/texmf/fonts/type1/urw/times/utmb8a.pfb></usr/sha
 re/texmf/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf/fonts/type1/urw/tim
 es/utmri8a.pfb>
-Output written on mc_gge_v3.pdf (6 pages, 314574 bytes).
+Output written on mc_gge_v3.pdf (6 pages, 287094 bytes).
 PDF statistics:
- 368 PDF objects out of 1000 (max. 8388607)
+ 367 PDF objects out of 1000 (max. 8388607)
  107 named destinations out of 1000 (max. 131072)
  50 words of extra memory for PDF output out of 10000 (max. 10000000)
 
